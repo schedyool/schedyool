@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, TextField, FormLabel, FormControl, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
 import { useForm, Form } from '../Components/useForm';
+import Dropzone from '../Components/Dropzone';
 
 const initialFieldValues = {
     id: 0,
@@ -20,7 +21,7 @@ const DataForm = (): any => {
     return (
         <Form>
             <Grid container>
-                <Grid item xs={6}>
+                <Grid item xs={12}>
                     <TextField 
                         variant="outlined"
                         label="Full Name"
@@ -35,14 +36,15 @@ const DataForm = (): any => {
                         value={values.email}
                         onChange={handleInputChange}
                     />
-                    <FormControl>
+                    {/* <FormControl>
                         <FormLabel>Radios</FormLabel>
                         <RadioGroup row={true}>
                             <FormControlLabel value="value-1" control={<Radio />} label="Button 1" />
                             <FormControlLabel value="value-2" control={<Radio />} label="Button 2" />
                             <FormControlLabel value="value-3" control={<Radio />} label="Button 3" />
                         </RadioGroup>
-                    </FormControl>
+                    </FormControl> */}
+                    <Dropzone />
                 </Grid>
                 {/* <Grid item xs={6}>
                     
