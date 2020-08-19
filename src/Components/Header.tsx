@@ -1,33 +1,55 @@
 import React from 'react';
-import { AppBar, Toolbar, Grid, InputBase, IconButton, Badge } from '@material-ui/core';
+import { AppBar, Toolbar, Grid, InputBase, IconButton, Badge, makeStyles } from '@material-ui/core';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
-import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
+import SearchIcon from '@material-ui/icons/Search';
+
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        backgroundColor: '#FFF',
+    },
+    searchInput: {
+        opacity: '0.6',
+        padding: `0px ${theme.spacing(1)}px`,
+        fontSize: '0.8rem',
+        '&:hover': {
+            backgroundColor: '#f2f2f2',
+        },
+        '& .MuiSvgIcon-root': {
+            marginRight: theme.spacing(1),
+        },
+    },
+}));
 
 const Header = (): any => {
+    const classes = useStyles();
+
     return (
-        <AppBar position="static">
+        <AppBar position="static" className={classes.root}>
             <Toolbar>
-                <Grid container>
+                <Grid container alignItems="center">
                     <Grid item>
-                        <InputBase />
+                        <InputBase 
+                            placeholder="Search Website" 
+                            className={classes.searchInput}
+                            startAdornment={<SearchIcon fontSize="small" />}
+                        />
                     </Grid>
                     <Grid item sm></Grid>
                     <Grid item>
                         <IconButton>
-                            <Badge badgeContent={4} color="secondary">
+                            <Badge badgeContent={4} color="secondary" >
                                 <NotificationsNoneIcon />
                             </Badge>
                         </IconButton>
-                        <IconButton>
+                        {/* <IconButton>
                             <Badge badgeContent={3} color="secondary">
                                 <ChatBubbleOutlineIcon />
                             </Badge>
-                        </IconButton>
+                        </IconButton> */}
                         <IconButton>
-                            <Badge color="secondary">
-                                <PowerSettingsNewIcon />
-                            </Badge>
+                            <PowerSettingsNewIcon />
                         </IconButton>
                     </Grid>
                 </Grid>
