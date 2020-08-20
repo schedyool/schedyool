@@ -1,12 +1,11 @@
 import React from 'react';
-import { Grid, TextField, FormLabel, FormControl, RadioGroup, FormControlLabel, Radio, InputAdornment } from '@material-ui/core';
+import { Grid, InputAdornment } from '@material-ui/core';
 import { useForm, Form } from '../Components/useForm';
-import Dropzone from '../Components/Dropzone';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import EmailIcon from '@material-ui/icons/Email';
+import Controls from '../Components/Controls/Controls';
 
 const initialFieldValues = {
-    // id: 0,
     fullName: '',
     email: '',
     numBlendedLearning: 0,
@@ -25,7 +24,7 @@ const DataForm = (): any => {
             <Grid container>
                 <Grid item xs={6}>
                     {/* name */}
-                    <TextField 
+                    <Controls.Input 
                         InputProps={{
                             startAdornment: (
                             <InputAdornment position="start">
@@ -34,34 +33,27 @@ const DataForm = (): any => {
                             ),
                         }}
                         required
-                        variant="outlined"
                         label="Full Name"
                         name="fullName"
                         value={values.fullName}
                         onChange={handleInputChange}
                     />
                     {/* numBlendedLearning */}
-                    <TextField 
-                        type="number"
-                        variant="outlined"
+                    <Controls.Input 
                         label="Blended Learning"
                         name="numBlendedLearning"
                         value={values.numBlendedLearning}
                         onChange={handleInputChange}
                     />
                     {/* numSchedules */}
-                    <TextField 
-                        type="number"
-                        variant="outlined"
+                    <Controls.Input
                         label="Number of Schedules"
                         name="numSchedules"
                         value={values.numSchedules}
                         onChange={handleInputChange}
                     />
                     {/* numRooms */}
-                    <TextField 
-                        type="number"
-                        variant="outlined"
+                    <Controls.Input
                         label="Number of Rooms"
                         name="numRooms"
                         value={values.numRooms}
@@ -70,7 +62,7 @@ const DataForm = (): any => {
                 </Grid>
                 <Grid item xs={6}>
                     {/* email */}
-                    <TextField 
+                    <Controls.Input 
                         InputProps={{
                             startAdornment: (
                             <InputAdornment position="start">
@@ -79,34 +71,27 @@ const DataForm = (): any => {
                             ),
                         }}
                         required
-                        variant="outlined"
                         label="Email"
                         name="email"
                         value={values.email}
                         onChange={handleInputChange}
                     />
                     {/* numSetsSameDay */}
-                    <TextField 
-                        type="number"
-                        variant="outlined"
+                    <Controls.Input
                         label="Number of sets on the same day"
                         name="numSetsSameDay"
                         value={values.numSetsSameDay}
                         onChange={handleInputChange}
                     />
                     {/* numPairsDiffDay */}
-                    <TextField 
-                        type="number"
-                        variant="outlined"
+                    <Controls.Input
                         label="Number of pairs on different days"
                         name="numPairsDiffDay"
                         value={values.numPairsDiffDay}
                         onChange={handleInputChange}
                     />
                     {/* numSpecialSets */}
-                    <TextField 
-                        type="number"
-                        variant="outlined"
+                    <Controls.Input
                         label="Number of special sets"
                         name="numSpecialSets"
                         value={values.numSpecialSets}
@@ -114,7 +99,11 @@ const DataForm = (): any => {
                     />
                 </Grid>
                 <Grid item xs={12}>
-                    <Dropzone />
+                    <Controls.Dropzone />
+                </Grid>
+                <Grid item xs={12}>
+                    <Controls.Button type="submit" text="Submit" />
+                    <Controls.Button text="Reset" color="default" />
                 </Grid>
             </Grid>
         </Form>

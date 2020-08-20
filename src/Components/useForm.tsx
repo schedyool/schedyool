@@ -29,9 +29,14 @@ const useStyles = makeStyles(theme => ({
 
 export const Form = (props: { children: React.ReactNode; }) => {
     const classes = useStyles();
+    const recaptchaRef = React.createRef();
 
     return (
-        <form className={classes.root}>
+        <form 
+            className={classes.root} 
+            autoComplete="off"
+            onSubmit={()=>console.log(recaptchaRef.current)}
+        >
             {props.children}
         </form>
     );
