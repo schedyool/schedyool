@@ -21,7 +21,7 @@ export const useForm = (initialFieldValues: any) => {
 const useStyles = makeStyles(theme => ({
     root: {
         '& .MuiFormControl-root': {
-            width: '80%',
+            width: '90%',
             margin: theme.spacing(1),
         },
     },
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
 
 export const Form = (props: { children: React.ReactNode; }) => {
     const classes = useStyles();
-    
+
     return (
         <form className={classes.root}>
             {props.children}
