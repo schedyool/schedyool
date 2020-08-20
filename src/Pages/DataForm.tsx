@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Grid, InputAdornment } from '@material-ui/core';
 import { useForm, Form } from '../Components/useForm';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -19,6 +19,8 @@ const initialFieldValues = {
 const DataForm = (): any => {
     const {values, setValues, handleInputChange} = useForm(initialFieldValues);
 
+    useEffect(() => console.log(values), [values]);
+
     return (
         <Form>
             <Grid container>
@@ -33,6 +35,7 @@ const DataForm = (): any => {
                             ),
                         }}
                         required
+                        type="text"
                         label="Full Name"
                         name="fullName"
                         value={values.fullName}
@@ -71,6 +74,7 @@ const DataForm = (): any => {
                             ),
                         }}
                         required
+                        type="text"
                         label="Email"
                         name="email"
                         value={values.email}

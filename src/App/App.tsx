@@ -38,6 +38,9 @@ const theme = createMuiTheme({
 const useStyles = makeStyles({
   appMain: {
     paddingLeft: '200px',
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: '0px'
+    },
     width: '100%',
   },
 });

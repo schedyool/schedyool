@@ -35,7 +35,6 @@ export const Form = (props: { children: React.ReactNode; }) => {
         <form 
             className={classes.root} 
             autoComplete="off"
-            onSubmit={()=>console.log(recaptchaRef.current)}
         >
             {props.children}
         </form>

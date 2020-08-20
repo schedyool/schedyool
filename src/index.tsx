@@ -5,16 +5,16 @@ import App from './App/App';
 import * as serviceWorker from './serviceWorker';
 import { ReCAPTCHA } from "react-google-recaptcha";
 
-const onChange = (value: any): void => {
-  console.log("Captcha value:", value)
-}
+// const onChange = (value: any): void => {
+//   console.log("Captcha value:", value)
+// }
 
 ReactDOM.render(
   <React.StrictMode>
-    <ReCAPTCHA
+    {/* <ReCAPTCHA
       sitekey="6LctKMEZAAAAAN4NYXg27JMINCdmFm-knz9Ea4-p"
       onChange={onChange}
-    />
+    /> */}
     <App />
   </React.StrictMode>,
   document.getElementById('root')

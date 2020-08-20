@@ -11,6 +11,9 @@ const useStyle = makeStyles(theme => ({
         width: '200px',
         height: '100%',
         backgroundColor: theme.palette.primary.dark,
+        [theme.breakpoints.down('sm')]: {
+            width: '0px'
+        },
     },
 }));
 

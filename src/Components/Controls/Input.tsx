@@ -4,7 +4,6 @@ import { TextField } from '@material-ui/core';
 
 const Input = (props: any): JSX.Element => {
     const { variant, label, type, name, value, onChange, ...other} = props;
-    console.log(props)
     return (
         <TextField
             variant={variant || "outlined"}
