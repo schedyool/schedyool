@@ -7,6 +7,7 @@ import PageHeader from '../Components/PageHeader';
 import { makeStyles, CssBaseline, createMuiTheme, ThemeProvider, IconButton } from '@material-ui/core';
 import SchoolIcon from '@material-ui/icons/School';
 import DataComponent from '../Pages/DataComponent';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const theme = createMuiTheme({
   palette: {
@@ -45,6 +46,10 @@ const useStyles = makeStyles({
   },
 });
 
+const onChange = (value: any) => {
+  console.log("captcha value:", value);
+};
+
 function App() {
   const classes = useStyles();
 
@@ -59,6 +64,7 @@ function App() {
           icon={<IconButton><SchoolIcon fontSize="large"/></IconButton>}
         />
         <DataComponent />
+        <ReCAPTCHA sitekey="6LctKMEZAAAAAN4NYXg27JMINCdmFm-knz9Ea4-p" onChange={onChange} />
       </div>
       <CssBaseline />
     </ThemeProvider>
