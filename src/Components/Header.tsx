@@ -36,7 +36,7 @@ const Header = (): any => {
                             startAdornment={<SearchIcon fontSize="small" />}
                         />
                     </Grid>
-                    <Grid item sm></Grid>
+                    <Grid item xs></Grid>
                     <Grid item>
                         <IconButton>
                             <Badge badgeContent={4} color="secondary" >
