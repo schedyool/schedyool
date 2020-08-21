@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, Divider } from '@material-ui/core';
 import Controls from '../Components/Controls/Controls';
 
 const FormMiddlePage = (props: any) => {
@@ -17,6 +17,7 @@ const FormMiddlePage = (props: any) => {
     return (
         <Grid container>
             {children}
+            <Divider />
             <Grid item sm={12}>
                 <Controls.MyButton
                     text="Continue"
@@ -29,7 +30,6 @@ const FormMiddlePage = (props: any) => {
                     onClick={myPrevious}
                 />
             </Grid>
-            
         </Grid>
     )
 }

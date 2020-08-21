@@ -3,7 +3,7 @@ import { Grid, Divider } from '@material-ui/core';
 import Controls from '../Components/Controls/Controls';
 
 const FormSubmitPage = (props: any) => {
-    const { prevStep, handleInputChange, values, children, ...other } = props;
+    const { handleSubmit, prevStep, handleInputChange, values, children, ...other } = props;
 
     const myPrevious = (e: any) => {
         e.preventDefault();
@@ -19,6 +19,7 @@ const FormSubmitPage = (props: any) => {
                     type="submit" 
                     value="Submit" 
                     text="Submit" 
+                    onClick={(e: Event) => handleSubmit(e)}
                 />
                 <Controls.MyButton
                     text="Back"

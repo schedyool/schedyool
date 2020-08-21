@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, InputAdornment, Tooltip } from '@material-ui/core';
+import { Grid, InputAdornment, Tooltip, Typography } from '@material-ui/core';
 import { useForm, Form } from '../Components/useForm';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import EmailIcon from '@material-ui/icons/Email';
@@ -78,14 +78,31 @@ const DataForm = (): any => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        if (validate()) {
-            window.alert('validated response...');
+        window.alert('validated response...');
+        // if (validate()) {
+            const postUrl = 'https://1zmgcu9p48.execute-api.us-east-1.amazonaws.com/prod/';
+            const payload = {
+                email: "howard@cc.gatech.edu", 
+                num_students: 800, 
+                num_rooms: 30, 
+                num_days: 3, 
+                max_grade: 5, 
+                num_same_day_sets: 160, 
+                num_diff_day_pairs: 100, 
+                num_special_sets: 3, 
+                num_rooms_to_be_packed_into: [[1, 1, 2, 2, 1, 2], [3, 2, 3, 2, 2, 3], [2, 2, 2, 2, 2, 2]],
+                fraction_for_special_set: [0.4, 0.3, 0.4]
+            };
+
             const requestOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ title: 'React Hooks POST Request Example' })
+                // body: JSON.stringify({ title: 'React Hooks POST Request Example' })
+                body: JSON.stringify(payload),
             };
-        }
+            fetch(postUrl, requestOptions)
+                .then(response => response.json())
+            // }
     };
 
     switch(values.step) {
@@ -186,17 +203,23 @@ const DataForm = (): any => {
             );
         case 4:
             return (
-                <FormPages.SubmitPage
+                <FormPages.MiddlePage
                     nextStep={nextStep}
                     prevStep={prevStep}
                     handleInputChange={handleInputChange}
                     values={values}
                 >
                     <Controls.Dropzone />
-                </FormPages.SubmitPage>
+                </FormPages.MiddlePage>
             )
         case 5:
-            return (<h1>Submitting!</h1>)
+            return (
+                <FormPages.SubmitPage
+                    handleSubmit={handleSubmit}
+                >
+                    <Typography>Confirmation!</Typography>
+                </FormPages.SubmitPage>
+            );
     }
 
     // return (
