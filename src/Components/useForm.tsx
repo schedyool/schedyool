@@ -31,12 +31,9 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export const Form = (props: { children: React.ReactNode; }) => {
+export const Form = (props: any) => {
     const classes = useStyles();
-
-    const onSubmit = () => {
-        console.log(props);
-    };
+    const { children, onSubmit, ...other } = props;
 
     return (
         <form 
@@ -44,7 +41,7 @@ export const Form = (props: { children: React.ReactNode; }) => {
             autoComplete="off"
             onSubmit={onSubmit}
         >
-            {props.children}
+            {children}
         </form>
     );
 };

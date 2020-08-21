@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Grid, InputAdornment } from '@material-ui/core';
 import { useForm, Form } from '../Components/useForm';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import EmailIcon from '@material-ui/icons/Email';
 import Controls from '../Components/Controls/Controls';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const initialFieldValues = {
     fullName: '',
@@ -31,8 +32,16 @@ const DataForm = (): any => {
     }
     // useEffect(() => console.log(initialFieldValues), []);
 
+    const handleCaptcha = (value: any) => {
+        console.log("captcha value:", value);
+    };
+
+    const handleSubmit = () => {
+        window.alert('testing...');
+    };
+
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Grid container>
                 <Grid item xs={6}>
                     <Controls.Input 
@@ -106,6 +115,9 @@ const DataForm = (): any => {
                 </Grid>
                 <Grid item xs={12}>
                     <Controls.Dropzone />
+                </Grid>
+                <Grid item xs={12}>
+                    <ReCAPTCHA sitekey="6LctKMEZAAAAAN4NYXg27JMINCdmFm-knz9Ea4-p" onChange={handleCaptcha} />
                 </Grid>
                 <Grid item xs={12}>
                     <Controls.Button type="submit" text="Submit" />
