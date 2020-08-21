@@ -12,7 +12,6 @@ const Input = (props: any): JSX.Element => {
         error=null, 
         onInput,
         breakpoint,
-        helpTitle, 
         helpText,
         icon,
         ...other
@@ -21,13 +20,7 @@ const Input = (props: any): JSX.Element => {
         <Grid item xs={breakpoint || 6}>
             <TextField
                 InputProps={{
-                    startAdornment: (
-                        <StartIcon 
-                            helpText={helpText} 
-                            helpTitle={helpTitle} 
-                            icon={icon} 
-                        />
-                    ),
+                    startAdornment: (<StartIcon helpText={helpText} icon={icon} />),
                 }}
                 variant={variant || "outlined"}
                 type={type || "number"}

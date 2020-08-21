@@ -6,7 +6,7 @@ const TempTooltip = withStyles((theme: Theme) => ({
     tooltip: {
         // backgroundColor: theme.palette.background.paper,
         // color: 'rgba(0, 0, 0, 0.87)',
-        maxWidth: 220,
+        maxWidth: 500,
         fontSize: theme.typography.pxToRem(16),
         border: '1px solid #dadde9',
     }, 
@@ -14,7 +14,7 @@ const TempTooltip = withStyles((theme: Theme) => ({
 
 
 const StartIcon = (props: any) => {
-    const { helpText, helpTitle, icon } = props;
+    const { helpText, icon } = props;
 
     return (
         <InputAdornment position="start">
