@@ -80,7 +80,8 @@ const DataForm = (): any => {
         e.preventDefault();
         window.alert('validated response...');
         // if (validate()) {
-            const postUrl = 'https://1zmgcu9p48.execute-api.us-east-1.amazonaws.com/prod/';
+            // const postUrl = 'https://lqi0rcs9b1.execute-api.us-east-1.amazonaws.com/prod/';
+            const postUrl = 'https://scheduler.schedyool.com'
             const payload = {
                 email: "howard@cc.gatech.edu", 
                 num_students: 800, 
@@ -97,7 +98,6 @@ const DataForm = (): any => {
             const requestOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                // body: JSON.stringify({ title: 'React Hooks POST Request Example' })
                 body: JSON.stringify(payload),
             };
             fetch(postUrl, requestOptions)
