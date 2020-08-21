@@ -17,8 +17,18 @@ const initialFieldValues = {
 };
 
 const DataForm = (): any => {
-    const { values, setValues, handleInputChange} = useForm(initialFieldValues);
-
+    const { values, setValues, errors, setErrors, handleInputChange} = useForm(initialFieldValues);
+    const validate = () => {
+        let temp = {
+            fullName: '',
+            email: '',
+        };
+        temp.fullName = values.fullName ? '' : 'Your name is required.';
+        temp.email = (/$|.+@.+..+/).test(values.email) ? '' : 'Your email is required.';
+        setErrors({
+            ...temp
+        });
+    }
     // useEffect(() => console.log(initialFieldValues), []);
 
     return (
