@@ -3,7 +3,7 @@ import { TextField } from '@material-ui/core';
 
 
 const Input = (props: any): JSX.Element => {
-    const { variant, label, type, name, value, onChange, ...other} = props;
+    const { variant, label, type, name, value, onInput, ...other} = props;
     return (
         <TextField
             variant={variant || "outlined"}
@@ -11,7 +11,7 @@ const Input = (props: any): JSX.Element => {
             label={label}
             name={name}
             value={value}
-            onChange={onChange}
+            onInput={onInput}
             {...other}
         />
     );

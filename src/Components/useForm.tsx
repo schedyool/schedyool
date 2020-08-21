@@ -6,7 +6,7 @@ export const useForm = (initialFieldValues: any) => {
     const handleInputChange = (e: any) => {
         const { name, value } = e.target;
         setValues({
-            ...initialFieldValues,
+            ...values,
             [name]: value
         })
     };
@@ -29,12 +29,16 @@ const useStyles = makeStyles(theme => ({
 
 export const Form = (props: { children: React.ReactNode; }) => {
     const classes = useStyles();
-    const recaptchaRef = React.createRef();
+
+    const onSubmit = () => {
+        console.log(props);
+    };
 
     return (
         <form 
             className={classes.root} 
             autoComplete="off"
+            onSubmit={onSubmit}
         >
             {props.children}
         </form>

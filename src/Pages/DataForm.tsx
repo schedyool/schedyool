@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid, InputAdornment } from '@material-ui/core';
 import { useForm, Form } from '../Components/useForm';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -17,15 +17,14 @@ const initialFieldValues = {
 };
 
 const DataForm = (): any => {
-    const {values, setValues, handleInputChange} = useForm(initialFieldValues);
+    const { values, setValues, handleInputChange} = useForm(initialFieldValues);
 
-    useEffect(() => console.log(values), [values]);
+    // useEffect(() => console.log(initialFieldValues), []);
 
     return (
         <Form>
             <Grid container>
                 <Grid item xs={6}>
-                    {/* name */}
                     <Controls.Input 
                         InputProps={{
                             startAdornment: (
@@ -39,32 +38,28 @@ const DataForm = (): any => {
                         label="Full Name"
                         name="fullName"
                         value={values.fullName}
-                        onChange={handleInputChange}
+                        onInput={handleInputChange}
                     />
-                    {/* numBlendedLearning */}
                     <Controls.Input 
                         label="Blended Learning"
                         name="numBlendedLearning"
                         value={values.numBlendedLearning}
-                        onChange={handleInputChange}
+                        onInput={handleInputChange}
                     />
-                    {/* numSchedules */}
                     <Controls.Input
                         label="Number of Schedules"
                         name="numSchedules"
                         value={values.numSchedules}
-                        onChange={handleInputChange}
+                        onInput={handleInputChange}
                     />
-                    {/* numRooms */}
                     <Controls.Input
                         label="Number of Rooms"
                         name="numRooms"
                         value={values.numRooms}
-                        onChange={handleInputChange}
+                        onInput={handleInputChange}
                     />
                 </Grid>
                 <Grid item xs={6}>
-                    {/* email */}
                     <Controls.Input 
                         InputProps={{
                             startAdornment: (
@@ -78,28 +73,25 @@ const DataForm = (): any => {
                         label="Email"
                         name="email"
                         value={values.email}
-                        onChange={handleInputChange}
+                        onInput={handleInputChange}
                     />
-                    {/* numSetsSameDay */}
                     <Controls.Input
                         label="Number of sets on the same day"
                         name="numSetsSameDay"
                         value={values.numSetsSameDay}
-                        onChange={handleInputChange}
+                        onInput={handleInputChange}
                     />
-                    {/* numPairsDiffDay */}
                     <Controls.Input
                         label="Number of pairs on different days"
                         name="numPairsDiffDay"
                         value={values.numPairsDiffDay}
-                        onChange={handleInputChange}
+                        onInput={handleInputChange}
                     />
-                    {/* numSpecialSets */}
                     <Controls.Input
                         label="Number of special sets"
                         name="numSpecialSets"
                         value={values.numSpecialSets}
-                        onChange={handleInputChange}
+                        onInput={handleInputChange}
                     />
                 </Grid>
                 <Grid item xs={12}>

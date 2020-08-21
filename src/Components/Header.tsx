@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, Grid, InputBase, IconButton, Badge, makeStyles } from '@material-ui/core';
+import { AppBar, Toolbar, Grid, InputBase, IconButton, Badge, makeStyles, Typography } from '@material-ui/core';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import SearchIcon from '@material-ui/icons/Search';
@@ -22,19 +22,27 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Header = (): any => {
+const Header = (props: any): any => {
     const classes = useStyles();
+    const { title } = props;
 
     return (
         <AppBar position="static" className={classes.root}>
             <Toolbar>
                 <Grid container alignItems="center">
                     <Grid item>
-                        <InputBase 
+                        <Typography 
+                            variant="h4"
+                            component="div"
+                            color="primary"
+                        >
+                            {title}
+                        </Typography>
+                        {/* <InputBase 
                             placeholder="Search Website" 
                             className={classes.searchInput}
                             startAdornment={<SearchIcon fontSize="small" />}
-                        />
+                        /> */}
                     </Grid>
                     <Grid item xs></Grid>
                     <Grid item>

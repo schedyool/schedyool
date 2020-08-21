@@ -57,12 +57,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <SideMenu />
       <div className={classes.appMain}>
-        <Header />
-        <PageHeader 
-          title="School Scheduling App"
-          subtitle="Schedule your students"
-          icon={<IconButton><SchoolIcon fontSize="large"/></IconButton>}
+        <Header 
+          title = "Schedyool"
         />
+        {/* <PageHeader 
+          title="Schedyool"
+          subtitle="Schedule your students. Optimally."
+          icon={<IconButton><SchoolIcon fontSize="large"/></IconButton>}
+        /> */}
         <DataComponent />
         <ReCAPTCHA sitekey="6LctKMEZAAAAAN4NYXg27JMINCdmFm-knz9Ea4-p" onChange={onChange} />
       </div>
