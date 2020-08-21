@@ -7,8 +7,8 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Button = (props: any) => {
-    const { text, size, color, variant, onClick } = props;
+const MyButton = (props: any) => {
+    const { text, size, color, variant, ...other } = props;
     const classes = useStyles();
 
     return (
@@ -17,11 +17,11 @@ const Button = (props: any) => {
             variant={variant || "contained" }
             size={size || "large" }
             color={color || "primary"}
-            onClick={onClick}
+            {...other}
         >
             {text}
         </MuiButton>
     )
 };
 
-export default Button;
+export default MyButton;

@@ -1,13 +1,13 @@
 import Input from './Input';
 import Dropzone from './Dropzone';
 import SelectField from './SelectField';
-import Button from './Button';
+import MyButton from './MyButton';
 
 const Controls = {
     Input,
     Dropzone,
     SelectField,
-    Button,
+    MyButton,
 };
 
 export default Controls;
