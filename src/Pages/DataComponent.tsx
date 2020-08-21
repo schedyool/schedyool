@@ -14,7 +14,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const DataComponent = (): any => {
-
     const classes = useStyles();
 
     return (

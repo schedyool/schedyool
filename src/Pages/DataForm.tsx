@@ -47,16 +47,19 @@ const DataForm = (): any => {
         }
     };
 
-    const helpTitles = {
-        numBlendedLearning: 'Number of students in Blended Learning',
-        numSchedules: 'Number of schedules',
-        numRooms: '',
-    };
+    // const helpTitles = {
+    //     numBlendedLearning: 'Number of students in Blended Learning',
+    //     numSchedules: 'Number of schedules',
+    //     numRooms: '',
+    // };
 
     const helpTexts = {
         numBlendedLearning: 'Enter the number of students in the school who will participate in blended learning.  You will provide details about the students later, in csv (comma-separated-values) files.',
         numSchedules: 'You need to enter the number of schedules needed. For students attending, say, e.g., either Monday-Tuesday or Thursday-Friday and alternate Wednesdays, this number would be 2. For those attending in person 1/3 of the time, you need three schedules, so enter 3.',
         numRooms: 'The number of classrooms available every day.',
+        numSetsSameDay: 'The code allows the user to specify sets of children who should attend in-person instruction on the same days. The sets can be arbitrarily large, but the larger the set is, the less likely the goal will be achieved. You need to enter the number of such sets, 0 if there are none. The actual sets themselves will be added later. Keep in mind that the optimizer may not succeed at satisfying all the constraints.',
+        numPairsDiffDay: 'You may also specify pairs of 2 students each who should be scheduled on different days. Enter the number of such pairs, 0 if there are none.',
+        numSpecialSets: 'You may also enter a collection of sets of students, e.g., ICT and ENL, for special treatment. You can enter as many sets as you wish but you probably only have a few. Let\'s call these "special sets. The treatment of these sets is a bit complicated. Enter here the number of special sets, 0 if there are none.',
     };
 
     return (
@@ -85,7 +88,7 @@ const DataForm = (): any => {
                     // error={errors.email}
                 />
                 <Controls.Input 
-                    helpTitle={helpTitles.numBlendedLearning}
+                    // helpTitle={helpTitles.numBlendedLearning}
                     helpText={helpTexts.numBlendedLearning}
                     label="Number of students for Blended Learning"
                     name="numBlendedLearning"
@@ -93,7 +96,7 @@ const DataForm = (): any => {
                     onInput={handleInputChange}
                 />
                 <Controls.Input
-                    helpTitle={helpTitles.numSchedules}
+                    // helpTitle={helpTitles.numSchedules}
                     helpText={helpTexts.numSchedules}
                     label="Number of Schedules"
                     name="numSchedules"
@@ -108,21 +111,21 @@ const DataForm = (): any => {
                     onInput={handleInputChange}
                 />
                 <Controls.Input
-                    helpText="add"
+                    helpText={helpTexts.numSetsSameDay}
                     label="Number of sets on the same day"
                     name="numSetsSameDay"
                     value={values.numSetsSameDay}
                     onInput={handleInputChange}
                 />
                 <Controls.Input
-                    helpText="add"
+                    helpText={helpTexts.numPairsDiffDay}
                     label="Number of pairs on different days"
                     name="numPairsDiffDay"
                     value={values.numPairsDiffDay}
                     onInput={handleInputChange}
                 />
                 <Controls.Input
-                    helpText="add"
+                    helpText={helpTexts.numSpecialSets}
                     label="Number of special sets"
                     name="numSpecialSets"
                     value={values.numSpecialSets}

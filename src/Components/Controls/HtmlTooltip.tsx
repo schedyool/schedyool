@@ -4,10 +4,10 @@ import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
 const TempTooltip = withStyles((theme: Theme) => ({
     tooltip: {
-        backgroundColor: theme.palette.background.paper,
-        color: 'rgba(0, 0, 0, 0.87)',
+        // backgroundColor: theme.palette.background.paper,
+        // color: 'rgba(0, 0, 0, 0.87)',
         maxWidth: 220,
-        fontSize: theme.typography.pxToRem(12),
+        fontSize: theme.typography.pxToRem(16),
         border: '1px solid #dadde9',
     }, 
 }))(Tooltip);
@@ -18,7 +18,9 @@ const StartIcon = (props: any) => {
 
     return (
         <InputAdornment position="start">
-            <TempTooltip
+            <TempTooltip 
+                arrow 
+                interactive
                 title={
                     <>
                         {/* <Typography color="inherit">

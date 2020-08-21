@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { makeStyles, Button, IconButton, Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 
 export const useForm = (initialFieldValues: any) => {
     const [values, setValues] = useState(initialFieldValues);
@@ -7,10 +7,12 @@ export const useForm = (initialFieldValues: any) => {
 
     const handleInputChange = (e: any) => {
         const { name, value } = e.target;
-        setValues({
-            ...values,
-            [name]: value
-        })
+        if ( value >= 0) {
+            setValues({
+                ...values,
+                [name]: value
+            })
+        }
     };
 
     return {
