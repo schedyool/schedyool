@@ -6,9 +6,10 @@ import EmailIcon from '@material-ui/icons/Email';
 import Controls from '../Components/Controls/Controls';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import ReCAPTCHA from 'react-google-recaptcha';
-import MyButton from '../Components/Controls/MyButton';
+import FormPages from './FormPages';
 
 const initialFieldValues = {
+    step: 1,
     fullName: '',
     email: '',
     numBlendedLearning: 0,
@@ -20,7 +21,24 @@ const initialFieldValues = {
 };
 
 const DataForm = (): any => {
-    const { values, setValues, errors, setErrors, handleInputChange} = useForm(initialFieldValues);
+    const { 
+        values, 
+        setValues, 
+        errors, 
+        setErrors, 
+        handleInputChange
+    } = useForm(initialFieldValues);
+
+    const helpTexts = {
+        numBlendedLearning: 'Enter the number of students in the school who will participate in blended learning.  You will provide details about the students later, in csv (comma-separated-values) files.',
+        numSchedules: 'You need to enter the number of schedules needed. For students attending, say, e.g., either Monday-Tuesday or Thursday-Friday and alternate Wednesdays, this number would be 2. For those attending in person 1/3 of the time, you need three schedules, so enter 3.',
+        numRooms: 'The number of classrooms available every day.',
+        numSetsSameDay: 'The code allows the user to specify sets of children who should attend in-person instruction on the same days. The sets can be arbitrarily large, but the larger the set is, the less likely the goal will be achieved. You need to enter the number of such sets, 0 if there are none. The actual sets themselves will be added later. Keep in mind that the optimizer may not succeed at satisfying all the constraints.',
+        numPairsDiffDay: 'You may also specify pairs of 2 students each who should be scheduled on different days. Enter the number of such pairs, 0 if there are none.',
+        numSpecialSets: 'You may also enter a collection of sets of students, e.g., ICT and ENL, for special treatment. You can enter as many sets as you wish but you probably only have a few. Let\'s call these "special sets. The treatment of these sets is a bit complicated. Enter here the number of special sets, 0 if there are none.',
+    };
+
+    // validate for names and emails
     const validate = () => {
         const re = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; 
         let temp = {
@@ -36,6 +54,24 @@ const DataForm = (): any => {
         return Object.values(temp).every(x => x === '');
     }
 
+    // proceed to next step
+    const nextStep = () => {
+        const { step } = values;
+        setValues({
+            ...values,
+            step: step + 1,
+        });
+    };
+
+    // go back to previous step
+    const prevStep = () => {
+        const { step } = values;
+        setValues({
+            ...values,
+            step: step - 1,
+        });
+    };
+
     const handleCaptcha = (value: any) => {
         console.log("captcha value:", value);
     };
@@ -44,106 +80,207 @@ const DataForm = (): any => {
         e.preventDefault();
         if (validate()) {
             window.alert('validated response...');
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title: 'React Hooks POST Request Example' })
+            };
         }
     };
 
-    // const helpTitles = {
-    //     numBlendedLearning: 'Number of students in Blended Learning',
-    //     numSchedules: 'Number of schedules',
-    //     numRooms: '',
-    // };
-
-    const helpTexts = {
-        numBlendedLearning: 'Enter the number of students in the school who will participate in blended learning.  You will provide details about the students later, in csv (comma-separated-values) files.',
-        numSchedules: 'You need to enter the number of schedules needed. For students attending, say, e.g., either Monday-Tuesday or Thursday-Friday and alternate Wednesdays, this number would be 2. For those attending in person 1/3 of the time, you need three schedules, so enter 3.',
-        numRooms: 'The number of classrooms available every day.',
-        numSetsSameDay: 'The code allows the user to specify sets of children who should attend in-person instruction on the same days. The sets can be arbitrarily large, but the larger the set is, the less likely the goal will be achieved. You need to enter the number of such sets, 0 if there are none. The actual sets themselves will be added later. Keep in mind that the optimizer may not succeed at satisfying all the constraints.',
-        numPairsDiffDay: 'You may also specify pairs of 2 students each who should be scheduled on different days. Enter the number of such pairs, 0 if there are none.',
-        numSpecialSets: 'You may also enter a collection of sets of students, e.g., ICT and ENL, for special treatment. You can enter as many sets as you wish but you probably only have a few. Let\'s call these "special sets. The treatment of these sets is a bit complicated. Enter here the number of special sets, 0 if there are none.',
-    };
-
-    return (
-        <Form onSubmit={handleSubmit}>
-            <Grid container>
-                <Controls.Input 
-                    helpText="Enter your full name."
-                    icon={<AccountCircle />}
-                    required
-                    type="text"
-                    label="Full Name"
-                    name="fullName"
-                    value={values.fullName}
-                    onInput={handleInputChange}
-                    // error={errors.fullName}
-                />
-                <Controls.Input 
-                    helpText="Enter your email."
-                    icon={<EmailIcon />}
-                    required
-                    type="text"
-                    label="Email"
-                    name="email"
-                    value={values.email}
-                    onInput={handleInputChange}
-                    // error={errors.email}
-                />
-                <Controls.Input 
-                    // helpTitle={helpTitles.numBlendedLearning}
-                    helpText={helpTexts.numBlendedLearning}
-                    label="Number of students for Blended Learning"
-                    name="numBlendedLearning"
-                    value={values.numBlendedLearning}
-                    onInput={handleInputChange}
-                />
-                <Controls.Input
-                    // helpTitle={helpTitles.numSchedules}
-                    helpText={helpTexts.numSchedules}
-                    label="Number of Schedules"
-                    name="numSchedules"
-                    value={values.numSchedules}
-                    onInput={handleInputChange}
-                />
-                <Controls.Input
-                    helpText={helpTexts.numRooms}
-                    label="Number of Rooms"
-                    name="numRooms"
-                    value={values.numRooms}
-                    onInput={handleInputChange}
-                />
-                <Controls.Input
-                    helpText={helpTexts.numSetsSameDay}
-                    label="Number of sets on the same day"
-                    name="numSetsSameDay"
-                    value={values.numSetsSameDay}
-                    onInput={handleInputChange}
-                />
-                <Controls.Input
-                    helpText={helpTexts.numPairsDiffDay}
-                    label="Number of pairs on different days"
-                    name="numPairsDiffDay"
-                    value={values.numPairsDiffDay}
-                    onInput={handleInputChange}
-                />
-                <Controls.Input
-                    helpText={helpTexts.numSpecialSets}
-                    label="Number of special sets"
-                    name="numSpecialSets"
-                    value={values.numSpecialSets}
-                    onInput={handleInputChange}
-                />
-                <Grid item xs={12}>
+    switch(values.step) {
+        case 1:
+            return (
+                <FormPages.FirstPage
+                    nextStep={nextStep}
+                    handleInputChange={handleInputChange}
+                    values={values}
+                >
+                    <Controls.Input 
+                        helpText="Enter your full name."
+                        icon={<AccountCircle />}
+                        required
+                        type="text"
+                        label="Full Name"
+                        name="fullName"
+                        value={values.fullName}
+                        onInput={handleInputChange}
+                        // error={errors.fullName}
+                    />
+                    <Controls.Input 
+                        helpText="Enter your email."
+                        icon={<EmailIcon />}
+                        required
+                        type="text"
+                        label="Email"
+                        name="email"
+                        value={values.email}
+                        onInput={handleInputChange}
+                        // error={errors.email}
+                    />
+                </FormPages.FirstPage>
+            );
+        case 2:
+            return (
+                <FormPages.MiddlePage
+                    nextStep={nextStep}
+                    prevStep={prevStep}
+                    handleInputChange={handleInputChange}
+                    values={values}
+                >
+                    <Controls.Input
+                        // helpTitle={helpTitles.numBlendedLearning}
+                        helpText={helpTexts.numBlendedLearning}
+                        label="Number of students for Blended Learning"
+                        name="numBlendedLearning"
+                        value={values.numBlendedLearning}
+                        onInput={handleInputChange}
+                    />
+                    <Controls.Input
+                        // helpTitle={helpTitles.numSchedules}
+                        helpText={helpTexts.numSchedules}
+                        label="Number of Schedules"
+                        name="numSchedules"
+                        value={values.numSchedules}
+                        onInput={handleInputChange}
+                    />
+                    <Controls.Input
+                        helpText={helpTexts.numRooms}
+                        label="Number of Rooms"
+                        name="numRooms"
+                        value={values.numRooms}
+                        onInput={handleInputChange}
+                    />
+                    <Controls.Input
+                        helpText={helpTexts.numSetsSameDay}
+                        label="Number of sets on the same day"
+                        name="numSetsSameDay"
+                        value={values.numSetsSameDay}
+                        onInput={handleInputChange}
+                    />
+                    <Controls.Input
+                        helpText={helpTexts.numPairsDiffDay}
+                        label="Number of pairs on different days"
+                        name="numPairsDiffDay"
+                        value={values.numPairsDiffDay}
+                        onInput={handleInputChange}
+                    />
+                </FormPages.MiddlePage>
+            );
+        case 3:
+            return (
+                <FormPages.MiddlePage
+                    nextStep={nextStep}
+                    prevStep={prevStep}
+                    handleInputChange={handleInputChange}
+                    values={values}
+                >
+                    <Controls.Input
+                        helpText={helpTexts.numSpecialSets}
+                        label="Number of special sets"
+                        name="numSpecialSets"
+                        value={values.numSpecialSets}
+                        onInput={handleInputChange}
+                    />
+                </FormPages.MiddlePage>
+            );
+        case 4:
+            return (
+                <FormPages.SubmitPage
+                    nextStep={nextStep}
+                    prevStep={prevStep}
+                    handleInputChange={handleInputChange}
+                    values={values}
+                >
                     <Controls.Dropzone />
-                </Grid>
-                <Grid item xs={12}>
-                    {/* <ReCAPTCHA sitekey="6LctKMEZAAAAAN4NYXg27JMINCdmFm-knz9Ea4-p" onChange={handleCaptcha} /> */}
-                </Grid>
-                <Grid item xs={12}>
-                    <Controls.MyButton type="submit" value="Submit" text="Submit" />
-                    <Controls.MyButton type="reset" text="Reset" color="default" />
-                </Grid>
-            </Grid>
-        </Form>
-    )
+                </FormPages.SubmitPage>
+            )
+        case 5:
+            return (<h1>Submitting!</h1>)
+    }
+
+    // return (
+    //     <Form onSubmit={handleSubmit}>
+    //         <Grid container>
+    //             <Controls.Input 
+    //                 helpText="Enter your full name."
+    //                 icon={<AccountCircle />}
+    //                 required
+    //                 type="text"
+    //                 label="Full Name"
+    //                 name="fullName"
+    //                 value={values.fullName}
+    //                 onInput={handleInputChange}
+    //                 // error={errors.fullName}
+    //             />
+    //             <Controls.Input 
+    //                 helpText="Enter your email."
+    //                 icon={<EmailIcon />}
+    //                 required
+    //                 type="text"
+    //                 label="Email"
+    //                 name="email"
+    //                 value={values.email}
+    //                 onInput={handleInputChange}
+    //                 // error={errors.email}
+    //             />
+    //             <Controls.Input 
+    //                 // helpTitle={helpTitles.numBlendedLearning}
+    //                 helpText={helpTexts.numBlendedLearning}
+    //                 label="Number of students for Blended Learning"
+    //                 name="numBlendedLearning"
+    //                 value={values.numBlendedLearning}
+    //                 onInput={handleInputChange}
+    //             />
+    //             <Controls.Input
+    //                 // helpTitle={helpTitles.numSchedules}
+    //                 helpText={helpTexts.numSchedules}
+    //                 label="Number of Schedules"
+    //                 name="numSchedules"
+    //                 value={values.numSchedules}
+    //                 onInput={handleInputChange}
+    //             />
+    //             <Controls.Input
+    //                 helpText={helpTexts.numRooms}
+    //                 label="Number of Rooms"
+    //                 name="numRooms"
+    //                 value={values.numRooms}
+    //                 onInput={handleInputChange}
+    //             />
+    //             <Controls.Input
+    //                 helpText={helpTexts.numSetsSameDay}
+    //                 label="Number of sets on the same day"
+    //                 name="numSetsSameDay"
+    //                 value={values.numSetsSameDay}
+    //                 onInput={handleInputChange}
+    //             />
+    //             <Controls.Input
+    //                 helpText={helpTexts.numPairsDiffDay}
+    //                 label="Number of pairs on different days"
+    //                 name="numPairsDiffDay"
+    //                 value={values.numPairsDiffDay}
+    //                 onInput={handleInputChange}
+    //             />
+    //             <Controls.Input
+    //                 helpText={helpTexts.numSpecialSets}
+    //                 label="Number of special sets"
+    //                 name="numSpecialSets"
+    //                 value={values.numSpecialSets}
+    //                 onInput={handleInputChange}
+    //             />
+    //             <Grid item xs={12}>
+    //                 <Controls.Dropzone />
+    //             </Grid>
+    //             <Grid item xs={12}>
+    //                 {/* <ReCAPTCHA sitekey="6LctKMEZAAAAAN4NYXg27JMINCdmFm-knz9Ea4-p" onChange={handleCaptcha} /> */}
+    //             </Grid>
+    //             <Grid item xs={12}>
+    //                 <Controls.MyButton type="submit" value="Submit" text="Submit" />
+    //                 <Controls.MyButton type="reset" text="Reset" color="default" />
+    //             </Grid>
+    //         </Grid>
+    //     </Form>
+    // )
 };
 
 /*
