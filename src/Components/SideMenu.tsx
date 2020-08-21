@@ -39,7 +39,7 @@ const SideMenu = (): any => {
                 {pages.map((page) => (
                     <ListItem button key={page.text}>
                         <ListItemIcon>{page.icon}</ListItemIcon>
-                        <ListItemText primary={page.text} />
+                        <ListItemText color='#fff' primary={page.text} />
                     </ListItem>
                 ))}
                 {/* {['Home', 'Schedule!'].map((text, index) => (
