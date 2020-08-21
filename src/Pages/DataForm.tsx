@@ -30,18 +30,18 @@ const DataForm = (): any => {
             ...temp
         });
     }
-    // useEffect(() => console.log(initialFieldValues), []);
 
     const handleCaptcha = (value: any) => {
         console.log("captcha value:", value);
     };
 
-    const handleSubmit = () => {
-        window.alert('testing...');
-    };
+    // const handleSubmit = () => {
+    //     console.log('clicked');
+    //     window.alert('testing...');
+    // };
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form>
             <Grid container>
                 <Grid item xs={6}>
                     <Controls.Input 
@@ -117,11 +117,11 @@ const DataForm = (): any => {
                     <Controls.Dropzone />
                 </Grid>
                 <Grid item xs={12}>
-                    <ReCAPTCHA sitekey="6LctKMEZAAAAAN4NYXg27JMINCdmFm-knz9Ea4-p" onChange={handleCaptcha} />
+                    {/* <ReCAPTCHA sitekey="6LctKMEZAAAAAN4NYXg27JMINCdmFm-knz9Ea4-p" onChange={handleCaptcha} /> */}
                 </Grid>
                 <Grid item xs={12}>
-                    <Controls.Button type="submit" text="Submit" />
-                    <Controls.Button text="Reset" color="default" />
+                    <Controls.Button type="submit" value="Submit" text="Submit" />
+                    <Controls.Button type="reset" text="Reset" color="default" />
                 </Grid>
             </Grid>
         </Form>
