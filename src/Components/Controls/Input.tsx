@@ -1,6 +1,13 @@
 import React from 'react';
-import { TextField, Grid } from '@material-ui/core';
+import { TextField, Grid, makeStyles } from '@material-ui/core';
 import StartIcon from './HtmlTooltip';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        width: '90%',
+        margin: theme.spacing(1.5),
+    }
+}));
 
 const Input = (props: any): JSX.Element => {
     const { 
@@ -16,9 +23,13 @@ const Input = (props: any): JSX.Element => {
         icon,
         ...other
     } = props;
+
+    const classes = useStyles();
     return (
-        <Grid item xs={breakpoint || 6}>
+        <Grid item xs={breakpoint || 12}>
+            <div className={classes.root}>
             <TextField
+                fullWidth={true}
                 InputProps={{
                     startAdornment: (<StartIcon helpText={helpText} icon={icon} />),
                 }}
@@ -31,6 +42,7 @@ const Input = (props: any): JSX.Element => {
                 {...(error && {error: true, helperText: error})}
                 {...other}
             />
+            </div>
         </Grid>
     );
 };

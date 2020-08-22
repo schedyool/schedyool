@@ -7,7 +7,10 @@ export const useForm = (initialFieldValues: any) => {
 
     const handleInputChange = (e: any) => {
         const { name, value } = e.target;
-        if ( value >= 0) {
+        console.log(name);
+        console.log(value);
+        console.log(typeof value);
+        if ( typeof value != 'number' || value >= 0) {
             setValues({
                 ...values,
                 [name]: value

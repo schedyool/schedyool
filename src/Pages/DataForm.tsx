@@ -115,6 +115,7 @@ const DataForm = (): any => {
                     values={values}
                 >
                     <Controls.Input 
+                        breakpoint={12}
                         helpText="Enter your full name."
                         icon={<AccountCircle />}
                         required
@@ -126,6 +127,7 @@ const DataForm = (): any => {
                         // error={errors.fullName}
                     />
                     <Controls.Input 
+                        breakpoint={12}
                         helpText="Enter your email."
                         icon={<EmailIcon />}
                         required

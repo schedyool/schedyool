@@ -1,13 +1,10 @@
 import React from 'react';
 import './App.css';
 import 'fontsource-roboto';
-import SideMenu from '../Components/SideMenu'
 import Header from '../Components/Header';
-import PageHeader from '../Components/PageHeader';
 import { makeStyles, CssBaseline, createMuiTheme, ThemeProvider, IconButton } from '@material-ui/core';
-import SchoolIcon from '@material-ui/icons/School';
-import Scheduler from '../Pages/Scheduler';
 import Home from '../Pages/Home';
+import Scheduler from '../Pages/Scheduler';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 const theme = createMuiTheme({
@@ -94,20 +91,20 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-      <SideMenu />
-        <div className={classes.appMain}>
-          <Header title="Schedyool" />
+        {/* <div className={classes.appMain}> */}
+          <Header title="Schedyool">
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
-          <Switch>
-            <Route path="/scheduler">
-              <Scheduler />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </div>
+            <Switch>
+              <Route path="/scheduler">
+                <Scheduler />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </Header>
+        {/* </div> */}
       </Router>
     </ThemeProvider>
   );

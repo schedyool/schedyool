@@ -14,6 +14,9 @@ const useStyles = makeStyles(theme => ({
     pageIcon: {
         display: 'inline-block',
         color: '#3c44b1',
+        [theme.breakpoints.width('sm')]: {
+            display: 'none',
+        },
     },
     pageTitle: {
         paddingLeft: theme.spacing(4),

@@ -1,9 +1,13 @@
 import React from 'react';
-import { Grid, Divider } from '@material-ui/core';
+import { Grid, Divider, List, ListItem, ListItemText, Typography } from '@material-ui/core';
 import Controls from '../Components/Controls/Controls';
 
 const FormSubmitPage = (props: any) => {
     const { handleSubmit, prevStep, handleInputChange, values, children, ...other } = props;
+    const {
+        fullName, email, numBlendedLearning, numSchedules,
+        numRooms, numSetsSameDay, numPairsDiffDay, numSpecialSets,
+    } = values;
 
     const myPrevious = (e: any) => {
         e.preventDefault();
@@ -12,7 +16,60 @@ const FormSubmitPage = (props: any) => {
 
     return (
         <Grid container>
-            {children}
+            <Typography variant="h5">
+                Confirm before submission
+            </Typography>
+            <List>
+                <ListItem>
+                    <ListItemText 
+                        primary="Full Name:"
+                        secondary={fullName.length ? fullName : "Missing!"}
+                    />
+                </ListItem>
+                <ListItem>
+                    <ListItemText 
+                        primary="Email:"
+                        secondary={email.length ? email : "Missing!"}
+                    />
+                </ListItem>
+                <Divider component="li" />
+                <ListItem>
+                    <ListItemText 
+                        primary="Number of students in Blended Learning"
+                        secondary={numBlendedLearning}
+                    />
+                </ListItem>
+                <ListItem>
+                    <ListItemText 
+                        primary="Number of schedules"
+                        secondary={numSchedules}
+                    />
+                </ListItem>
+                <ListItem>
+                    <ListItemText 
+                        primary="Number of classrooms"
+                        secondary={numRooms}
+                    />
+                </ListItem>
+                <ListItem>
+                    <ListItemText 
+                        primary="Number of sets on the same day"
+                        secondary={numSetsSameDay}
+                    />
+                </ListItem>
+                <ListItem>
+                    <ListItemText 
+                        primary="Number of pairs of students on different days"
+                        secondary={numPairsDiffDay}
+                    />
+                </ListItem>
+                <ListItem>
+                    <ListItemText 
+                        primary="Number of special sets"
+                        secondary={numSpecialSets}
+                    />
+                </ListItem>
+            </List>
             <Divider />
             <Grid item sm={12}>
                 <Controls.MyButton 
