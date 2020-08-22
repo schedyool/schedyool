@@ -53,26 +53,26 @@ const FormSubmitPage = (props: any) => {
                 </ListItem>
                 <ListItem>
                     <ListItemText 
-                        primary="Number of sets on the same day"
+                        primary="Number of sets of students to schedule on the same day"
                         secondary={numSetsSameDay}
                     />
                 </ListItem>
                 <ListItem>
                     <ListItemText 
-                        primary="Number of pairs of students on different days"
+                        primary="Number of pairs of students to schedule on different days"
                         secondary={numPairsDiffDay}
                     />
                 </ListItem>
                 <ListItem>
                     <ListItemText 
-                        primary="Number of special sets"
+                        primary="Number of special groupings of students"
                         secondary={numSpecialSets}
                     />
                 </ListItem>
                 <Divider component="li" />
                 <ListItem>
                     <ListItemText 
-                        primary="Special Sets"
+                        primary="Fraction of special group in each classroom"
                         secondary={specialSets.toString()}
                     />
                 </ListItem>
