@@ -46,10 +46,6 @@ export const useForm = (initialFieldValues: any) => {
         if ( parseInt(value) ) {
             if ( parseInt(value) >= 0) {
                 const newSpecialSets = parseInt(value);
-                // setValues({
-                //     ...values,
-                //     [name]: parseInt(value)
-                // })
                 if (newSpecialSets > values.specialSets.length) {
                     setValues({
                         ...values,
@@ -57,12 +53,16 @@ export const useForm = (initialFieldValues: any) => {
                         specialSets: values.specialSets.concat(
                             Array.from(Array(newSpecialSets-values.numSpecialSets), () => 1)
                         ),
+                        packedSpecialSets: values.packedSpecialSets.concat(
+                            Array(newSpecialSets-values.numSpecialSets).fill(Array(values.maxGrade).fill(100))
+                        )
                     })
                 } else {
                     setValues({
                         ...values,
                         numSpecialSets: newSpecialSets,
                         specialSets: values.specialSets.slice(0, newSpecialSets),
+                        packedSpecialSets: values.packedSpecialSets.slice(0, newSpecialSets),
                     })
                 }
             }
@@ -84,6 +84,15 @@ export const useForm = (initialFieldValues: any) => {
         });
     };
 
+    const handlePackedSetsChange = (e: any, set: any, grade: any) => {
+        const oldPackedSet = values.packedSpecialSets;
+        oldPackedSet[set][grade] = e.target.value;
+        setValues({
+            ...values,
+            packedSpecialSets: oldPackedSet,
+        });
+    }
+
     return {
         values, 
         setValues, 
@@ -94,6 +103,7 @@ export const useForm = (initialFieldValues: any) => {
         handleInputChange,
         handleSpecialSetChange,
         handleSliderChange,
+        handlePackedSetsChange,
     };
 };
 

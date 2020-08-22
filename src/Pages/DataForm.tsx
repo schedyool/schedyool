@@ -38,6 +38,7 @@ const DataForm = (): any => {
         handleInputChange,
         handleSpecialSetChange,
         handleSliderChange,
+        handlePackedSetsChange,
     } = useForm(initialFieldValues);
 
     const helpTexts = {
@@ -96,20 +97,19 @@ const DataForm = (): any => {
         // if (validate()) {
         const postUrl = 'https://lqi0rcs9b1.execute-api.us-east-1.amazonaws.com/prod/';
         const payload = {
-            email: 'calebaren@gmail.com',
-            timelimit: 60,
+            email: values.email,
+            timelimit: 14,
             num_students: values.numBlendedLearning,
             num_rooms: values.numRooms,
             num_days: values.numDays,
-            max_grade: 5,
+            max_grade: values.maxGrade,
             num_same_day_sets: values.numSetsSameDay,
             num_diff_day_pairs: values.numPairsDiffDay,
             num_special_sets: values.numSpecialSets,
             // num_rooms_to_be_packed_into: [[1, 1, 2, 2, 1, 2], [2, 2, 2, 2, 2, 2]],
             // num_rooms_to_be_packed_into: [[], ...values.packedSpecialSets],
-            // fraction_for_special_set: [0, ...values.specialSets],
+            fraction_for_special_set: [0, ...values.specialSets],
             num_rooms_to_be_packed_into: [[1, 1, 2, 2, 1, 2], [2, 2, 2, 2, 2, 2]],
-            fraction_for_special_set: [1, 0.4],
             diff_file: '51, 86\n93, 71\n513, 511\n513, 423\n1, 437\n87, 238\n',
             main_file: '1,M,0,1\n4,F,0,1\n1,M,1,0\n3,F,0,0\n0,M,0,0\n1,M,0,0\n3,F,1,0\n1,M,0,0\n1,M,0,0\n4,F,0,0\n4,F,1,0\n5,F,1,0\n3,M,0,0\n3,F,0,0\n1,F,0,0\n2,M,0,1\n5,F,0,0\n2,F,0,0\n3,F,1,0\n5,F,0,0\n2,F,0,0\n4,M,0,0\n5,F,0,0\n1,F,1,0\n0,F,0,0\n5,M,1,0\n2,F,1,0\n0,M,1,0\n1,M,1,0\n0,M,0,0\n3,M,0,0\n2,F,0,0\n5,M,0,1\n0,F,0,0\n0,M,0,0\n2,F,0,0\n4,M,0,0\n2,M,0,0\n2,M,0,0\n2,M,1,0\n3,M,0,1\n1,F,0,0\n4,F,0,0\n5,F,0,0\n2,F,0,0\n1,F,0,0\n3,F,0,0\n2,F,0,0\n3,M,0,0\n3,M,0,0\n0,F,1,0\n3,F,1,0\n2,F,0,0\n5,F,0,0\n2,F,0,0\n1,M,0,0\n2,F,1,0\n0,F,0,0\n1,M,1,0\n0,M,0,1\n2,F,0,0\n2,F,0,0\n3,M,0,0\n1,F,0,0\n2,M,0,0\n5,M,0,0\n4,M,0,0\n5,M,0,0\n3,M,1,0\n1,M,0,0\n3,F,0,0\n5,F,0,0\n0,M,0,0\n2,M,1,0\n4,M,0,0\n0,F,0,0\n0,F,0,0\n3,M,0,1\n4,M,0,0\n5,F,0,0\n4,M,0,0\n3,F,0,0\n4,F,0,0\n1,F,0,0\n3,M,0,0\n0,M,0,0\n1,M,0,0\n2,M,0,1\n3,F,0,0\n5,F,0,0\n3,F,0,0\n1,F,0,0\n4,M,1,0\n3,M,0,0\n0,M,0,0\n2,M,0,1\n4,M,1,0\n4,M,0,0\n5,F,0,0\n5,F,0,0\n4,F,1,0\n2,M,1,0\n0,F,0,0\n4,M,0,0\n3,F,0,0\n0,F,0,0\n3,F,0,1\n0,M,0,0\n4,F,0,0\n5,M,0,0\n3,F,0,0\n2,M,0,0\n4,F,0,0\n1,M,0,1\n1,M,0,0\n1,F,0,0\n3,M,0,0\n5,F,0,0\n1,F,0,0\n5,M,0,0\n0,M,0,0\n3,M,1,0\n0,M,0,0\n5,F,0,0\n0,M,0,0\n2,M,0,0\n3,F,0,0\n5,M,0,0\n1,M,0,0\n4,M,0,0\n2,F,0,0\n0,M,0,0\n5,M,1,0\n2,M,0,0\n0,M,0,1\n1,M,0,0\n0,F,0,0\n2,F,0,0\n1,F,1,0\n4,F,0,0\n0,M,0,0\n2,F,0,0\n0,F,0,0\n3,M,0,0\n4,F,0,0\n1,F,0,0\n1,M,0,0\n3,F,1,0\n5,M,0,0\n5,F,0,0\n4,M,0,0\n4,M,0,0\n0,F,0,0\n0,M,0,0\n3,F,0,0\n3,M,0,0\n1,M,0,0\n0,M,0,0\n2,M,0,0\n1,F,0,0\n2,M,0,0\n2,F,1,1\n4,F,0,0\n1,F,0,1\n2,M,1,0\n3,F,0,0\n3,M,0,0\n5,M,0,0\n4,M,0,0\n4,F,0,0\n5,M,0,0\n1,F,0,0\n5,F,0,0\n1,F,0,0\n0,F,0,1\n4,M,0,0\n3,M,0,0\n5,F,0,0\n3,M,1,0\n1,F,0,0\n1,F,0,0\n0,F,0,0\n5,F,0,0\n1,M,0,0\n3,M,0,0\n0,M,0,0\n1,F,0,0\n1,F,0,0\n1,M,0,0\n4,F,0,0\n1,F,0,0\n1,M,0,0\n1,M,0,0\n5,F,0,1\n0,F,0,0\n3,M,0,0\n3,M,1,0\n5,M,0,1\n0,F,0,0\n3,M,0,0\n4,M,0,0\n5,M,0,0\n3,M,0,0\n3,M,0,0\n2,M,0,0\n0,F,0,0\n1,F,0,0\n1,M,0,0\n4,M,1,0\n2,F,0,0\n5,M,0,0\n2,M,0,0\n4,M,0,0\n5,M,0,0\n3,M,0,0\n5,F,0,0\n4,F,0,0\n1,F,0,0\n1,M,0,0\n0,M,0,0\n0,M,1,0\n4,M,0,0\n1,M,1,1\n2,M,1,0\n0,M,0,0\n4,M,1,0\n1,F,0,0\n0,M,0,0\n1,F,1,0\n4,M,1,1\n0,F,0,0\n2,F,0,0\n5,M,0,0\n5,M,0,1\n4,M,0,0\n0,F,0,0\n5,M,1,0\n1,F,0,0\n0,M,0,0\n2,M,0,0\n0,F,0,0\n1,F,1,0\n5,M,0,0\n4,F,0,0\n0,M,0,0\n4,F,0,0\n2,M,0,0\n4,M,0,0\n2,M,0,0\n2,M,0,0\n4,F,0,0\n1,M,0,0\n2,M,0,0\n5,F,0,1\n5,M,0,0\n2,M,0,1\n0,M,0,0\n4,M,1,0\n2,F,0,0\n1,F,0,0\n4,F,0,0\n2,M,0,0\n5,M,0,0\n4,F,0,0\n0,M,0,0\n5,M,0,0\n1,F,0,0\n4,F,0,0\n1,M,0,0\n5,F,0,0\n3,M,0,0\n3,M,0,0\n2,F,0,0\n0,M,0,0\n1,F,0,0\n0,F,0,0\n5,F,0,0\n5,M,1,0\n3,M,0,0\n5,M,0,0\n1,F,0,1\n2,M,0,0\n1,M,0,0\n0,F,0,0\n3,F,0,0\n2,M,0,0\n4,M,0,0\n1,M,1,0\n0,M,0,0\n5,M,0,0\n5,F,0,0\n1,F,0,0\n2,M,0,0\n3,F,0,0\n4,M,0,0\n3,F,1,0\n3,M,0,0\n4,F,0,0\n5,F,0,0\n0,F,0,0\n4,F,0,0\n4,F,0,0\n4,F,0,0\n0,F,0,0\n3,M,0,0\n5,M,0,0\n0,M,0,0\n0,M,1,0\n5,M,0,0\n3,M,0,0\n0,F,0,0\n1,M,1,0\n0,F,0,0\n3,F,0,0\n2,F,0,0\n5,M,1,0\n0,M,0,1\n2,F,0,0\n5,M,0,1\n1,F,0,0\n5,M,1,0\n1,M,0,1\n5,F,0,0\n2,M,0,0\n5,M,0,0\n3,F,0,0\n1,F,0,0\n5,F,0,1\n0,M,0,0\n2,F,0,0\n0,F,0,0\n4,M,0,0\n5,M,0,0\n3,M,0,0\n0,M,0,1\n3,F,0,1\n1,F,1,0\n0,M,0,0\n3,F,0,0\n4,F,1,1\n1,F,0,1\n0,F,0,1\n4,F,0,0\n1,F,0,0\n5,M,1,0\n3,F,0,0\n5,M,0,0\n1,F,0,0\n4,F,0,0\n2,F,0,0\n3,M,0,0\n0,F,0,0\n0,M,0,0\n5,M,0,1\n4,F,0,0\n0,M,0,0\n4,M,0,0\n0,M,0,0\n0,M,0,0\n3,M,0,0\n2,M,0,0\n1,M,0,0\n4,M,0,0\n1,F,0,0\n2,M,0,0\n1,F,0,0\n2,F,0,0\n3,F,0,0\n2,F,0,0\n5,M,0,0\n0,M,0,0\n0,F,0,0\n5,M,0,0\n4,M,0,0\n0,M,0,0\n2,M,0,0\n1,F,1,0\n2,M,0,0\n4,M,1,0\n0,F,1,0\n1,F,0,0\n4,M,0,0\n0,M,0,1\n5,F,0,0\n2,F,0,0\n4,F,0,0\n1,M,0,0\n2,M,0,0\n1,F,0,1\n3,F,0,0\n2,M,0,0\n3,M,1,0\n0,F,0,0\n3,M,0,0\n4,M,0,1\n5,M,0,0\n4,F,0,0\n1,F,1,0\n0,F,0,0\n1,F,0,0\n2,M,0,0\n4,F,0,0\n0,M,0,0\n4,M,0,0\n1,M,0,0\n0,M,0,0\n5,M,0,0\n4,F,0,0\n2,M,0,0\n5,F,1,0\n2,F,0,0\n1,F,0,0\n1,M,0,0\n4,F,0,0\n5,F,0,0\n2,F,0,0\n5,M,0,0\n5,M,0,0\n5,F,0,0\n1,F,0,0\n4,F,0,0\n3,M,0,0\n2,F,1,0\n2,F,0,0\n4,M,0,0\n1,M,0,0\n0,M,0,0\n2,M,0,0\n2,F,0,0\n4,F,1,0\n0,M,0,0\n0,F,0,0\n3,F,0,0\n4,M,0,0\n3,M,0,0\n3,F,0,0\n4,M,1,0\n1,M,0,0\n5,M,0,0\n3,F,0,0\n5,M,0,0\n5,F,0,1\n1,F,0,0\n0,F,0,0\n0,F,0,0\n4,F,0,0\n5,M,0,0\n4,M,1,0\n4,M,1,0\n5,F,0,0\n3,F,0,1\n3,M,0,0\n3,M,0,0\n4,M,0,0\n3,F,0,0\n3,F,0,0\n4,F,0,0\n3,F,0,0\n2,F,1,0\n1,F,0,0\n3,M,1,0\n3,F,0,0\n0,F,0,1\n1,M,0,0\n1,F,1,1\n1,F,0,0\n1,F,1,0\n4,M,0,0\n2,M,0,0\n3,F,0,0\n1,F,0,0\n5,M,0,0\n2,M,0,0\n1,M,1,0\n2,F,0,1\n3,M,0,0\n2,F,0,0\n3,F,0,0\n5,M,0,0\n5,M,0,0\n4,M,0,0\n2,M,0,0\n2,F,0,0\n2,M,0,0\n0,F,0,0\n5,F,0,0\n3,F,0,0\n0,M,0,0\n5,F,1,0\n5,M,1,0\n2,M,1,0\n0,F,0,0\n3,M,1,0\n1,M,0,0\n5,F,0,0\n2,M,0,0\n5,F,0,0\n0,F,0,0\n3,M,0,0\n3,M,0,0\n0,M,0,0\n2,F,1,0\n0,F,0,0\n3,M,1,0\n1,M,0,0\n1,M,1,0\n2,F,0,0\n0,M,0,0\n2,M,0,0\n2,F,0,0\n0,M,0,0\n2,M,0,0\n1,M,0,0\n1,M,0,0\n0,F,0,0\n1,F,0,0\n0,M,0,0\n5,M,0,0\n5,F,1,0\n0,M,1,0\n1,F,0,0\n3,F,0,0\n4,M,0,1\n2,F,0,0\n2,M,0,0\n5,M,0,0\n4,F,0,0\n1,F,1,0\n5,M,0,0\n0,M,0,0\n1,M,0,1\n4,F,1,0\n2,M,0,0\n1,M,0,0\n0,F,0,0\n5,F,0,0\n1,M,0,0\n0,M,0,0\n0,M,0,0\n2,F,0,0\n0,F,0,0\n1,M,0,1\n1,M,0,0\n0,F,0,0\n5,M,0,0\n5,M,0,0\n1,M,0,0\n3,M,0,0\n3,M,0,0\n3,F,0,0\n1,F,0,0\n1,M,0,0\n4,M,0,0\n1,M,1,0\n5,F,0,0\n0,F,0,0\n2,F,0,0\n0,M,0,0\n3,F,1,0\n2,M,0,0\n4,F,0,0\n4,F,0,0\n5,F,1,0\n0,F,0,0\n3,F,0,0\n2,M,0,0\n3,F,0,0\n5,M,1,0\n0,F,0,0\n3,F,0,0\n3,F,1,0\n5,F,0,0\n1,M,0,0\n5,F,0,1\n2,F,0,0\n4,F,1,0\n3,M,0,0\n1,F,0,0\n2,F,0,0\n5,F,0,1\n0,M,0,0\n5,F,0,0\n2,F,0,0\n1,M,0,0\n1,F,1,0\n1,F,0,0\n4,F,0,0\n3,F,0,0\n1,F,0,0\n1,F,0,0\n4,M,1,0\n4,F,0,0\n4,M,0,0\n1,F,0,0\n1,M,0,1\n2,F,0,0\n4,F,1,0\n1,F,0,0\n1,F,0,0\n0,F,0,0\n',
             room_file: '9\n9\n8\n9\n11\n12\n10\n9\n8\n10\n13\n10\n10\n9\n10\n10\n9\n11\n11\n10\n9\n9\n10\n10\n10\n10\n9\n10\n10\n9\n10\n',
@@ -185,7 +185,7 @@ const DataForm = (): any => {
                     nextStep={nextStep}
                     prevStep={prevStep}
                     helpTexts={helpTexts}
-                    handleSliderChange={handleSliderChange}
+                    handlePackedSetsChange={handlePackedSetsChange}
                     values={values}
                 />
             );

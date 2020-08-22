@@ -16,14 +16,11 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const SelectField = (props: any) => {
     // const {name, label, value, onChange, option} = props;
-    const { maxGrade, numRooms } = props;
+    const { gradeIndex, setIndex, values, handlePackedSetsChange } = props;
     const classes = useStyles();
     const [age, setAge] = React.useState<string | number>('');
     const [open, setOpen] = React.useState(false);
 
-    const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-        setAge(event.target.value as number);
-    };
 
     const handleClose = () => {
         setOpen(false);
@@ -35,21 +32,19 @@ const SelectField = (props: any) => {
 
     return (
         <FormControl className={classes.formControl}>
-            <InputLabel id="demo-controlled-open-select-label">Age</InputLabel>
+            <InputLabel># classrooms</InputLabel>
             <Select
-                labelId="demo-controlled-open-select-label"
-                id="demo-controlled-open-select"
                 open={open}
                 onClose={handleClose}
                 onOpen={handleOpen}
                 value={age}
-                onChange={handleChange}
+                onChange={(e:any) => handlePackedSetsChange(e, setIndex, gradeIndex)}
                 >
                 <MenuItem value={100}>
-                    <em>None</em>
+                    <em>No constraint</em>
                 </MenuItem>
                 {
-                    [...Array(4)].map((x: any, i: any) => {
+                    [...Array(21)].map((x: any, i: any) => {
                         console.log(i);
                         return (<MenuItem key={i} value={i}>{i}</MenuItem>);
                     })

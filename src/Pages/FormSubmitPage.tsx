@@ -5,7 +5,7 @@ import Controls from '../Components/Controls/Controls';
 const FormSubmitPage = (props: any) => {
     const { handleSubmit, prevStep, handleInputChange, values, children, ...other } = props;
     const {
-        fullName, email, numBlendedLearning, numDays, numRooms, 
+        fullName, email, numBlendedLearning, numDays, numRooms, packedSpecialSets,
         numSetsSameDay, numPairsDiffDay, numSpecialSets, specialSets, files,
     } = values;
 
@@ -74,6 +74,13 @@ const FormSubmitPage = (props: any) => {
                     <ListItemText 
                         primary="Fraction of special group in each classroom"
                         secondary={specialSets.toString()}
+                    />
+                </ListItem>
+                <Divider component="li" />
+                <ListItem>
+                    <ListItemText 
+                        primary="Packed special sets"
+                        secondary={packedSpecialSets.toString()}
                     />
                 </ListItem>
                 <Divider component="li" />
