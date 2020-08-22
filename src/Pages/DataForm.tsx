@@ -15,7 +15,7 @@ const initialFieldValues = {
     fullName: '',
     email: '',
     numBlendedLearning: 1,
-    maxGrade: 5,
+    maxGrade: 1,
     numSchedules: 1,
     numRooms: 1,
     numDays: 1,
@@ -44,6 +44,7 @@ const DataForm = (): any => {
         numBlendedLearning: 'Please enter a positive, whole number for the number of students.',
         numDays: 'Please enter a positive, whole number for the number of daily schedules.',
         numRooms: 'Please enter a positive, whole number for the number of classrooms available every day.',
+        maxGrade: 'Please enter the number of grades in your school as a positive integer.',
         numSetsSameDay: 'Please enter the number of groups that need to be scheduled on the same day. Enter 0 if there are none.',
         numPairsDiffDay: 'Please enter the number of pairs that need to be scheduled on different days. Enter 0 if there are none.',
         numSpecialSets: 'Please enter the number of special sets, 0 if there are none.',
@@ -94,9 +95,9 @@ const DataForm = (): any => {
         window.alert('validated response...');
         // if (validate()) {
         const postUrl = 'https://lqi0rcs9b1.execute-api.us-east-1.amazonaws.com/prod/';
-        // const postUrl = 'https://scheduler.schedyool.com'
         const payload = {
-            email: values.email,
+            email: 'calebaren@gmail.com',
+            timelimit: 60,
             num_students: values.numBlendedLearning,
             num_rooms: values.numRooms,
             num_days: values.numDays,
@@ -104,9 +105,17 @@ const DataForm = (): any => {
             num_same_day_sets: values.numSetsSameDay,
             num_diff_day_pairs: values.numPairsDiffDay,
             num_special_sets: values.numSpecialSets,
-            num_rooms_to_be_packed_into: [[1, 1, 2, 2, 1, 2], [3, 2, 3, 2, 2, 3], [2, 2, 2, 2, 2, 2]],
-            fraction_for_special_set: [0.4, 0.3, 0.4]
-        };
+            // num_rooms_to_be_packed_into: [[1, 1, 2, 2, 1, 2], [2, 2, 2, 2, 2, 2]],
+            // num_rooms_to_be_packed_into: [[], ...values.packedSpecialSets],
+            // fraction_for_special_set: [0, ...values.specialSets],
+            num_rooms_to_be_packed_into: [[1, 1, 2, 2, 1, 2], [2, 2, 2, 2, 2, 2]],
+            fraction_for_special_set: [1, 0.4],
+            diff_file: '51, 86\n93, 71\n513, 511\n513, 423\n1, 437\n87, 238\n',
+            main_file: '1,M,0,1\n4,F,0,1\n1,M,1,0\n3,F,0,0\n0,M,0,0\n1,M,0,0\n3,F,1,0\n1,M,0,0\n1,M,0,0\n4,F,0,0\n4,F,1,0\n5,F,1,0\n3,M,0,0\n3,F,0,0\n1,F,0,0\n2,M,0,1\n5,F,0,0\n2,F,0,0\n3,F,1,0\n5,F,0,0\n2,F,0,0\n4,M,0,0\n5,F,0,0\n1,F,1,0\n0,F,0,0\n5,M,1,0\n2,F,1,0\n0,M,1,0\n1,M,1,0\n0,M,0,0\n3,M,0,0\n2,F,0,0\n5,M,0,1\n0,F,0,0\n0,M,0,0\n2,F,0,0\n4,M,0,0\n2,M,0,0\n2,M,0,0\n2,M,1,0\n3,M,0,1\n1,F,0,0\n4,F,0,0\n5,F,0,0\n2,F,0,0\n1,F,0,0\n3,F,0,0\n2,F,0,0\n3,M,0,0\n3,M,0,0\n0,F,1,0\n3,F,1,0\n2,F,0,0\n5,F,0,0\n2,F,0,0\n1,M,0,0\n2,F,1,0\n0,F,0,0\n1,M,1,0\n0,M,0,1\n2,F,0,0\n2,F,0,0\n3,M,0,0\n1,F,0,0\n2,M,0,0\n5,M,0,0\n4,M,0,0\n5,M,0,0\n3,M,1,0\n1,M,0,0\n3,F,0,0\n5,F,0,0\n0,M,0,0\n2,M,1,0\n4,M,0,0\n0,F,0,0\n0,F,0,0\n3,M,0,1\n4,M,0,0\n5,F,0,0\n4,M,0,0\n3,F,0,0\n4,F,0,0\n1,F,0,0\n3,M,0,0\n0,M,0,0\n1,M,0,0\n2,M,0,1\n3,F,0,0\n5,F,0,0\n3,F,0,0\n1,F,0,0\n4,M,1,0\n3,M,0,0\n0,M,0,0\n2,M,0,1\n4,M,1,0\n4,M,0,0\n5,F,0,0\n5,F,0,0\n4,F,1,0\n2,M,1,0\n0,F,0,0\n4,M,0,0\n3,F,0,0\n0,F,0,0\n3,F,0,1\n0,M,0,0\n4,F,0,0\n5,M,0,0\n3,F,0,0\n2,M,0,0\n4,F,0,0\n1,M,0,1\n1,M,0,0\n1,F,0,0\n3,M,0,0\n5,F,0,0\n1,F,0,0\n5,M,0,0\n0,M,0,0\n3,M,1,0\n0,M,0,0\n5,F,0,0\n0,M,0,0\n2,M,0,0\n3,F,0,0\n5,M,0,0\n1,M,0,0\n4,M,0,0\n2,F,0,0\n0,M,0,0\n5,M,1,0\n2,M,0,0\n0,M,0,1\n1,M,0,0\n0,F,0,0\n2,F,0,0\n1,F,1,0\n4,F,0,0\n0,M,0,0\n2,F,0,0\n0,F,0,0\n3,M,0,0\n4,F,0,0\n1,F,0,0\n1,M,0,0\n3,F,1,0\n5,M,0,0\n5,F,0,0\n4,M,0,0\n4,M,0,0\n0,F,0,0\n0,M,0,0\n3,F,0,0\n3,M,0,0\n1,M,0,0\n0,M,0,0\n2,M,0,0\n1,F,0,0\n2,M,0,0\n2,F,1,1\n4,F,0,0\n1,F,0,1\n2,M,1,0\n3,F,0,0\n3,M,0,0\n5,M,0,0\n4,M,0,0\n4,F,0,0\n5,M,0,0\n1,F,0,0\n5,F,0,0\n1,F,0,0\n0,F,0,1\n4,M,0,0\n3,M,0,0\n5,F,0,0\n3,M,1,0\n1,F,0,0\n1,F,0,0\n0,F,0,0\n5,F,0,0\n1,M,0,0\n3,M,0,0\n0,M,0,0\n1,F,0,0\n1,F,0,0\n1,M,0,0\n4,F,0,0\n1,F,0,0\n1,M,0,0\n1,M,0,0\n5,F,0,1\n0,F,0,0\n3,M,0,0\n3,M,1,0\n5,M,0,1\n0,F,0,0\n3,M,0,0\n4,M,0,0\n5,M,0,0\n3,M,0,0\n3,M,0,0\n2,M,0,0\n0,F,0,0\n1,F,0,0\n1,M,0,0\n4,M,1,0\n2,F,0,0\n5,M,0,0\n2,M,0,0\n4,M,0,0\n5,M,0,0\n3,M,0,0\n5,F,0,0\n4,F,0,0\n1,F,0,0\n1,M,0,0\n0,M,0,0\n0,M,1,0\n4,M,0,0\n1,M,1,1\n2,M,1,0\n0,M,0,0\n4,M,1,0\n1,F,0,0\n0,M,0,0\n1,F,1,0\n4,M,1,1\n0,F,0,0\n2,F,0,0\n5,M,0,0\n5,M,0,1\n4,M,0,0\n0,F,0,0\n5,M,1,0\n1,F,0,0\n0,M,0,0\n2,M,0,0\n0,F,0,0\n1,F,1,0\n5,M,0,0\n4,F,0,0\n0,M,0,0\n4,F,0,0\n2,M,0,0\n4,M,0,0\n2,M,0,0\n2,M,0,0\n4,F,0,0\n1,M,0,0\n2,M,0,0\n5,F,0,1\n5,M,0,0\n2,M,0,1\n0,M,0,0\n4,M,1,0\n2,F,0,0\n1,F,0,0\n4,F,0,0\n2,M,0,0\n5,M,0,0\n4,F,0,0\n0,M,0,0\n5,M,0,0\n1,F,0,0\n4,F,0,0\n1,M,0,0\n5,F,0,0\n3,M,0,0\n3,M,0,0\n2,F,0,0\n0,M,0,0\n1,F,0,0\n0,F,0,0\n5,F,0,0\n5,M,1,0\n3,M,0,0\n5,M,0,0\n1,F,0,1\n2,M,0,0\n1,M,0,0\n0,F,0,0\n3,F,0,0\n2,M,0,0\n4,M,0,0\n1,M,1,0\n0,M,0,0\n5,M,0,0\n5,F,0,0\n1,F,0,0\n2,M,0,0\n3,F,0,0\n4,M,0,0\n3,F,1,0\n3,M,0,0\n4,F,0,0\n5,F,0,0\n0,F,0,0\n4,F,0,0\n4,F,0,0\n4,F,0,0\n0,F,0,0\n3,M,0,0\n5,M,0,0\n0,M,0,0\n0,M,1,0\n5,M,0,0\n3,M,0,0\n0,F,0,0\n1,M,1,0\n0,F,0,0\n3,F,0,0\n2,F,0,0\n5,M,1,0\n0,M,0,1\n2,F,0,0\n5,M,0,1\n1,F,0,0\n5,M,1,0\n1,M,0,1\n5,F,0,0\n2,M,0,0\n5,M,0,0\n3,F,0,0\n1,F,0,0\n5,F,0,1\n0,M,0,0\n2,F,0,0\n0,F,0,0\n4,M,0,0\n5,M,0,0\n3,M,0,0\n0,M,0,1\n3,F,0,1\n1,F,1,0\n0,M,0,0\n3,F,0,0\n4,F,1,1\n1,F,0,1\n0,F,0,1\n4,F,0,0\n1,F,0,0\n5,M,1,0\n3,F,0,0\n5,M,0,0\n1,F,0,0\n4,F,0,0\n2,F,0,0\n3,M,0,0\n0,F,0,0\n0,M,0,0\n5,M,0,1\n4,F,0,0\n0,M,0,0\n4,M,0,0\n0,M,0,0\n0,M,0,0\n3,M,0,0\n2,M,0,0\n1,M,0,0\n4,M,0,0\n1,F,0,0\n2,M,0,0\n1,F,0,0\n2,F,0,0\n3,F,0,0\n2,F,0,0\n5,M,0,0\n0,M,0,0\n0,F,0,0\n5,M,0,0\n4,M,0,0\n0,M,0,0\n2,M,0,0\n1,F,1,0\n2,M,0,0\n4,M,1,0\n0,F,1,0\n1,F,0,0\n4,M,0,0\n0,M,0,1\n5,F,0,0\n2,F,0,0\n4,F,0,0\n1,M,0,0\n2,M,0,0\n1,F,0,1\n3,F,0,0\n2,M,0,0\n3,M,1,0\n0,F,0,0\n3,M,0,0\n4,M,0,1\n5,M,0,0\n4,F,0,0\n1,F,1,0\n0,F,0,0\n1,F,0,0\n2,M,0,0\n4,F,0,0\n0,M,0,0\n4,M,0,0\n1,M,0,0\n0,M,0,0\n5,M,0,0\n4,F,0,0\n2,M,0,0\n5,F,1,0\n2,F,0,0\n1,F,0,0\n1,M,0,0\n4,F,0,0\n5,F,0,0\n2,F,0,0\n5,M,0,0\n5,M,0,0\n5,F,0,0\n1,F,0,0\n4,F,0,0\n3,M,0,0\n2,F,1,0\n2,F,0,0\n4,M,0,0\n1,M,0,0\n0,M,0,0\n2,M,0,0\n2,F,0,0\n4,F,1,0\n0,M,0,0\n0,F,0,0\n3,F,0,0\n4,M,0,0\n3,M,0,0\n3,F,0,0\n4,M,1,0\n1,M,0,0\n5,M,0,0\n3,F,0,0\n5,M,0,0\n5,F,0,1\n1,F,0,0\n0,F,0,0\n0,F,0,0\n4,F,0,0\n5,M,0,0\n4,M,1,0\n4,M,1,0\n5,F,0,0\n3,F,0,1\n3,M,0,0\n3,M,0,0\n4,M,0,0\n3,F,0,0\n3,F,0,0\n4,F,0,0\n3,F,0,0\n2,F,1,0\n1,F,0,0\n3,M,1,0\n3,F,0,0\n0,F,0,1\n1,M,0,0\n1,F,1,1\n1,F,0,0\n1,F,1,0\n4,M,0,0\n2,M,0,0\n3,F,0,0\n1,F,0,0\n5,M,0,0\n2,M,0,0\n1,M,1,0\n2,F,0,1\n3,M,0,0\n2,F,0,0\n3,F,0,0\n5,M,0,0\n5,M,0,0\n4,M,0,0\n2,M,0,0\n2,F,0,0\n2,M,0,0\n0,F,0,0\n5,F,0,0\n3,F,0,0\n0,M,0,0\n5,F,1,0\n5,M,1,0\n2,M,1,0\n0,F,0,0\n3,M,1,0\n1,M,0,0\n5,F,0,0\n2,M,0,0\n5,F,0,0\n0,F,0,0\n3,M,0,0\n3,M,0,0\n0,M,0,0\n2,F,1,0\n0,F,0,0\n3,M,1,0\n1,M,0,0\n1,M,1,0\n2,F,0,0\n0,M,0,0\n2,M,0,0\n2,F,0,0\n0,M,0,0\n2,M,0,0\n1,M,0,0\n1,M,0,0\n0,F,0,0\n1,F,0,0\n0,M,0,0\n5,M,0,0\n5,F,1,0\n0,M,1,0\n1,F,0,0\n3,F,0,0\n4,M,0,1\n2,F,0,0\n2,M,0,0\n5,M,0,0\n4,F,0,0\n1,F,1,0\n5,M,0,0\n0,M,0,0\n1,M,0,1\n4,F,1,0\n2,M,0,0\n1,M,0,0\n0,F,0,0\n5,F,0,0\n1,M,0,0\n0,M,0,0\n0,M,0,0\n2,F,0,0\n0,F,0,0\n1,M,0,1\n1,M,0,0\n0,F,0,0\n5,M,0,0\n5,M,0,0\n1,M,0,0\n3,M,0,0\n3,M,0,0\n3,F,0,0\n1,F,0,0\n1,M,0,0\n4,M,0,0\n1,M,1,0\n5,F,0,0\n0,F,0,0\n2,F,0,0\n0,M,0,0\n3,F,1,0\n2,M,0,0\n4,F,0,0\n4,F,0,0\n5,F,1,0\n0,F,0,0\n3,F,0,0\n2,M,0,0\n3,F,0,0\n5,M,1,0\n0,F,0,0\n3,F,0,0\n3,F,1,0\n5,F,0,0\n1,M,0,0\n5,F,0,1\n2,F,0,0\n4,F,1,0\n3,M,0,0\n1,F,0,0\n2,F,0,0\n5,F,0,1\n0,M,0,0\n5,F,0,0\n2,F,0,0\n1,M,0,0\n1,F,1,0\n1,F,0,0\n4,F,0,0\n3,F,0,0\n1,F,0,0\n1,F,0,0\n4,M,1,0\n4,F,0,0\n4,M,0,0\n1,F,0,0\n1,M,0,1\n2,F,0,0\n4,F,1,0\n1,F,0,0\n1,F,0,0\n0,F,0,0\n',
+            room_file: '9\n9\n8\n9\n11\n12\n10\n9\n8\n10\n13\n10\n10\n9\n10\n10\n9\n11\n11\n10\n9\n9\n10\n10\n10\n10\n9\n10\n10\n9\n10\n',
+            same_file: '583, 3, 205, 18, 3\n3, 205, 417\n223, 221\n57, 52\n69, 431, 433, 418\n86, 185, 181\n1, 323, 347, 349\n',
+        }
+        console.log(payload);
 
         const requestOptions = {
             method: 'POST',
@@ -114,14 +123,14 @@ const DataForm = (): any => {
             body: JSON.stringify(payload),
         };
         fetch(postUrl, requestOptions)
-            .then(response => response.json())
+            .then(response => console.log(response.json()))
         // }
     };
 
     switch (values.step) {
         case 1:
             return (
-                <PagesList.PageOne 
+                <PagesList.PageOne
                     nextStep={nextStep}
                     handleInputChange={handleInputChange}
                     values={values}

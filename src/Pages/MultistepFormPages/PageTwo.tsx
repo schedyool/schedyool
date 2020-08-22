@@ -29,7 +29,7 @@ const PageTwo = (props: any) => {
             <Controls.Input
                 helpText={helpTexts.maxGrade}
                 label="Number of grades"
-                name="numBlendedLearning"
+                name="maxGrade"
                 value={values.maxGrade}
                 onInput={handleInputChange}
             />

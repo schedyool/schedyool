@@ -7,6 +7,7 @@ export const useForm = (initialFieldValues: any) => {
 
     const handleInputChange = (e: any) => {
         const { name, value } = e.target;
+        console.log(name, value);
         if ( parseInt(value) ) {
             if ( parseInt(value) >= 0) {
                 setValues({

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Controls from '../../Components/Controls/Controls';
 import FormPages from '../FormPages';
-import { Typography, Button } from '@material-ui/core';
+import { Typography, Button, Grid, TextField } from '@material-ui/core';
 
 
 const PageSix = (props: any) => {
@@ -12,14 +12,23 @@ const PageSix = (props: any) => {
             prevStep={prevStep}
             values={values}
         >
-            <Typography gutterBottom>
+            {/* <Typography gutterBottom>
                 Packing special sets.
-            </Typography>
+            </Typography> */}
             {
             values.specialSets.map((x: any, i: number) => {
                 return (
                     <div key={i}>
-                        {values.maxGrades}
+                        <Grid item xs={6}>
+                            <Typography>
+                                {i}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={6}>
+                            {[...Array(values.maxGrade)].map((y: any, j: number) => {
+                                return <Controls.SelectField key={j} maxGrade={values.maxGrades} />
+                            })}
+                        </Grid>
                     </div>
                 )
             })}
