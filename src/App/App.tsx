@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'fontsource-roboto';
-import SideMenu from '../components/SideMenu';
+import SideMenu from '../components/SideMenu'
 import Header from '../components/Header';
 import PageHeader from '../components/PageHeader';
 import { makeStyles, CssBaseline, createMuiTheme, ThemeProvider, IconButton } from '@material-ui/core';

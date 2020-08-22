@@ -19,8 +19,6 @@ const useStyle = makeStyles(theme => ({
             width: '0px'
         },
     },
-    '& .MuiSvgIcon-root': {
-    }
 }));
 
 const SideMenu = (): any => {
