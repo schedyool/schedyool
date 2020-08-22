@@ -3,6 +3,7 @@ import PageTwo from './MultistepFormPages/PageTwo';
 import PageThree from './MultistepFormPages/PageThree';
 import PageFour from './MultistepFormPages/PageFour';
 import PageFive from './MultistepFormPages/PageFive';
+import PageSix from './MultistepFormPages/PageSix';
 
 
 const PagesList = {
@@ -11,6 +12,7 @@ const PagesList = {
     PageThree,
     PageFour,
     PageFive,
+    PageSix,
 };
 
 export default PagesList;

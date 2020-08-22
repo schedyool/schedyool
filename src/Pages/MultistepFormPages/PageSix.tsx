@@ -4,7 +4,7 @@ import FormPages from '../FormPages';
 import { Typography } from '@material-ui/core';
 
 
-const PageFive = (props: any) => {
+const PageSix = (props: any) => {
     const { values, nextStep, prevStep, helpTexts, handleSliderChange } = props;
 
     return (
@@ -19,11 +19,7 @@ const PageFive = (props: any) => {
             {
             values.specialSets.map((x: any, i: number) => {
                 return (
-                    <Controls.SpecialSliders
-                        defaultValue={x}
-                        key={i}
-                        handleSliderChange={(e: any, value: any) => handleSliderChange(e,value,i)} 
-                    />
+                    <h1>{i}</h1>
                 );
             })}
             {/* <Controls.Input
@@ -37,4 +33,4 @@ const PageFive = (props: any) => {
     );
 };
 
-export default PageFive;
+export default PageSix;

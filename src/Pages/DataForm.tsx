@@ -21,6 +21,7 @@ const initialFieldValues = {
     numPairsDiffDay: 0,
     numSpecialSets: 0,
     specialSets: [],
+    packedSpecialSets: [[]],
     files: [],
 };
 
