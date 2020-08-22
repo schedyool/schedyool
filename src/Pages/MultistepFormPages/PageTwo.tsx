@@ -24,11 +24,21 @@ const PageTwo = (props: any) => {
                 onInput={handleInputChange}
             />
             <Typography variant="body2" paragraph>
+                How many distinct grades are represented? For instance, a K-5 elementary school has 6 distinct grades while a 9-12 high school has 4.
+            </Typography>
+            <Controls.Input
+                helpText={helpTexts.maxGrade}
+                label="Number of grades"
+                name="numBlendedLearning"
+                value={values.maxGrade}
+                onInput={handleInputChange}
+            />
+            <Typography variant="body2" paragraph>
                 Enter the number of daily attendance schedules you need. For instance, if your student body is split between a Monday-Tuesday-Wednesday and a Wednesday-Thursday-Friday schedule, this number would be <strong>2</strong>. For those attending in person 1/3 of the time, this number would be <strong>3</strong>.
             </Typography>
             <Controls.Input
                 helpText={helpTexts.numDays}
-                label="Number of Days"
+                label="Number of daily schedules"
                 name="numDays"
                 value={values.numDays}
                 onInput={handleInputChange}
@@ -38,7 +48,7 @@ const PageTwo = (props: any) => {
             </Typography>
             <Controls.Input
                 helpText={helpTexts.numRooms}
-                label="Number of Rooms"
+                label="Number of classrooms per day"
                 name="numRooms"
                 value={values.numRooms}
                 onInput={handleInputChange}

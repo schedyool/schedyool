@@ -14,8 +14,10 @@ const initialFieldValues = {
     step: 1,
     fullName: '',
     email: '',
-    numBlendedLearning: 0,
-    numSchedules: 0,
+    numBlendedLearning: 1,
+    maxGrade: 5,
+    numSchedules: 1,
+    numRooms: 1,
     numDays: 1,
     numSetsSameDay: 0,
     numPairsDiffDay: 0,
@@ -39,12 +41,12 @@ const DataForm = (): any => {
     } = useForm(initialFieldValues);
 
     const helpTexts = {
-        numBlendedLearning: 'Enter the number of students in the school who will participate in blended learning.  You will provide details about the students later, in csv (comma-separated-values) files.',
-        numDays: 'Please enter a positive number.',
-        numRooms: 'The number of classrooms available every day.',
-        numSetsSameDay: 'The code allows the user to specify sets of children who should attend in-person instruction on the same days. The sets can be arbitrarily large, but the larger the set is, the less likely the goal will be achieved. You need to enter the number of such sets, 0 if there are none. The actual sets themselves will be added later. Keep in mind that the optimizer may not succeed at satisfying all the constraints.',
-        numPairsDiffDay: 'You may also specify pairs of 2 students each who should be scheduled on different days. Enter the number of such pairs, 0 if there are none.',
-        numSpecialSets: 'Enter here the number of special sets, 0 if there are none.',
+        numBlendedLearning: 'Please enter a positive, whole number for the number of students.',
+        numDays: 'Please enter a positive, whole number for the number of daily schedules.',
+        numRooms: 'Please enter a positive, whole number for the number of classrooms available every day.',
+        numSetsSameDay: 'Please enter the number of groups that need to be scheduled on the same day. Enter 0 if there are none.',
+        numPairsDiffDay: 'Please enter the number of pairs that need to be scheduled on different days. Enter 0 if there are none.',
+        numSpecialSets: 'Please enter the number of special sets, 0 if there are none.',
     };
 
     // validate for names and emails
@@ -88,12 +90,13 @@ const DataForm = (): any => {
     const handleSubmit = (e: any) => {
         e.preventDefault();
         nextStep();
+        console.log(values);
         window.alert('validated response...');
         // if (validate()) {
         const postUrl = 'https://lqi0rcs9b1.execute-api.us-east-1.amazonaws.com/prod/';
         // const postUrl = 'https://scheduler.schedyool.com'
         const payload = {
-            email: "howard@cc.gatech.edu",
+            email: values.email,
             num_students: values.numBlendedLearning,
             num_rooms: values.numRooms,
             num_days: values.numDays,

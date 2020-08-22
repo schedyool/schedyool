@@ -6,9 +6,9 @@ const TempTooltip = withStyles((theme: Theme) => ({
     tooltip: {
         // backgroundColor: theme.palette.background.paper,
         // color: 'rgba(0, 0, 0, 0.87)',
-        maxWidth: 500,
-        fontSize: theme.typography.pxToRem(16),
-        border: '1px solid #dadde9',
+        maxWidth: 200,
+        fontSize: theme.typography.pxToRem(13),
+        // border: '1px solid #dadde9',
     }, 
 }))(Tooltip);
 
@@ -21,7 +21,7 @@ const StartIcon = (props: any) => {
             <TempTooltip 
                 arrow 
                 interactive
-                placement="right-start"
+                placement="left-end"
                 title={
                     <>
                         {/* <Typography color="inherit">

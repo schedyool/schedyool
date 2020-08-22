@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Controls from '../../Components/Controls/Controls';
 import FormPages from '../FormPages';
-import { Typography } from '@material-ui/core';
+import { Typography, Button } from '@material-ui/core';
 
 
 const PageSix = (props: any) => {
     const { values, nextStep, prevStep, helpTexts, handleSliderChange } = props;
-
     return (
         <FormPages.MiddlePage
             nextStep={nextStep}
@@ -14,13 +13,15 @@ const PageSix = (props: any) => {
             values={values}
         >
             <Typography gutterBottom>
-                Custom marks
+                Packing special sets.
             </Typography>
             {
             values.specialSets.map((x: any, i: number) => {
                 return (
-                    <h1>{i}</h1>
-                );
+                    <div key={i}>
+                        {values.maxGrades}
+                    </div>
+                )
             })}
             {/* <Controls.Input
                 helpText={helpTexts.numSpecialSets}

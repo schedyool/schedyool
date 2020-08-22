@@ -28,20 +28,20 @@ const Input = (props: any): JSX.Element => {
     return (
         <Grid item xs={breakpoint || 12}>
             <div className={classes.root}>
-            <TextField
-                fullWidth={true}
-                InputProps={{
-                    startAdornment: (<StartIcon helpText={helpText} icon={icon} />),
-                }}
-                variant={variant || "outlined"}
-                type={type || "number"}
-                label={label}
-                name={name}
-                value={value}
-                onInput={onInput}
-                {...(error && {error: true, helperText: error})}
-                {...other}
-            />
+                <TextField
+                    fullWidth={true}
+                    InputProps={{
+                        startAdornment: (<StartIcon helpText={helpText} icon={icon} />),
+                    }}
+                    variant={variant || "outlined"}
+                    type={type || "number"}
+                    label={label}
+                    name={name}
+                    value={value}
+                    onInput={onInput}
+                    {...(error && {error: true, helperText: error})}
+                    {...other}
+                />
             </div>
         </Grid>
     );
