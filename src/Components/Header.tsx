@@ -221,9 +221,11 @@ const Header = (props: any) => {
             >
               <MenuIcon />
             </IconButton>
-            <IconButton>
-                    <SchoolIcon />
-                </IconButton>
+            <Link to="/">
+              <IconButton>
+                <SchoolIcon />
+              </IconButton>
+            </Link>
             <Typography variant="h6" noWrap>
               {title}
             </Typography>

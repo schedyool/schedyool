@@ -21,11 +21,6 @@ const Page = (props: any): any => {
                 <PageHeader 
                     title={title}
                     subtitle={subtitle}
-                    // icon={
-                    //     <IconButton>
-                    //         <SchoolIcon fontSize="large"/>
-                    //     </IconButton>
-                    // }
                 />
                 {children}
             </Paper>

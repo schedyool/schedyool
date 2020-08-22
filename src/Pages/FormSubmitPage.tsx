@@ -5,8 +5,8 @@ import Controls from '../Components/Controls/Controls';
 const FormSubmitPage = (props: any) => {
     const { handleSubmit, prevStep, handleInputChange, values, children, ...other } = props;
     const {
-        fullName, email, numBlendedLearning, numSchedules,
-        numRooms, numSetsSameDay, numPairsDiffDay, numSpecialSets,
+        fullName, email, numBlendedLearning, numDays, numRooms, 
+        numSetsSameDay, numPairsDiffDay, numSpecialSets, files,
     } = values;
 
     const myPrevious = (e: any) => {
@@ -42,7 +42,7 @@ const FormSubmitPage = (props: any) => {
                 <ListItem>
                     <ListItemText 
                         primary="Number of schedules"
-                        secondary={numSchedules}
+                        secondary={numDays}
                     />
                 </ListItem>
                 <ListItem>
@@ -68,6 +68,13 @@ const FormSubmitPage = (props: any) => {
                         primary="Number of special sets"
                         secondary={numSpecialSets}
                     />
+                </ListItem>
+                <Divider component="li" />
+                <ListItem>
+                    <ListItemText 
+                        primary="Files"
+                    />
+                    {files.map((file: File) => (<ListItemText secondary={file.name} />))}
                 </ListItem>
             </List>
             <Divider />

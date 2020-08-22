@@ -21,6 +21,7 @@ const StartIcon = (props: any) => {
             <TempTooltip 
                 arrow 
                 interactive
+                placement="right-start"
                 title={
                     <>
                         {/* <Typography color="inherit">

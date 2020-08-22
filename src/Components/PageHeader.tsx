@@ -8,6 +8,8 @@ const useStyles = makeStyles(theme => ({
     },
     pageHeader: {
         padding: theme.spacing(4),
+        textAlign: 'center',
+        justifyContent: 'center',
         display: 'flex',
         marginBottom: theme.spacing(2),
     },
@@ -19,7 +21,7 @@ const useStyles = makeStyles(theme => ({
         },
     },
     pageTitle: {
-        paddingLeft: theme.spacing(4),
+        // padding: theme.spacing(4),
         '& .MuiTypography-subtitle2': {
             opacity: '0.6',
         },

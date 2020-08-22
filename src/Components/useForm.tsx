@@ -7,10 +7,7 @@ export const useForm = (initialFieldValues: any) => {
 
     const handleInputChange = (e: any) => {
         const { name, value } = e.target;
-        console.log(name);
-        console.log(value);
-        console.log(typeof value);
-        if ( typeof value != 'number' || value >= 0) {
+        if ( (typeof value == typeof 0 && value >= 0) || typeof value != typeof 0) {
             setValues({
                 ...values,
                 [name]: value
@@ -18,12 +15,55 @@ export const useForm = (initialFieldValues: any) => {
         }
     };
 
+    const handleFileAdd = (file: any) => {
+        setValues({
+            ...values,
+            files: values.files.concat(file)
+        });
+    };
+
+    const handleFileDelete = (file: any) => {
+        const allFiles = [...values.files];
+        allFiles.splice(file, 1);
+        setValues({
+            ...values,
+            files: allFiles,
+        });
+    };
+
+    const handleSpecialSetChange = (e: any) => {
+        const { value } = e.target;
+        const newSpecialSets = parseInt(value >= 0 ? value : 0)
+        // if new special set is greater, then append 1s.
+        if (newSpecialSets > values.specialSets.length) {
+            setValues({
+                ...values,
+                numSpecialSets: newSpecialSets,
+                specialSets: values.specialSets.concat(
+                    Array.from(Array(newSpecialSets-values.numSpecialSets), () => 1)
+                )
+            });
+        } 
+        // if new special set value is lesser, then slice.
+        else {
+            setValues({
+                ...values,
+                numSpecialSets: newSpecialSets,
+                specialSets: values.specialSets.slice(0, newSpecialSets)
+            })
+        }
+        
+    }
+
     return {
         values, 
         setValues, 
+        handleFileAdd,
+        handleFileDelete,
         errors,
         setErrors,
-        handleInputChange
+        handleInputChange,
+        handleSpecialSetChange
     };
 };
 
