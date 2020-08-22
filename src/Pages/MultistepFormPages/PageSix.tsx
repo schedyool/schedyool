@@ -26,15 +26,16 @@ const PageSix = (props: any) => {
                 values.specialSets.map((x: any, i: number) => {
                     return (
                         <div key={i}>
-                            <Grid item xs={6}>
+                            <Grid item xs={12}>
                                 <Typography>
                                     {i}
                                 </Typography>
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item>
                                 {[...Array(values.maxGrade)].map((y: any, j: number) => {
                                     return (
                                         <Controls.SelectField
+                                            key={j}
                                             setIndex = {i}
                                             gradeIndex = {j}
                                             maxGrade={values.maxGrades}

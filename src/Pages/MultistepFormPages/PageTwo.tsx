@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core';
 
 
 const PageTwo = (props: any) => {
-    const { values, nextStep, prevStep, helpTexts, handleInputChange } = props;
+    const { values, nextStep, prevStep, helpTexts, handleInputChange, handleGradeChange } = props;
     return (
         <FormPages.MiddlePage
             nextStep={nextStep}
@@ -31,7 +31,7 @@ const PageTwo = (props: any) => {
                 label="Number of grades"
                 name="maxGrade"
                 value={values.maxGrade}
-                onInput={handleInputChange}
+                onInput={handleGradeChange}
             />
             <Typography variant="body2" paragraph>
                 Enter the number of daily attendance schedules you need. For instance, if your student body is split between a Monday-Tuesday-Wednesday and a Wednesday-Thursday-Friday schedule, this number would be <strong>2</strong>. For those attending in person 1/3 of the time, this number would be <strong>3</strong>.

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FormControl, InputLabel, Select, MenuItem, makeStyles, Theme, createStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     formControl: {
       margin: theme.spacing(1),
-    //   minWidth: 120,
+      minWidth: 100,
     },
   }),
 );
@@ -18,8 +18,7 @@ const SelectField = (props: any) => {
     // const {name, label, value, onChange, option} = props;
     const { gradeIndex, setIndex, values, handlePackedSetsChange } = props;
     const classes = useStyles();
-    const [age, setAge] = React.useState<string | number>('');
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
 
     const handleClose = () => {
@@ -37,15 +36,14 @@ const SelectField = (props: any) => {
                 open={open}
                 onClose={handleClose}
                 onOpen={handleOpen}
-                value={age}
+                value={values.packedSpecialSets[setIndex][gradeIndex]}
                 onChange={(e:any) => handlePackedSetsChange(e, setIndex, gradeIndex)}
                 >
                 <MenuItem value={100}>
-                    <em>No constraint</em>
+                    <em>None</em>
                 </MenuItem>
                 {
                     [...Array(21)].map((x: any, i: any) => {
-                        console.log(i);
                         return (<MenuItem key={i} value={i}>{i}</MenuItem>);
                     })
                 }

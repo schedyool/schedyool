@@ -7,7 +7,6 @@ export const useForm = (initialFieldValues: any) => {
 
     const handleInputChange = (e: any) => {
         const { name, value } = e.target;
-        console.log(name, value);
         if ( parseInt(value) ) {
             if ( parseInt(value) >= 0) {
                 setValues({
@@ -22,6 +21,34 @@ export const useForm = (initialFieldValues: any) => {
             })
         }
     };
+
+    const handleGradeChange = (e: any) => {
+        const { value } = e.target;
+        console.log(parseInt(value))
+        if ( parseInt(value) ) {
+            if( parseInt(value) >= 1) {
+                console.log("value is > than 1:", parseInt(value))
+                setValues({
+                    ...values,
+                    maxGrade: parseInt(value),
+                    packedSpecialSets: 
+                        Array.from(Array(values.numSpecialSets), () => {
+                            return Array.from(Array(values.maxGrade), () => 100)
+                        })
+                })
+            }
+        } else {
+            setValues({
+                ...values,
+                maxGrade: 1,
+                packedSpecialSets: 
+                    Array.from(Array(values.numSpecialSets), () => {
+                        return Array.from(Array(1), () => 100)
+                    }),
+            })
+        }
+        console.log(values.packedSpecialSets);
+    }
 
     const handleFileAdd = (file: any) => {
         setValues({
@@ -54,8 +81,10 @@ export const useForm = (initialFieldValues: any) => {
                             Array.from(Array(newSpecialSets-values.numSpecialSets), () => 1)
                         ),
                         packedSpecialSets: values.packedSpecialSets.concat(
-                            Array(newSpecialSets-values.numSpecialSets).fill(Array(values.maxGrade).fill(100))
-                        )
+                            Array.from(Array(newSpecialSets-values.numSpecialSets), () => {
+                                return Array.from(Array(values.maxGrade), () => 100)
+                            })
+                        ),
                     })
                 } else {
                     setValues({
@@ -86,7 +115,9 @@ export const useForm = (initialFieldValues: any) => {
 
     const handlePackedSetsChange = (e: any, set: any, grade: any) => {
         const oldPackedSet = values.packedSpecialSets;
+        console.log(oldPackedSet);
         oldPackedSet[set][grade] = e.target.value;
+        console.log(oldPackedSet[set]);
         setValues({
             ...values,
             packedSpecialSets: oldPackedSet,
@@ -104,6 +135,7 @@ export const useForm = (initialFieldValues: any) => {
         handleSpecialSetChange,
         handleSliderChange,
         handlePackedSetsChange,
+        handleGradeChange,
     };
 };
 
