@@ -96,7 +96,6 @@ const DataForm = (): any => {
     const handleSubmit = (e: any) => {
         e.preventDefault();
         nextStep();
-        window.alert('validated response...');
 
         const postUrl = 'https://lqi0rcs9b1.execute-api.us-east-1.amazonaws.com/prod/';
         const payload = {
@@ -113,14 +112,14 @@ const DataForm = (): any => {
             // num_rooms_to_be_packed_into: [[], ...values.packedSpecialSets],
             fraction_for_special_set: values.specialSets,
             num_rooms_to_be_packed_into: values.packedSpecialSets,
-            diff_file: values.diffFile[0][0] ? values.diffFile[0][0]: '',
+            diff_file: values.diffFile[0] ? values.diffFile[0][0]: '',
             // diff_file: '51, 86\n93, 71\n513, 511\n513, 423\n1, 437\n87, 238\n',
             // main_file: '1,M,0,1\n4,F,0,1\n1,M,1,0\n3,F,0,0\n0,M,0,0\n1,M,0,0\n3,F,1,0\n1,M,0,0\n1,M,0,0\n4,F,0,0\n4,F,1,0\n5,F,1,0\n3,M,0,0\n3,F,0,0\n1,F,0,0\n2,M,0,1\n5,F,0,0\n2,F,0,0\n3,F,1,0\n5,F,0,0\n2,F,0,0\n4,M,0,0\n5,F,0,0\n1,F,1,0\n0,F,0,0\n5,M,1,0\n2,F,1,0\n0,M,1,0\n1,M,1,0\n0,M,0,0\n3,M,0,0\n2,F,0,0\n5,M,0,1\n0,F,0,0\n0,M,0,0\n2,F,0,0\n4,M,0,0\n2,M,0,0\n2,M,0,0\n2,M,1,0\n3,M,0,1\n1,F,0,0\n4,F,0,0\n5,F,0,0\n2,F,0,0\n1,F,0,0\n3,F,0,0\n2,F,0,0\n3,M,0,0\n3,M,0,0\n0,F,1,0\n3,F,1,0\n2,F,0,0\n5,F,0,0\n2,F,0,0\n1,M,0,0\n2,F,1,0\n0,F,0,0\n1,M,1,0\n0,M,0,1\n2,F,0,0\n2,F,0,0\n3,M,0,0\n1,F,0,0\n2,M,0,0\n5,M,0,0\n4,M,0,0\n5,M,0,0\n3,M,1,0\n1,M,0,0\n3,F,0,0\n5,F,0,0\n0,M,0,0\n2,M,1,0\n4,M,0,0\n0,F,0,0\n0,F,0,0\n3,M,0,1\n4,M,0,0\n5,F,0,0\n4,M,0,0\n3,F,0,0\n4,F,0,0\n1,F,0,0\n3,M,0,0\n0,M,0,0\n1,M,0,0\n2,M,0,1\n3,F,0,0\n5,F,0,0\n3,F,0,0\n1,F,0,0\n4,M,1,0\n3,M,0,0\n0,M,0,0\n2,M,0,1\n4,M,1,0\n4,M,0,0\n5,F,0,0\n5,F,0,0\n4,F,1,0\n2,M,1,0\n0,F,0,0\n4,M,0,0\n3,F,0,0\n0,F,0,0\n3,F,0,1\n0,M,0,0\n4,F,0,0\n5,M,0,0\n3,F,0,0\n2,M,0,0\n4,F,0,0\n1,M,0,1\n1,M,0,0\n1,F,0,0\n3,M,0,0\n5,F,0,0\n1,F,0,0\n5,M,0,0\n0,M,0,0\n3,M,1,0\n0,M,0,0\n5,F,0,0\n0,M,0,0\n2,M,0,0\n3,F,0,0\n5,M,0,0\n1,M,0,0\n4,M,0,0\n2,F,0,0\n0,M,0,0\n5,M,1,0\n2,M,0,0\n0,M,0,1\n1,M,0,0\n0,F,0,0\n2,F,0,0\n1,F,1,0\n4,F,0,0\n0,M,0,0\n2,F,0,0\n0,F,0,0\n3,M,0,0\n4,F,0,0\n1,F,0,0\n1,M,0,0\n3,F,1,0\n5,M,0,0\n5,F,0,0\n4,M,0,0\n4,M,0,0\n0,F,0,0\n0,M,0,0\n3,F,0,0\n3,M,0,0\n1,M,0,0\n0,M,0,0\n2,M,0,0\n1,F,0,0\n2,M,0,0\n2,F,1,1\n4,F,0,0\n1,F,0,1\n2,M,1,0\n3,F,0,0\n3,M,0,0\n5,M,0,0\n4,M,0,0\n4,F,0,0\n5,M,0,0\n1,F,0,0\n5,F,0,0\n1,F,0,0\n0,F,0,1\n4,M,0,0\n3,M,0,0\n5,F,0,0\n3,M,1,0\n1,F,0,0\n1,F,0,0\n0,F,0,0\n5,F,0,0\n1,M,0,0\n3,M,0,0\n0,M,0,0\n1,F,0,0\n1,F,0,0\n1,M,0,0\n4,F,0,0\n1,F,0,0\n1,M,0,0\n1,M,0,0\n5,F,0,1\n0,F,0,0\n3,M,0,0\n3,M,1,0\n5,M,0,1\n0,F,0,0\n3,M,0,0\n4,M,0,0\n5,M,0,0\n3,M,0,0\n3,M,0,0\n2,M,0,0\n0,F,0,0\n1,F,0,0\n1,M,0,0\n4,M,1,0\n2,F,0,0\n5,M,0,0\n2,M,0,0\n4,M,0,0\n5,M,0,0\n3,M,0,0\n5,F,0,0\n4,F,0,0\n1,F,0,0\n1,M,0,0\n0,M,0,0\n0,M,1,0\n4,M,0,0\n1,M,1,1\n2,M,1,0\n0,M,0,0\n4,M,1,0\n1,F,0,0\n0,M,0,0\n1,F,1,0\n4,M,1,1\n0,F,0,0\n2,F,0,0\n5,M,0,0\n5,M,0,1\n4,M,0,0\n0,F,0,0\n5,M,1,0\n1,F,0,0\n0,M,0,0\n2,M,0,0\n0,F,0,0\n1,F,1,0\n5,M,0,0\n4,F,0,0\n0,M,0,0\n4,F,0,0\n2,M,0,0\n4,M,0,0\n2,M,0,0\n2,M,0,0\n4,F,0,0\n1,M,0,0\n2,M,0,0\n5,F,0,1\n5,M,0,0\n2,M,0,1\n0,M,0,0\n4,M,1,0\n2,F,0,0\n1,F,0,0\n4,F,0,0\n2,M,0,0\n5,M,0,0\n4,F,0,0\n0,M,0,0\n5,M,0,0\n1,F,0,0\n4,F,0,0\n1,M,0,0\n5,F,0,0\n3,M,0,0\n3,M,0,0\n2,F,0,0\n0,M,0,0\n1,F,0,0\n0,F,0,0\n5,F,0,0\n5,M,1,0\n3,M,0,0\n5,M,0,0\n1,F,0,1\n2,M,0,0\n1,M,0,0\n0,F,0,0\n3,F,0,0\n2,M,0,0\n4,M,0,0\n1,M,1,0\n0,M,0,0\n5,M,0,0\n5,F,0,0\n1,F,0,0\n2,M,0,0\n3,F,0,0\n4,M,0,0\n3,F,1,0\n3,M,0,0\n4,F,0,0\n5,F,0,0\n0,F,0,0\n4,F,0,0\n4,F,0,0\n4,F,0,0\n0,F,0,0\n3,M,0,0\n5,M,0,0\n0,M,0,0\n0,M,1,0\n5,M,0,0\n3,M,0,0\n0,F,0,0\n1,M,1,0\n0,F,0,0\n3,F,0,0\n2,F,0,0\n5,M,1,0\n0,M,0,1\n2,F,0,0\n5,M,0,1\n1,F,0,0\n5,M,1,0\n1,M,0,1\n5,F,0,0\n2,M,0,0\n5,M,0,0\n3,F,0,0\n1,F,0,0\n5,F,0,1\n0,M,0,0\n2,F,0,0\n0,F,0,0\n4,M,0,0\n5,M,0,0\n3,M,0,0\n0,M,0,1\n3,F,0,1\n1,F,1,0\n0,M,0,0\n3,F,0,0\n4,F,1,1\n1,F,0,1\n0,F,0,1\n4,F,0,0\n1,F,0,0\n5,M,1,0\n3,F,0,0\n5,M,0,0\n1,F,0,0\n4,F,0,0\n2,F,0,0\n3,M,0,0\n0,F,0,0\n0,M,0,0\n5,M,0,1\n4,F,0,0\n0,M,0,0\n4,M,0,0\n0,M,0,0\n0,M,0,0\n3,M,0,0\n2,M,0,0\n1,M,0,0\n4,M,0,0\n1,F,0,0\n2,M,0,0\n1,F,0,0\n2,F,0,0\n3,F,0,0\n2,F,0,0\n5,M,0,0\n0,M,0,0\n0,F,0,0\n5,M,0,0\n4,M,0,0\n0,M,0,0\n2,M,0,0\n1,F,1,0\n2,M,0,0\n4,M,1,0\n0,F,1,0\n1,F,0,0\n4,M,0,0\n0,M,0,1\n5,F,0,0\n2,F,0,0\n4,F,0,0\n1,M,0,0\n2,M,0,0\n1,F,0,1\n3,F,0,0\n2,M,0,0\n3,M,1,0\n0,F,0,0\n3,M,0,0\n4,M,0,1\n5,M,0,0\n4,F,0,0\n1,F,1,0\n0,F,0,0\n1,F,0,0\n2,M,0,0\n4,F,0,0\n0,M,0,0\n4,M,0,0\n1,M,0,0\n0,M,0,0\n5,M,0,0\n4,F,0,0\n2,M,0,0\n5,F,1,0\n2,F,0,0\n1,F,0,0\n1,M,0,0\n4,F,0,0\n5,F,0,0\n2,F,0,0\n5,M,0,0\n5,M,0,0\n5,F,0,0\n1,F,0,0\n4,F,0,0\n3,M,0,0\n2,F,1,0\n2,F,0,0\n4,M,0,0\n1,M,0,0\n0,M,0,0\n2,M,0,0\n2,F,0,0\n4,F,1,0\n0,M,0,0\n0,F,0,0\n3,F,0,0\n4,M,0,0\n3,M,0,0\n3,F,0,0\n4,M,1,0\n1,M,0,0\n5,M,0,0\n3,F,0,0\n5,M,0,0\n5,F,0,1\n1,F,0,0\n0,F,0,0\n0,F,0,0\n4,F,0,0\n5,M,0,0\n4,M,1,0\n4,M,1,0\n5,F,0,0\n3,F,0,1\n3,M,0,0\n3,M,0,0\n4,M,0,0\n3,F,0,0\n3,F,0,0\n4,F,0,0\n3,F,0,0\n2,F,1,0\n1,F,0,0\n3,M,1,0\n3,F,0,0\n0,F,0,1\n1,M,0,0\n1,F,1,1\n1,F,0,0\n1,F,1,0\n4,M,0,0\n2,M,0,0\n3,F,0,0\n1,F,0,0\n5,M,0,0\n2,M,0,0\n1,M,1,0\n2,F,0,1\n3,M,0,0\n2,F,0,0\n3,F,0,0\n5,M,0,0\n5,M,0,0\n4,M,0,0\n2,M,0,0\n2,F,0,0\n2,M,0,0\n0,F,0,0\n5,F,0,0\n3,F,0,0\n0,M,0,0\n5,F,1,0\n5,M,1,0\n2,M,1,0\n0,F,0,0\n3,M,1,0\n1,M,0,0\n5,F,0,0\n2,M,0,0\n5,F,0,0\n0,F,0,0\n3,M,0,0\n3,M,0,0\n0,M,0,0\n2,F,1,0\n0,F,0,0\n3,M,1,0\n1,M,0,0\n1,M,1,0\n2,F,0,0\n0,M,0,0\n2,M,0,0\n2,F,0,0\n0,M,0,0\n2,M,0,0\n1,M,0,0\n1,M,0,0\n0,F,0,0\n1,F,0,0\n0,M,0,0\n5,M,0,0\n5,F,1,0\n0,M,1,0\n1,F,0,0\n3,F,0,0\n4,M,0,1\n2,F,0,0\n2,M,0,0\n5,M,0,0\n4,F,0,0\n1,F,1,0\n5,M,0,0\n0,M,0,0\n1,M,0,1\n4,F,1,0\n2,M,0,0\n1,M,0,0\n0,F,0,0\n5,F,0,0\n1,M,0,0\n0,M,0,0\n0,M,0,0\n2,F,0,0\n0,F,0,0\n1,M,0,1\n1,M,0,0\n0,F,0,0\n5,M,0,0\n5,M,0,0\n1,M,0,0\n3,M,0,0\n3,M,0,0\n3,F,0,0\n1,F,0,0\n1,M,0,0\n4,M,0,0\n1,M,1,0\n5,F,0,0\n0,F,0,0\n2,F,0,0\n0,M,0,0\n3,F,1,0\n2,M,0,0\n4,F,0,0\n4,F,0,0\n5,F,1,0\n0,F,0,0\n3,F,0,0\n2,M,0,0\n3,F,0,0\n5,M,1,0\n0,F,0,0\n3,F,0,0\n3,F,1,0\n5,F,0,0\n1,M,0,0\n5,F,0,1\n2,F,0,0\n4,F,1,0\n3,M,0,0\n1,F,0,0\n2,F,0,0\n5,F,0,1\n0,M,0,0\n5,F,0,0\n2,F,0,0\n1,M,0,0\n1,F,1,0\n1,F,0,0\n4,F,0,0\n3,F,0,0\n1,F,0,0\n1,F,0,0\n4,M,1,0\n4,F,0,0\n4,M,0,0\n1,F,0,0\n1,M,0,1\n2,F,0,0\n4,F,1,0\n1,F,0,0\n1,F,0,0\n0,F,0,0\n',
-            main_file: values.mainFile[0][0] ? values.mainFile[0][0] : '',
+            main_file: values.mainFile[0] ? values.mainFile[0][0] : '',
             // room_file: '9\n9\n8\n9\n11\n12\n10\n9\n8\n10\n13\n10\n10\n9\n10\n10\n9\n11\n11\n10\n9\n9\n10\n10\n10\n10\n9\n10\n10\n9\n10\n',
-            room_file: values.roomFile[0][0] ? values.roomFile[0][0] : '',
+            room_file: values.roomFile[0] ? values.roomFile[0][0] : '',
             // same_file: '583, 3, 205, 18, 3\n3, 205, 417\n223, 221\n57, 52\n69, 431, 433, 418\n86, 185, 181\n1, 323, 347, 349\n',
-            same_file: values.sameFile[0][0] ? values.sameFile[0][0] : '',
+            same_file: values.sameFile[0] ? values.sameFile[0][0] : '',
         }
         console.log(payload);
 
@@ -205,44 +204,51 @@ const DataForm = (): any => {
                 <FormPages.MiddlePage
                     nextStep={nextStep}
                     prevStep={prevStep}
-                    // handleInputChange={handleInputChange}
-                    // values={values}
                 >
-                    <Grid item xs={6}>
-                        <Controls.Dropzone
-                            handleFileAdd={handleFileAdd}
-                            handleFileDelete={handleFileDelete}
-                            values={values}
-                            name="mainFile"
-                            text="Drag and drop your main .csv or .txt file."
-                        />
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Controls.Dropzone
-                            handleFileAdd={handleFileAdd}
-                            handleFileDelete={handleFileDelete}
-                            values={values}
-                            name="roomFile"
-                            text="Room .csv or .txt file."
-                        />
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Controls.Dropzone
-                            handleFileAdd={handleFileAdd}
-                            handleFileDelete={handleFileDelete}
-                            values={values}
-                            name="sameFile"
-                            text="Students on same days. .csv or .txt file."
-                        />
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Controls.Dropzone
-                            handleFileAdd={handleFileAdd}
-                            handleFileDelete={handleFileDelete}
-                            values={values}
-                            name="diffFile"
-                            text="Students on different days. .csv or .txt file."
-                        />
+                    <Typography
+                        variant="h6"
+                        align='left'
+                        gutterBottom={true}
+                    >
+                        Upload your files.
+                    </Typography>
+                    <Grid container>
+                        <Grid item xs={6}>
+                            <Controls.Dropzone
+                                handleFileAdd={handleFileAdd}
+                                handleFileDelete={handleFileDelete}
+                                values={values}
+                                name="mainFile"
+                                text="Main file"
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Controls.Dropzone
+                                handleFileAdd={handleFileAdd}
+                                handleFileDelete={handleFileDelete}
+                                values={values}
+                                name="roomFile"
+                                text="Room file"
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Controls.Dropzone
+                                handleFileAdd={handleFileAdd}
+                                handleFileDelete={handleFileDelete}
+                                values={values}
+                                name="sameFile"
+                                text="Groups of students on same days"
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Controls.Dropzone
+                                handleFileAdd={handleFileAdd}
+                                handleFileDelete={handleFileDelete}
+                                values={values}
+                                name="diffFile"
+                                text="Pairs of students on different days"
+                            />
+                        </Grid>
                     </Grid>
                 </FormPages.MiddlePage>
             )

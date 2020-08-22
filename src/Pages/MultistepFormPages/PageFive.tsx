@@ -1,7 +1,7 @@
 import React from 'react';
 import Controls from '../../Components/Controls/Controls';
 import FormPages from '../FormPages';
-import { Typography } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 
 
 const PageFive = (props: any) => {
@@ -13,19 +13,40 @@ const PageFive = (props: any) => {
             prevStep={prevStep}
             values={values}
         >
-            <Typography gutterBottom>
-                Custom marks
+            <Typography
+                variant="h6"
+                align='left'
+                gutterBottom={true}
+            >
+                Fraction of special groups in classrooms.
             </Typography>
+            <Typography variant="body2" paragraph >
+                Schedyool will strive to not place too many students from any one special group in any classroom, represented as a fraction of the total number of students in the room. For example, you may want the fraction of students in any classroom from the first special group to be at most 40%. For each special set, you can specify a different fraction.  Enter the fractions here, one for each special set, in the order in which you will give the special sets (e.g., ICT before ENL).
+            </Typography>
+            <Typography paragraph>
+                Use the sliders to input the fraction of students from each special group in any classroom.
+            </Typography>
+            <Grid container>
             {
             values.specialSets.map((x: any, i: number) => {
                 return (
-                    <Controls.SpecialSliders
-                        defaultValue={x}
-                        key={i}
-                        handleSliderChange={(e: any, value: any) => handleSliderChange(e,value,i)} 
-                    />
+                    <>
+                        <Grid item xs={2}>
+                            <Typography variant="h6" paragraph align='center' >
+                                Group {i}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={10}>
+                            <Controls.SpecialSliders
+                                defaultValue={x}
+                                key={i}
+                                handleSliderChange={(e: any, value: any) => handleSliderChange(e,value,i)} 
+                            />
+                        </Grid>
+                    </>
                 );
             })}
+            </Grid>
             {/* <Controls.Input
                 helpText={helpTexts.numSpecialSets}
                 label="Number of special sets"

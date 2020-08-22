@@ -8,16 +8,16 @@ import { AttachFile } from '@material-ui/icons';
 
 const Dropzone = (props: any) => {
     const { values, name, handleFileAdd, handleFileDelete, text } = props;
-    console.log(values);
     return (
         <DropzoneArea
+            Icon={AttachFile}
             filesLimit={1}
             initialFiles={values[name][0]}
             acceptedFiles={['text/txt', 'text/csv', 'application/vnd.ms-excel']}
-            maxFileSize={200000}
+            maxFileSize={26000}
             showPreviews={false}
             showFileNames={true}
-            previewGridProps={{container: { spacing: 1, direction: 'row' }}}
+            previewGridProps={{container: { spacing: 0, direction: 'row' , justify: 'center'}}}
             previewText="Selected files"
             dropzoneText={text}
             onDrop={file => handleFileAdd(file, name)}

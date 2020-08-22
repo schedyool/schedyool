@@ -179,7 +179,7 @@ const Header = (props: any) => {
 
     const classes = useStyles();
     const theme = useTheme();
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
   
     const handleDrawerOpen = () => {
       setOpen(true);
