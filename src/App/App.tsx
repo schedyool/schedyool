@@ -92,6 +92,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Router>
       <SideMenu />
         <div className={classes.appMain}>
