@@ -6,7 +6,8 @@ const FormSubmitPage = (props: any) => {
     const { handleSubmit, prevStep, handleInputChange, values, children, ...other } = props;
     const {
         fullName, email, numBlendedLearning, numDays, numRooms, packedSpecialSets,
-        numSetsSameDay, numPairsDiffDay, numSpecialSets, specialSets, files,
+        numSetsSameDay, numPairsDiffDay, numSpecialSets, specialSets,
+        mainFile, diffFile, roomFile, sameFile,
     } = values;
 
     const myPrevious = (e: any) => {
@@ -86,9 +87,10 @@ const FormSubmitPage = (props: any) => {
                 <Divider component="li" />
                 <ListItem>
                     <ListItemText 
-                        primary="Files"
+                        primary="Main File"
+                        secondary={mainFile[0].name}
                     />
-                    {files.map((file: File) => (<ListItemText secondary={file.name} />))}
+                    {/* {files.map((file: File) => (<ListItemText secondary={file.name} />))} */}
                 </ListItem>
             </List>
             <Divider />

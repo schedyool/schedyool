@@ -47,22 +47,25 @@ export const useForm = (initialFieldValues: any) => {
                     }),
             })
         }
-        console.log(values.packedSpecialSets);
     }
 
-    const handleFileAdd = (file: any) => {
+    const handleFileAdd = (file: any, name: any) => {
         setValues({
             ...values,
-            files: values.files.concat(file)
+            [name]: [file]
         });
     };
 
-    const handleFileDelete = (file: any) => {
-        const allFiles = [...values.files];
-        allFiles.splice(file, 1);
+    const handleFileDelete = (name: any) => {
+        // const allFiles = [...values.files];
+        // allFiles.splice(file, 1);
+        // setValues({
+        //     ...values,
+        //     files: allFiles,
+        // });
         setValues({
             ...values,
-            files: allFiles,
+            [name]: []
         });
     };
 
