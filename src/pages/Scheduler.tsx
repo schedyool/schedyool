@@ -1,8 +1,8 @@
 import React from 'react';
 import DataForm from './DataForm';
 import { Paper, makeStyles, IconButton } from '@material-ui/core';
-import PageHeader from '../Components/PageHeader';
-import SchoolIcon from '../../node_modules/@material-ui/icons/School';
+import PageHeader from '../components/PageHeader';
+import SchoolIcon from '@material-ui/icons/School';
 
 
 const useStyles = makeStyles(theme => ({
@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const DataComponent = (): any => {
+const Scheduler = (): any => {
     const classes = useStyles();
 
     return (
@@ -33,4 +33,4 @@ const DataComponent = (): any => {
     );
 };
 
-export default DataComponent;
+export default Scheduler;

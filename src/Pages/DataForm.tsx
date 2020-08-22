@@ -1,9 +1,9 @@
 import React from 'react';
 import { Grid, InputAdornment, Tooltip, Typography } from '@material-ui/core';
-import { useForm, Form } from '../Components/useForm';
+import { useForm, Form } from '../components/useForm';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import EmailIcon from '@material-ui/icons/Email';
-import Controls from '../Components/Controls/Controls';
+import Controls from '../components/controls/Controls';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import ReCAPTCHA from 'react-google-recaptcha';
 import FormPages from './FormPages';
@@ -78,10 +78,11 @@ const DataForm = (): any => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
+        nextStep();
         window.alert('validated response...');
         // if (validate()) {
-            // const postUrl = 'https://lqi0rcs9b1.execute-api.us-east-1.amazonaws.com/prod/';
-            const postUrl = 'https://scheduler.schedyool.com'
+            const postUrl = 'https://lqi0rcs9b1.execute-api.us-east-1.amazonaws.com/prod/';
+            // const postUrl = 'https://scheduler.schedyool.com'
             const payload = {
                 email: "howard@cc.gatech.edu", 
                 num_students: 800, 
@@ -216,94 +217,18 @@ const DataForm = (): any => {
             return (
                 <FormPages.SubmitPage
                     handleSubmit={handleSubmit}
+                    // nextStep={nextStep}
+                    prevStep={prevStep}
+                    values={values}
                 >
                     <Typography>Confirmation!</Typography>
                 </FormPages.SubmitPage>
             );
+        case 6:
+            return (
+                <h1>Your schedule has been sent!</h1>
+            )
     }
-
-    // return (
-    //     <Form onSubmit={handleSubmit}>
-    //         <Grid container>
-    //             <Controls.Input 
-    //                 helpText="Enter your full name."
-    //                 icon={<AccountCircle />}
-    //                 required
-    //                 type="text"
-    //                 label="Full Name"
-    //                 name="fullName"
-    //                 value={values.fullName}
-    //                 onInput={handleInputChange}
-    //                 // error={errors.fullName}
-    //             />
-    //             <Controls.Input 
-    //                 helpText="Enter your email."
-    //                 icon={<EmailIcon />}
-    //                 required
-    //                 type="text"
-    //                 label="Email"
-    //                 name="email"
-    //                 value={values.email}
-    //                 onInput={handleInputChange}
-    //                 // error={errors.email}
-    //             />
-    //             <Controls.Input 
-    //                 // helpTitle={helpTitles.numBlendedLearning}
-    //                 helpText={helpTexts.numBlendedLearning}
-    //                 label="Number of students for Blended Learning"
-    //                 name="numBlendedLearning"
-    //                 value={values.numBlendedLearning}
-    //                 onInput={handleInputChange}
-    //             />
-    //             <Controls.Input
-    //                 // helpTitle={helpTitles.numSchedules}
-    //                 helpText={helpTexts.numSchedules}
-    //                 label="Number of Schedules"
-    //                 name="numSchedules"
-    //                 value={values.numSchedules}
-    //                 onInput={handleInputChange}
-    //             />
-    //             <Controls.Input
-    //                 helpText={helpTexts.numRooms}
-    //                 label="Number of Rooms"
-    //                 name="numRooms"
-    //                 value={values.numRooms}
-    //                 onInput={handleInputChange}
-    //             />
-    //             <Controls.Input
-    //                 helpText={helpTexts.numSetsSameDay}
-    //                 label="Number of sets on the same day"
-    //                 name="numSetsSameDay"
-    //                 value={values.numSetsSameDay}
-    //                 onInput={handleInputChange}
-    //             />
-    //             <Controls.Input
-    //                 helpText={helpTexts.numPairsDiffDay}
-    //                 label="Number of pairs on different days"
-    //                 name="numPairsDiffDay"
-    //                 value={values.numPairsDiffDay}
-    //                 onInput={handleInputChange}
-    //             />
-    //             <Controls.Input
-    //                 helpText={helpTexts.numSpecialSets}
-    //                 label="Number of special sets"
-    //                 name="numSpecialSets"
-    //                 value={values.numSpecialSets}
-    //                 onInput={handleInputChange}
-    //             />
-    //             <Grid item xs={12}>
-    //                 <Controls.Dropzone />
-    //             </Grid>
-    //             <Grid item xs={12}>
-    //                 {/* <ReCAPTCHA sitekey="6LctKMEZAAAAAN4NYXg27JMINCdmFm-knz9Ea4-p" onChange={handleCaptcha} /> */}
-    //             </Grid>
-    //             <Grid item xs={12}>
-    //                 <Controls.MyButton type="submit" value="Submit" text="Submit" />
-    //                 <Controls.MyButton type="reset" text="Reset" color="default" />
-    //             </Grid>
-    //         </Grid>
-    //     </Form>
-    // )
 };
 
 /*

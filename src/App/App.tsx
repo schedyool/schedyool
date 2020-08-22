@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
 import 'fontsource-roboto';
-import SideMenu from '../Components/SideMenu';
-import Header from '../Components/Header';
-import PageHeader from '../Components/PageHeader';
+import SideMenu from '../components/SideMenu';
+import Header from '../components/Header';
+import PageHeader from '../components/PageHeader';
 import { makeStyles, CssBaseline, createMuiTheme, ThemeProvider, IconButton } from '@material-ui/core';
 import SchoolIcon from '@material-ui/icons/School';
-import DataComponent from '../Pages/DataComponent';
+import Scheduler from '../pages/Scheduler';
+import Home from '../pages/Home';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 const theme = createMuiTheme({
   palette: {
@@ -48,21 +50,64 @@ const useStyles = makeStyles({
 function App() {
   const classes = useStyles();
 
+  // return (
+  //   <ThemeProvider theme={theme}>
+  //     <SideMenu />
+  //     <div className={classes.appMain}>
+  //       <Header 
+  //         title = "Schedyool"
+  //       />
+  //       {/* <PageHeader 
+  //         title="Schedyool"
+  //         subtitle="Schedule your students. Optimally."
+  //         icon={<IconButton><SchoolIcon fontSize="large"/></IconButton>}
+  //       /> */}
+  //       <DataComponent />
+  //     </div>
+  //     <CssBaseline />
+  //   </ThemeProvider>
+  // );
+
+
+  // return (
+  //   <ThemeProvider theme={theme}>
+  //     <Router>
+  //       <SideMenu />
+  //       <div className={classes.appMain}>
+  //         <Header title="Schedyool" />
+
+  //         <Switch>
+  //           <Route path="/">
+  //             <Scheduler />
+  //           </Route>
+  //           <Route path="/scheduler">
+  //             <Home />
+  //           </Route>
+  //         </Switch>
+          
+  //       </div>
+  //     </Router>
+  //   </ThemeProvider>
+  // )
+
   return (
     <ThemeProvider theme={theme}>
+      <Router>
       <SideMenu />
-      <div className={classes.appMain}>
-        <Header 
-          title = "Schedyool"
-        />
-        {/* <PageHeader 
-          title="Schedyool"
-          subtitle="Schedule your students. Optimally."
-          icon={<IconButton><SchoolIcon fontSize="large"/></IconButton>}
-        /> */}
-        <DataComponent />
-      </div>
-      <CssBaseline />
+        <div className={classes.appMain}>
+          <Header title="Schedyool" />
+          {/* A <Switch> looks through its children <Route>s and
+              renders the first one that matches the current URL. */}
+          <Switch>
+            <Route path="/scheduler">
+              <Scheduler />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </ThemeProvider>
   );
 }

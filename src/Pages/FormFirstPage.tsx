@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Divider } from '@material-ui/core';
-import Controls from '../Components/Controls/Controls';
+import Controls from '../components/controls/Controls';
 
 const FormFirstPage = (props: any) => {
     const { nextStep, handleInputChange, values, children, ...other } = props;
