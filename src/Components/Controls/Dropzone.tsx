@@ -10,7 +10,6 @@ const Dropzone = (props: any) => {
     const { values, name, handleFileAdd, handleFileDelete, text } = props;
     return (
         <DropzoneArea
-            Icon={AttachFile}
             filesLimit={1}
             initialFiles={values[name][0]}
             acceptedFiles={['text/txt', 'text/csv', 'application/vnd.ms-excel']}
