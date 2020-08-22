@@ -1,7 +1,7 @@
 import Input from './Input';
-import Dropzone from './Dropzone';
-import SelectField from './SelectField';
-import MyButton from './MyButton';
+import Dropzone from './Dropzone'
+import SelectField from './SelectField'
+import MyButton from './MyButton'
 
 const Controls = {
     Input,

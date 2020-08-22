@@ -1,9 +1,9 @@
 import React from 'react';
 import { Grid, InputAdornment, Tooltip, Typography } from '@material-ui/core';
-import { useForm, Form } from '../components/useForm';
+import { useForm, Form } from '../Components/useForm';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import EmailIcon from '@material-ui/icons/Email';
-import Controls from '../components/controls/Controls';
+import Controls from '../Components/Controls/Controls';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import ReCAPTCHA from 'react-google-recaptcha';
 import FormPages from './FormPages';

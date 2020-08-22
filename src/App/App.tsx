@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import 'fontsource-roboto';
-import SideMenu from '../components/SideMenu'
-import Header from '../components/Header';
-import PageHeader from '../components/PageHeader';
+import SideMenu from '../Components/SideMenu'
+import Header from '../Components/Header';
+import PageHeader from '../Components/PageHeader';
 import { makeStyles, CssBaseline, createMuiTheme, ThemeProvider, IconButton } from '@material-ui/core';
 import SchoolIcon from '@material-ui/icons/School';
-import Scheduler from '../pages/Scheduler';
-import Home from '../pages/Home';
+import Scheduler from '../Pages/Scheduler';
+import Home from '../Pages/Home';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 const theme = createMuiTheme({
