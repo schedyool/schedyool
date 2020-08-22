@@ -4,7 +4,7 @@ import FormPages from '../FormPages';
 import { Typography } from '@material-ui/core';
 
 
-const PageTwo = (props: any) => {
+const PageThree = (props: any) => {
     const { values, nextStep, prevStep, helpTexts, handleInputChange } = props;
     return (
         <FormPages.MiddlePage
@@ -38,4 +38,4 @@ const PageTwo = (props: any) => {
     );
 };
 
-export default PageTwo;
+export default PageThree;

@@ -7,7 +7,14 @@ export const useForm = (initialFieldValues: any) => {
 
     const handleInputChange = (e: any) => {
         const { name, value } = e.target;
-        if ( (typeof value == typeof 0 && value >= 0) || typeof value != typeof 0) {
+        if ( parseInt(value) ) {
+            if ( parseInt(value) >= 0) {
+                setValues({
+                    ...values,
+                    [name]: parseInt(value)
+                })
+            }
+        } else {
             setValues({
                 ...values,
                 [name]: value
@@ -32,28 +39,49 @@ export const useForm = (initialFieldValues: any) => {
     };
 
     const handleSpecialSetChange = (e: any) => {
+        // // if new special set is greater, then append 1s.
         const { value } = e.target;
-        const newSpecialSets = parseInt(value >= 0 ? value : 0)
-        // if new special set is greater, then append 1s.
-        if (newSpecialSets > values.specialSets.length) {
+
+        if ( parseInt(value) ) {
+            if ( parseInt(value) >= 0) {
+                const newSpecialSets = parseInt(value);
+                // setValues({
+                //     ...values,
+                //     [name]: parseInt(value)
+                // })
+                if (newSpecialSets > values.specialSets.length) {
+                    setValues({
+                        ...values,
+                        numSpecialSets: newSpecialSets,
+                        specialSets: values.specialSets.concat(
+                            Array.from(Array(newSpecialSets-values.numSpecialSets), () => 1)
+                        ),
+                    })
+                } else {
+                    setValues({
+                        ...values,
+                        numSpecialSets: newSpecialSets,
+                        specialSets: values.specialSets.slice(0, newSpecialSets),
+                    })
+                }
+            }
+        } else {
             setValues({
                 ...values,
-                numSpecialSets: newSpecialSets,
-                specialSets: values.specialSets.concat(
-                    Array.from(Array(newSpecialSets-values.numSpecialSets), () => 1)
-                )
+                numSpecialSets: '',
+                specialSets: [],
             });
-        } 
-        // if new special set value is lesser, then slice.
-        else {
-            setValues({
-                ...values,
-                numSpecialSets: newSpecialSets,
-                specialSets: values.specialSets.slice(0, newSpecialSets)
-            })
         }
-        
-    }
+    };
+
+    const handleSliderChange = (e: any, value: any, i: any) => {
+        const oldSet = values.specialSets;
+        oldSet[i] = value;
+        setValues({
+            ...values,
+            specialSets: oldSet,
+        });
+    };
 
     return {
         values, 
@@ -63,7 +91,8 @@ export const useForm = (initialFieldValues: any) => {
         errors,
         setErrors,
         handleInputChange,
-        handleSpecialSetChange
+        handleSpecialSetChange,
+        handleSliderChange,
     };
 };
 

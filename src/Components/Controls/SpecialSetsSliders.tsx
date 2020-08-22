@@ -2,11 +2,11 @@ import React from 'react';
 import { Slider } from '@material-ui/core';
 
 const SetsSliders = (props: any) => {
-    const {defaultValue=null} = props;
+    const {defaultValue=null, handleSliderChange} = props;
 
     return (
         <Slider
-            defaultValue={defaultValue || 1.0}
+            value={defaultValue || 1.0}
             step={0.05}
             min={0}
             max={1}
@@ -17,6 +17,7 @@ const SetsSliders = (props: any) => {
             valueLabelDisplay="on"
             getAriaValueText={(x: any) => `${x*100}%`}
             valueLabelFormat={(x: any) => `${x*100}%`}
+            onChange={handleSliderChange}
         />
     );
 }
