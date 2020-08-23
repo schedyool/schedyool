@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import HomeIcon from '@material-ui/icons/Home';
 import { Link } from 'react-router-dom';
 import SchoolIcon from '@material-ui/icons/School';
+import InfoIcon from '@material-ui/icons/Info';
 
 const drawerWidth = 200;
 
@@ -71,98 +72,103 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const Header = (props: any) => {
-    const { title, children } = props;
+  const { title, children } = props;
 
-    const classes = useStyles();
-    const theme = useTheme();
-    const [open, setOpen] = useState(false);
-  
-    const handleDrawerOpen = () => {
-      setOpen(true);
-    };
-  
-    const handleDrawerClose = () => {
-      setOpen(false);
-    };
+  const classes = useStyles();
+  const theme = useTheme();
+  const [open, setOpen] = useState(false);
 
-    const pages = [
-        {
-            text: 'Home',
-            icon: <HomeIcon style={{ color: '#FFF' }} />,
-            url: '/'
-        },
-        {
-            text: 'Schedule',
-            icon: <SchoolIcon style={{ color: '#FFF' }} />,
-            url: '/scheduler'
-        },
-    ];
-  
-    return (
-      <div className={classes.root}>
-        <CssBaseline />
-        <AppBar
-          position="fixed"
-          className={clsx(classes.appBar, {
-            [classes.appBarShift]: open,
-          })}
-        >
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, open && classes.hide)}
-            >
-              <MenuIcon />
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
+  const pages = [
+    {
+      text: 'Home',
+      icon: <HomeIcon style={{ color: '#FFF' }} />,
+      url: '/'
+    },
+    {
+      text: 'Instructions',
+      icon: <InfoIcon style={{ color: '#FFF' }} />,
+      url: '/instructions'
+    },
+    {
+      text: 'Schedule',
+      icon: <SchoolIcon style={{ color: '#FFF' }} />,
+      url: '/scheduler'
+    },
+  ];
+
+  return (
+    <div className={classes.root}>
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open,
+        })}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={clsx(classes.menuButton, open && classes.hide)}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Link to="/">
+            <IconButton>
+              <SchoolIcon style={{ color: '#FFF' }} />
             </IconButton>
-            <Link to="/">
-              <IconButton>
-                <SchoolIcon style={{ color: '#FFF' }}/>
-              </IconButton>
+          </Link>
+          <Typography variant="h6" noWrap>
+            {title}
+          </Typography>
+        </Toolbar>
+      </AppBar>
+
+      <Drawer
+        className={classes.drawer}
+        variant="persistent"
+        anchor="left"
+        open={open}
+        classes={{
+          paper: classes.drawerPaper,
+        }}
+      >
+        <div className={classes.drawerHeader}>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'ltr' ? <ChevronLeftIcon style={{ color: '#FFF' }} /> : <ChevronRightIcon style={{ color: '#FFF' }} />}
+          </IconButton>
+        </div>
+        <Divider />
+        <List>
+          {pages.map((page, i) => (
+            <Link to={page.url} style={{ textDecoration: 'none', color: '#FFF' }} key={i}>
+              <ListItem button key={page.text}>
+                <ListItemIcon>{page.icon}</ListItemIcon>
+                <ListItemText color="inherit" primary={page.text} />
+              </ListItem>
             </Link>
-            <Typography variant="h6" noWrap>
-              {title}
-            </Typography>
-          </Toolbar>
-        </AppBar>
-
-        <Drawer
-          className={classes.drawer}
-          variant="persistent"
-          anchor="left"
-          open={open}
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-        >
-          <div className={classes.drawerHeader}>
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction === 'ltr' ? <ChevronLeftIcon style={{color: '#FFF'}}/> : <ChevronRightIcon style={{color: '#FFF'}}/>}
-            </IconButton>
-          </div>
-          <Divider />
-            <List>
-                {pages.map((page, i) => (
-                    <Link to={page.url} style={{ textDecoration: 'none', color: '#FFF' }} key={i}>
-                        <ListItem button key={page.text}>
-                            <ListItemIcon>{page.icon}</ListItemIcon>
-                            <ListItemText color="inherit" primary={page.text} />
-                        </ListItem>
-                    </Link>
-                ))}
-            </List>
-        </Drawer>
-        <main
-          className={clsx(classes.content, {
-            [classes.contentShift]: open,
-          })}
-        >
-            {children}
-        </main>
-      </div>
-    );
+          ))}
+        </List>
+      </Drawer>
+      <main
+        className={clsx(classes.content, {
+          [classes.contentShift]: open,
+        })}
+      >
+        {children}
+      </main>
+    </div>
+  );
 }
 
 export default Header;

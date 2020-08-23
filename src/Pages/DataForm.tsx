@@ -1,7 +1,7 @@
 // calebaren.github.io
 import React from 'react';
 import { Grid, Typography, Link, ListItemText, List, ListItem } from '@material-ui/core';
-import { useForm, Form } from '../Components/useForm';
+import { useForm } from '../Components/useForm';
 import Controls from '../Components/Controls/Controls';
 import ReCAPTCHA from 'react-google-recaptcha';
 import FormPages from './FormPages';
@@ -65,15 +65,19 @@ const DataForm = (): any => {
             numSetsSameDay: '',
             numPairsDiffDay: '',
         };
-        temp.fullName = values.fullName ? '' : 'Your name is required.';
+        // temp.fullName = values.fullName ? '' : 'Your name is required.';
         // temp.email = re.test(values.email) ? '' : 'Your email is required.';
         temp.mainFile = values.mainFile[0] ? '' : 'Please upload a file with your students.';
         temp.roomFile = values.roomFile[0] ? '' : 'Please upload a file with your room capacities.';
         temp.sameFileMissing = (values.numSetsSameDay > 0 && !values.sameFile[0]) ? 'Please upload a file with groups of students to be scheduled on the same day.' : '';
         temp.diffFileMissing = (values.numPairsDiffDay > 0 && !values.diffFile[0]) ? 'Please upload a file with pairs of students to be scheduled on different days.': '';
 
-        window.alert(Object.values(temp).filter(x => x !== '').join('\n'));
-        return true;
+        console.log(!(Object.values(temp).every(x => x === '')))
+        if (!(Object.values(temp).every(x => x === ''))) {
+            window.alert(Object.values(temp).filter(x => x !== '').join('\n'));
+        } else {
+            return true;
+        }
     }
 
     // proceed to next step
@@ -100,27 +104,31 @@ const DataForm = (): any => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        
+        console.log(values);
         if (validate()) {
             nextStep();
             const postUrl = 'https://lqi0rcs9b1.execute-api.us-east-1.amazonaws.com/prod/';
             const payload = {
+                fullname: values.fullName,
                 email: values.email,
-                timelimit: 60,
+                timelimit: 600,
                 num_students: values.numBlendedLearning,
                 num_rooms: values.numRooms,
                 num_days: values.numDays,
-                max_grade: values.maxGrade,
+                max_grade: values.maxGrade, // grades go from 0 to maxgrade
                 num_same_day_sets: values.numSetsSameDay,
                 num_diff_day_pairs: values.numPairsDiffDay,
                 num_special_sets: values.numSpecialSets,
                 fraction_for_special_set: values.specialSets,
                 num_rooms_to_be_packed_into: values.packedSpecialSets,
-                diff_file: values.diffFile ? values.diffFile: '',
-                main_file: values.mainFile ? values.mainFile : '',
-                room_file: values.roomFile ? values.roomFile : '',
-                same_file: values.sameFile ? values.sameFile : '',
+                diff_file: values.diffFile[1] ? values.diffFile[1] : '',
+                main_file: values.mainFile[1] ? values.mainFile[1] : '',
+                room_file: values.roomFile[1] ? values.roomFile[1] : '',
+                same_file: values.sameFile[1] ? values.sameFile[1] : '',
             }
+
+            
+            console.log(payload);
             
             const send = true;
             if (send) {

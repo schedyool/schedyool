@@ -6,7 +6,7 @@ import Page from './Page';
 
 const Scheduler = (): any => {
     return (
-        <Page title="Schedyool" subtitle="Create schedules for your students!">
+        <Page title="Schedyool" subtitle="Create schedules for your students">
             <DataForm />
         </Page>
     );

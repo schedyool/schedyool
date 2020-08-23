@@ -90,25 +90,25 @@ const FormSubmitPage = (props: any) => {
                 <ListItem>
                     <ListItemText 
                         primary="Main File"
-                        secondary={mainFile[0] ? mainFile[0][0].name : "No file..."}
+                        secondary={mainFile[0] ? mainFile[0] : "No file..."}
                     />
                 </ListItem>
                 <ListItem>
                     <ListItemText 
                         primary="Rooms File"
-                        secondary={roomFile[0] ? roomFile[0][0].name : "No file..."}
+                        secondary={roomFile[0] ? roomFile[0] : "No file..."}
                     />
                 </ListItem>
                 <ListItem>
                     <ListItemText 
                         primary="Same File"
-                        secondary={sameFile[0] ? sameFile[0][0].name : "No file..."}
+                        secondary={sameFile[0] ? sameFile[0] : "No file..."}
                     />
                 </ListItem>
                 <ListItem>
                     <ListItemText 
                         primary="Diff File"
-                        secondary={diffFile[0] ? diffFile[0][0].name : "No file..."}
+                        secondary={diffFile[0] ? diffFile[0] : "No file..."}
                     />
                 </ListItem>
             </List>

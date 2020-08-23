@@ -6,6 +6,7 @@ import Header from '../Components/Header';
 import { CssBaseline, createMuiTheme, ThemeProvider } from '@material-ui/core';
 import Home from '../Pages/Home';
 import Scheduler from '../Pages/Scheduler';
+import Instructions from '../Pages/Instructions';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const theme = createMuiTheme({
@@ -34,20 +35,7 @@ const theme = createMuiTheme({
   },
 });
 
-
-// const useStyles = makeStyles({
-//   appMain: {
-//     paddingLeft: '200px',
-//     [theme.breakpoints.down('sm')]: {
-//       paddingLeft: '0px'
-//     },
-//     width: '100%',
-//   },
-// });
-
 function App() {
-  // const classes = useStyles();
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -59,6 +47,9 @@ function App() {
             <Switch>
               <Route path="/scheduler">
                 <Scheduler />
+              </Route>
+              <Route path="/instructions">
+                <Instructions />
               </Route>
               <Route path="/">
                 <Home />

@@ -17,7 +17,6 @@ const PageOne = (props: any) => {
             <Controls.Input
                 helpText="Enter your full name."
                 icon={<AccountCircle />}
-                required
                 type="text"
                 label="Full Name"
                 name="fullName"

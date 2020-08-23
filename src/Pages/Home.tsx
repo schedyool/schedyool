@@ -6,7 +6,7 @@ import Controls from '../Components/Controls/Controls';
 
 const Home = (): any => {
     return (
-        <Page title=" Welcome to the Schedyool!" subtitle="Covid School Scheduling App!" >
+        <Page title="Welcome to the Schedyool!" subtitle="Covid School Scheduling App!" >
             <Typography paragraph>
               Thanks to the requirements of blended virtual and physical learning, principals have the
               daunting task of scheduling students while satisfying several constraints:
@@ -14,9 +14,9 @@ const Home = (): any => {
           <Typography paragraph>
             Please see the instructions.
           </Typography>
-          <Link href="/scheduler">
-            <Controls.MyButton text="Schedyool!" />
-          </Link>
+          <Link href="/instructions">
+                <Controls.MyButton text="Get Started" color="default" />
+            </Link>
         </Page>
     );
 };
