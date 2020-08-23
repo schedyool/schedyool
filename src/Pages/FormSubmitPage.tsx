@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Divider, List, ListItem, ListItemText, Typography } from '@material-ui/core';
 import Controls from '../Components/Controls/Controls';
+import ErrorModal from '../Components/ErrorModal';
 
 const FormSubmitPage = (props: any) => {
     const { handleSubmit, prevStep, handleInputChange, values, children, ...other } = props;
