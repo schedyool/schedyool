@@ -73,7 +73,7 @@ const DataForm = (): any => {
         temp.sameFileMissing = (values.numSetsSameDay > 0 && !values.sameFile[0]) ? 'Please upload a file with groups of students to be scheduled on the same day.' : '';
         temp.diffFileMissing = (values.numPairsDiffDay > 0 && !values.diffFile[0]) ? 'Please upload a file with pairs of students to be scheduled on different days.': '';
 
-        window.alert(Object.values(temp).filter(x => x !== '').join('\n')))
+        window.alert(Object.values(temp).filter(x => x !== '').join('\n'));
         return true;
     }
 
