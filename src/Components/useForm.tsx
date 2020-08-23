@@ -34,7 +34,7 @@ export const useForm = (initialFieldValues: any) => {
                     maxGrade: parseInt(value),
                     packedSpecialSets: 
                         Array.from(Array(values.numSpecialSets), () => {
-                            return Array.from(Array(values.maxGrade), () => 100)
+                            return Array.from(Array(value), () => 100)
                         })
                 })
             }
