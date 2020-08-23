@@ -8,7 +8,7 @@ import FormPages from './FormPages';
 import PagesList from './FormPagesList';
 
 const initialFieldValues = {
-    step: 0,
+    step: 1,
     fullName: '',
     email: '',
     numBlendedLearning: 1,

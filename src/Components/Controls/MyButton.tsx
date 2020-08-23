@@ -1,4 +1,3 @@
-// calebaren.github.io
 import React from 'react';
 import { Button as MuiButton, makeStyles } from '@material-ui/core'
 
@@ -9,7 +8,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const MyButton = (props: any) => {
-    const { text, size, color, variant, onClick, ...other } = props;
+    const { text, size, color, variant, ...other } = props;
     const classes = useStyles();
 
     return (
