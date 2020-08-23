@@ -23,7 +23,7 @@ const Home = (): any => {
             accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
           </Typography>
           <Link href="/scheduler">
-            <Controls.MyButton text="Schedyool!" />
+            <Controls.Button text="Schedyool!" />
           </Link>
         </Page>
     );

@@ -1,13 +1,13 @@
 // calebaren.github.io
 import React from 'react';
-import DataForm from './DataForm';
+import FormCommand from './FormCommand';
 import Page from './Page';
 
 
 const Scheduler = (): any => {
     return (
         <Page title="Schedyool" subtitle="Create schedules for your students!">
-            <DataForm />
+            <FormCommand />
         </Page>
     );
 };

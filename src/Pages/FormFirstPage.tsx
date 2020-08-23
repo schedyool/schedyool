@@ -15,10 +15,11 @@ const FormFirstPage = (props: any) => {
             {children}
             <Divider />
             <Grid item sm={12}>
-                <Controls.MyButton
+                <Controls.Button
                     text="Continue"
                     color="primary"
                     onClick={myContinue}
+                    {...other}
                 />
             </Grid>
         </Grid>

@@ -4,7 +4,7 @@ import { Grid, Divider, List, ListItem, ListItemText, Typography } from '@materi
 import Controls from '../Components/Controls/Controls';
 
 const FormSubmitPage = (props: any) => {
-    const { handleSubmit, prevStep, handleInputChange, values, children } = props;
+    const { handleSubmit, prevStep, values } = props;
     const {
         fullName, email, numBlendedLearning, numDays, numRooms, packedSpecialSets,
         numSetsSameDay, numPairsDiffDay, numSpecialSets, specialSets,
@@ -114,13 +114,13 @@ const FormSubmitPage = (props: any) => {
             </List>
             <Divider />
             <Grid item sm={12}>
-                <Controls.MyButton 
+                <Controls.Button 
                     type="submit" 
                     value="Submit" 
                     text="Submit" 
                     onClick={(e: Event) => handleSubmit(e)}
                 />
-                <Controls.MyButton
+                <Controls.Button
                     text="Back"
                     color="default"
                     onClick={myPrevious}
