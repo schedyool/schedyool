@@ -108,7 +108,7 @@ const DataForm = (): any => {
             const postUrl = 'https://lqi0rcs9b1.execute-api.us-east-1.amazonaws.com/prod/';
             const payload = {
                 email: values.email,
-                timelimit: 840,
+                timelimit: 60,
                 num_students: values.numBlendedLearning,
                 num_rooms: values.numRooms,
                 num_days: values.numDays,
