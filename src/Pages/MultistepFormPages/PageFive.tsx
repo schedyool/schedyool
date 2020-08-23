@@ -33,7 +33,7 @@ const PageFive = (props: any) => {
                     <>
                         <Grid item xs={2}>
                             <Typography variant="h6" paragraph align='center' >
-                                Group {i}
+                                Group {i+1}
                             </Typography>
                         </Grid>
                         <Grid item xs={10}>

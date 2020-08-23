@@ -33,7 +33,7 @@ const PageSix = (props: any) => {
                         <div key={i}>
                             <Grid item xs={2}>
                                 <Typography>
-                                    Group {i}
+                                    Group {i+1}
                                 </Typography>
                             </Grid>
                             <Grid item xs={10}>

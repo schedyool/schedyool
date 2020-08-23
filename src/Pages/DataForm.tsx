@@ -54,7 +54,7 @@ const DataForm = (): any => {
 
     // validate for names and emails
     const validate = () => {
-        const re = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+        // const re = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
         let temp = {
             fullName: '',
             email: '',
@@ -66,16 +66,17 @@ const DataForm = (): any => {
             numPairsDiffDay: '',
         };
         temp.fullName = values.fullName ? '' : 'Your name is required.';
-        temp.email = re.test(values.email) ? '' : 'Your email is required.';
+        // temp.email = re.test(values.email) ? '' : 'Your email is required.';
         temp.mainFile = values.mainFile[0] ? '' : 'Please upload a file with your students.';
         temp.roomFile = values.roomFile[0] ? '' : 'Please upload a file with your room capacities.';
         temp.sameFileMissing = (values.numSetsSameDay > 0 && !values.sameFile[0]) ? 'Please upload a file with groups of students to be scheduled on the same day.' : '';
         temp.diffFileMissing = (values.numPairsDiffDay > 0 && !values.diffFile[0]) ? 'Please upload a file with pairs of students to be scheduled on different days.': '';
 
+        console.log(Object.values(temp).filter(x => x !== '').join('\n'));
         if (true) {
-            window.alert(Object.values(temp).filter(x => x !== '').join('\n'))
+            // window.alert(Object.values(temp).filter(x => x !== '').join('\n'))
         }
-        return false;
+        return true;
     }
 
     // proceed to next step
