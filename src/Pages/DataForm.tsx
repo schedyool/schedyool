@@ -7,7 +7,6 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import FormPages from './FormPages';
 import PagesList from './FormPagesList';
 
-
 const initialFieldValues = {
     step: 0,
     fullName: '',
@@ -104,7 +103,6 @@ const DataForm = (): any => {
         
         if (validate()) {
             nextStep();
-            console.log(values);
             const postUrl = 'https://lqi0rcs9b1.execute-api.us-east-1.amazonaws.com/prod/';
             const payload = {
                 email: values.email,
@@ -112,7 +110,7 @@ const DataForm = (): any => {
                 num_students: values.numBlendedLearning,
                 num_rooms: values.numRooms,
                 num_days: values.numDays,
-                max_grade: values.maxGrade-1,
+                max_grade: values.maxGrade,
                 num_same_day_sets: values.numSetsSameDay,
                 num_diff_day_pairs: values.numPairsDiffDay,
                 num_special_sets: values.numSpecialSets,
