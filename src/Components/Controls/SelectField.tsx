@@ -38,7 +38,7 @@ const SelectField = (props: any) => {
                 onOpen={handleOpen}
                 value={values.packedSpecialSets[setIndex][gradeIndex]}
                 onChange={(e:any) => handlePackedSetsChange(e, setIndex, gradeIndex)}
-                >
+            >
                 <MenuItem value={100}>
                     <em>None</em>
                 </MenuItem>

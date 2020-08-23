@@ -38,7 +38,7 @@ const PageSix = (props: any) => {
                                 </Typography>
                             </Grid>
                             <Grid item xs={10}>
-                                {[...Array(values.maxGrade)].map((y: any, j: number) => {
+                                {[...Array(values.maxGrade + 1)].map((y: any, j: number) => {
                                     return (
                                         <Controls.SelectField
                                             key={j}

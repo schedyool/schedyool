@@ -23,12 +23,11 @@ export const useForm = (initialFieldValues: any) => {
         }
     };
 
+    // handles changes to max grade (and updates packedSpecialSets)
     const handleGradeChange = (e: any) => {
         const { value } = e.target;
-        console.log(parseInt(value))
         if ( parseInt(value) ) {
-            if( parseInt(value) >= 1) {
-                console.log("value is > than 1:", parseInt(value))
+            if( parseInt(value) >= 0) {
                 setValues({
                     ...values,
                     maxGrade: parseInt(value),
@@ -37,11 +36,20 @@ export const useForm = (initialFieldValues: any) => {
                             return Array.from(Array(value), () => 100)
                         })
                 })
+            } else {
+                setValues({
+                    ...values,
+                    maxGrade: 0,
+                    packedSpecialSets: 
+                        Array.from(Array(values.numSpecialSets), () => {
+                            return Array.from(Array(1), () => 100)
+                        }),
+                })
             }
         } else {
             setValues({
                 ...values,
-                maxGrade: 1,
+                maxGrade: value,
                 packedSpecialSets: 
                     Array.from(Array(values.numSpecialSets), () => {
                         return Array.from(Array(1), () => 100)
@@ -50,21 +58,22 @@ export const useForm = (initialFieldValues: any) => {
         }
     }
 
-    const handleFileAdd = (file: any, name: any) => {
+    const handleFileAdd = (files: any, name: any) => {
+        const file = files[0]
         const reader = new FileReader();
         reader.onloadend = function (evt: any) {
             const res = evt.target.result;
             console.log(res)
             setValues({
                 ...values,
-                [name]: res
+                [name]: [file.name, res],
             });
         }
-        reader.readAsText(file[0]);
-        setValues({
-            ...values,
-            [name]: [file]
-        });
+        reader.readAsText(file);
+        // setValues({
+        //     ...values,
+        //     [name]: [file]
+        // });
     };
 
     const handleFileDelete = (name: any) => {
@@ -123,9 +132,7 @@ export const useForm = (initialFieldValues: any) => {
 
     const handlePackedSetsChange = (e: any, set: any, grade: any) => {
         const oldPackedSet = values.packedSpecialSets;
-        console.log(oldPackedSet);
         oldPackedSet[set][grade] = e.target.value;
-        console.log(oldPackedSet[set]);
         setValues({
             ...values,
             packedSpecialSets: oldPackedSet,

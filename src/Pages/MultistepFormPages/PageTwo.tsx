@@ -15,7 +15,7 @@ const PageTwo = (props: any) => {
             values={values}
         >
             <Typography variant="body2" paragraph>
-                Enter the number of students in the school who will participate in blended learning. Later, you will need to provide details about the students via <code>.csv</code> (comma-separated-values) files. A tutorial on how to save your Excel files to <code>.csv</code> is available <a href="https://support.microsoft.com/en-us/office/save-a-workbook-to-text-format-txt-or-csv-3e9a9d6c-70da-4255-aa28-fcacf1f081e6" target="_blank" rel="noopener noreferrer">here</a>.
+                Enter the number of students in the school who will participate in blended learning. Later, you will need to provide details about the students via <code>.csv</code> (comma-separated-values) files. A tutorial on how to save your Excel files to <code>.csv</code> is available <a href="https://support.microsoft.com/en-us/office/save-a-workbook-to-text-format-txt-or-csv-3e9a9d6c-70da-4255-aa28-fcacf1f081e6" target="_blank" rel="noopener noreferrer">here</a> or see the tutorial.
             </Typography>
             <Controls.Input
                 helpText={helpTexts.numBlendedLearning}
@@ -25,7 +25,7 @@ const PageTwo = (props: any) => {
                 onInput={handleInputChange}
             />
             <Typography variant="body2" paragraph>
-                How many distinct grades are represented? For instance, a K-5 elementary school has 6 distinct grades while a 9-12 high school has 4.
+                Input the maximum grade. For instance, a K-5 elementary school has a max grade of 5 while a 9-12 high school has a max grade of 12.
             </Typography>
             <Controls.Input
                 helpText={helpTexts.maxGrade}
