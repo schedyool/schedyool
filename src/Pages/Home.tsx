@@ -1,7 +1,8 @@
 import React from 'react';
 import Page from './Page';
 import PageHeader from '../Components/PageHeader';
-import { Typography } from '@material-ui/core';
+import { Typography, Link } from '@material-ui/core';
+import Controls from '../Components/Controls/Controls';
 
 const Home = (): any => {
     return (
@@ -29,6 +30,9 @@ const Home = (): any => {
             nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
             accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
           </Typography>
+          <Link href="/scheduler">
+            <Controls.MyButton text="Schedyool!" />
+          </Link>
         </Page>
     );
 };

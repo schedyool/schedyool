@@ -17,10 +17,11 @@ const FormSubmitPage = (props: any) => {
     }
 
     return (
-        <Grid container>
-            <Typography variant="h5">
+        <div>
+            <Typography variant="h5" gutterBottom={true}>
                 Confirm before submission
             </Typography>
+            <Divider variant="fullWidth" />
             <List>
                 <ListItem>
                     <ListItemText 
@@ -43,7 +44,7 @@ const FormSubmitPage = (props: any) => {
                 </ListItem>
                 <ListItem>
                     <ListItemText 
-                        primary="Number of schedules"
+                        primary="Number of daily schedules"
                         secondary={numDays}
                     />
                 </ListItem>
@@ -67,22 +68,22 @@ const FormSubmitPage = (props: any) => {
                 </ListItem>
                 <ListItem>
                     <ListItemText 
-                        primary="Number of special groupings of students"
+                        primary="Number of special groups of students"
                         secondary={numSpecialSets}
                     />
                 </ListItem>
                 <Divider component="li" />
                 <ListItem>
                     <ListItemText 
-                        primary="Fraction of special group in each classroom"
-                        secondary={specialSets.toString()}
+                        primary="Fraction of special groups in each classroom"
+                        secondary={specialSets.toString().length === 0 ? 'No special groups selected' : specialSets.toString() }
                     />
                 </ListItem>
                 <Divider component="li" />
                 <ListItem>
                     <ListItemText 
-                        primary="Packed special sets"
-                        secondary={packedSpecialSets.toString()}
+                        primary="Special groups in classrooms by grade"
+                        secondary={packedSpecialSets.toString().length === 0 ? 'No special groups selected' : packedSpecialSets.toString()}
                     />
                 </ListItem>
                 <Divider component="li" />
@@ -107,7 +108,7 @@ const FormSubmitPage = (props: any) => {
                 <ListItem>
                     <ListItemText 
                         primary="Diff File"
-                        secondary={mainFile[0] ? mainFile[0][0].name : "No file..."}
+                        secondary={diffFile[0] ? diffFile[0][0].name : "No file..."}
                     />
                 </ListItem>
             </List>
@@ -125,7 +126,7 @@ const FormSubmitPage = (props: any) => {
                     onClick={myPrevious}
                 />
             </Grid>
-        </Grid>
+        </div>
     )
 }
 
