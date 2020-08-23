@@ -73,7 +73,7 @@ const DataForm = (): any => {
         temp.sameFileMissing = (values.numSetsSameDay > 0 && !values.sameFile[0]) ? 'Please upload a file with groups of students to be scheduled on the same day.' : '';
         temp.diffFileMissing = (values.numPairsDiffDay > 0 && !values.diffFile[0]) ? 'Please upload a file with pairs of students to be scheduled on different days.': '';
 
-        window.alert(Object.values(temp).filter(x => x !== '').join('\n')))
+        window.alert(Object.values(temp).filter(x => x !== '').join('\n'));
         return true;
     }
 
@@ -123,15 +123,6 @@ const DataForm = (): any => {
                 room_file: values.roomFile ? values.roomFile : '',
                 same_file: values.sameFile ? values.sameFile : '',
             }
-
-            // const debugging = false
-            // if ( debugging ) {
-            //     var a = document.createElement("a");
-            //     var file = new Blob([JSON.stringify(payload)], {type: 'text/plain'});
-            //     a.href = URL.createObjectURL(file);
-            //     a.download = 'json.txt';
-            //     a.click();
-            // }
             
             const send = true;
             if (send) {
@@ -318,14 +309,5 @@ const DataForm = (): any => {
     }
 };
 
-/*
-                    <FormControl>
-                        <FormLabel>Radios</FormLabel>
-                        <RadioGroup row={true}>
-                            <FormControlLabel value="value-1" control={<Radio />} label="Button 1" />
-                            <FormControlLabel value="value-2" control={<Radio />} label="Button 2" />
-                            <FormControlLabel value="value-3" control={<Radio />} label="Button 3" />
-                        </RadioGroup>
-                    </FormControl>
-*/
+
 export default DataForm;
