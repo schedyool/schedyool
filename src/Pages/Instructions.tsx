@@ -14,10 +14,10 @@ const Home = (): any => {
                 Directions
             </Typography>
             <Link href="/scheduler">
-                <Controls.MyButton text="Schedyool!" />
+                <Controls.Button text="Schedyool!" />
             </Link>
             <Link href="/">
-                <Controls.MyButton text="Home" color="default" />
+                <Controls.Button text="Home" color="default" />
             </Link>
         </Page>
     );
