@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import 'fontsource-roboto';
 import Header from '../Components/Header';
-import { makeStyles, CssBaseline, createMuiTheme, ThemeProvider } from '@material-ui/core';
+import { CssBaseline, createMuiTheme, ThemeProvider } from '@material-ui/core';
 import Home from '../Pages/Home';
 import Scheduler from '../Pages/Scheduler';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -35,15 +35,15 @@ const theme = createMuiTheme({
 });
 
 
-const useStyles = makeStyles({
-  appMain: {
-    paddingLeft: '200px',
-    [theme.breakpoints.down('sm')]: {
-      paddingLeft: '0px'
-    },
-    width: '100%',
-  },
-});
+// const useStyles = makeStyles({
+//   appMain: {
+//     paddingLeft: '200px',
+//     [theme.breakpoints.down('sm')]: {
+//       paddingLeft: '0px'
+//     },
+//     width: '100%',
+//   },
+// });
 
 function App() {
   // const classes = useStyles();
