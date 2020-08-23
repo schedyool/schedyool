@@ -51,6 +51,16 @@ export const useForm = (initialFieldValues: any) => {
     }
 
     const handleFileAdd = (file: any, name: any) => {
+        const reader = new FileReader();
+        reader.onloadend = function (evt: any) {
+            const res = evt.target.result;
+            console.log(res)
+            setValues({
+                ...values,
+                [name]: res
+            });
+        }
+        reader.readAsText(file[0]);
         setValues({
             ...values,
             [name]: [file]
@@ -60,7 +70,7 @@ export const useForm = (initialFieldValues: any) => {
     const handleFileDelete = (name: any) => {
         setValues({
             ...values,
-            [name]: []
+            [name]: ''
         });
     };
 

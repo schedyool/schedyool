@@ -110,7 +110,7 @@ const DataForm = (): any => {
                 num_students: values.numBlendedLearning,
                 num_rooms: values.numRooms,
                 num_days: values.numDays,
-                max_grade: values.maxGrade,
+                max_grade: values.maxGrade - 1,
                 num_same_day_sets: values.numSetsSameDay,
                 num_diff_day_pairs: values.numPairsDiffDay,
                 num_special_sets: values.numSpecialSets,
