@@ -7,9 +7,9 @@ import Controls from '../Components/Controls/Controls';
 const Home = (): any => {
     return (
         <Page title="🎓 Schedyool" subtitle="Covid School Scheduling App" >
-            <Typography paragraph>
-              Thanks to the requirements of blended virtual and physical learning, principals have the
-              daunting task of scheduling students while satisfying several constraints:
+          <Typography paragraph>
+            Thanks to the requirements of blended virtual and physical learning, principals have the
+            daunting task of scheduling students while satisfying several constraints:
           </Typography>
           <Typography paragraph>
             Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla

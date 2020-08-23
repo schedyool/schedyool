@@ -27,7 +27,7 @@ const initialFieldValues = {
     diffFile: [],
 };
 
-const DataForm = (): any => {
+const FormCommand = (): any => {
     const {
         values,
         setValues,
@@ -308,4 +308,4 @@ const DataForm = (): any => {
 };
 
 
-export default DataForm;
+export default FormCommand;

@@ -2,7 +2,7 @@
 import Input from './Input';
 import Dropzone from './Dropzone';
 import SelectField from './SelectField';
-import Button from './MyButton';
+import Button from './Button';
 import SpecialSliders from './SpecialSetsSliders';
 
 const Controls = {
