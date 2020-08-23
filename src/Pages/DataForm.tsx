@@ -110,7 +110,7 @@ const DataForm = (): any => {
                 num_students: values.numBlendedLearning,
                 num_rooms: values.numRooms,
                 num_days: values.numDays,
-                max_grade: values.maxGrade - 1,
+                max_grade: values.maxGrade,
                 num_same_day_sets: values.numSetsSameDay,
                 num_diff_day_pairs: values.numPairsDiffDay,
                 num_special_sets: values.numSpecialSets,
@@ -295,7 +295,7 @@ const DataForm = (): any => {
                 <div>
                     <Typography variant="h6" gutterBottom={true}>Confirmation</Typography>
                     <Typography paragraph>
-                        Your schedule has been sent. Please check your email for your schedules.
+                        Your schedule has been sent. Please check your email in 15 minutes for your schedules.
                     </Typography>
                     <Controls.MyButton onClick={() => setValues(initialFieldValues)} text="Create another schedule" />
                     <Link href="/">

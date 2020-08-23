@@ -23,12 +23,11 @@ export const useForm = (initialFieldValues: any) => {
         }
     };
 
+    // handles changes to max grade (and updates packedSpecialSets)
     const handleGradeChange = (e: any) => {
         const { value } = e.target;
-        console.log(parseInt(value))
         if ( parseInt(value) ) {
             if( parseInt(value) >= 1) {
-                console.log("value is > than 1:", parseInt(value))
                 setValues({
                     ...values,
                     maxGrade: parseInt(value),
@@ -36,6 +35,15 @@ export const useForm = (initialFieldValues: any) => {
                         Array.from(Array(values.numSpecialSets), () => {
                             return Array.from(Array(value), () => 100)
                         })
+                })
+            } else {
+                setValues({
+                    ...values,
+                    maxGrade: 0,
+                    packedSpecialSets: 
+                        Array.from(Array(values.numSpecialSets), () => {
+                            return Array.from(Array(1), () => 100)
+                        }),
                 })
             }
         } else {
@@ -123,9 +131,7 @@ export const useForm = (initialFieldValues: any) => {
 
     const handlePackedSetsChange = (e: any, set: any, grade: any) => {
         const oldPackedSet = values.packedSpecialSets;
-        console.log(oldPackedSet);
         oldPackedSet[set][grade] = e.target.value;
-        console.log(oldPackedSet[set]);
         setValues({
             ...values,
             packedSpecialSets: oldPackedSet,
