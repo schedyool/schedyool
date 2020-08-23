@@ -119,7 +119,7 @@ const Header = (props: any) => {
             </IconButton>
             <Link to="/">
               <IconButton>
-                <SchoolIcon />
+                <SchoolIcon style={{ color: '#FFF' }}/>
               </IconButton>
             </Link>
             <Typography variant="h6" noWrap>

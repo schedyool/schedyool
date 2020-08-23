@@ -27,7 +27,7 @@ const MyAppBar = (props: any) => {
                     <MenuIcon />
                 </IconButton>
                 <IconButton>
-                    <SchoolIcon />
+                    <SchoolIcon/>
                 </IconButton>
                 <Typography variant="h6" noWrap>
                     {title}
