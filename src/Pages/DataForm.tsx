@@ -124,14 +124,14 @@ const DataForm = (): any => {
                 same_file: values.sameFile ? values.sameFile : '',
             }
 
-            const debugging = false
-            if ( debugging ) {
-                var a = document.createElement("a");
-                var file = new Blob([JSON.stringify(payload)], {type: 'text/plain'});
-                a.href = URL.createObjectURL(file);
-                a.download = 'json.txt';
-                a.click();
-            }
+            // const debugging = false
+            // if ( debugging ) {
+            //     var a = document.createElement("a");
+            //     var file = new Blob([JSON.stringify(payload)], {type: 'text/plain'});
+            //     a.href = URL.createObjectURL(file);
+            //     a.download = 'json.txt';
+            //     a.click();
+            // }
             
             const send = true;
             if (send) {
