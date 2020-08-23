@@ -7,22 +7,10 @@ import Header from '../Components/Header';
 
 const drawerWidth = 240;
 
-// withStyles, makeStyles hooks for CSS styling -> JSS
 const useStyle = makeStyles(theme => ({
     root: {
         display: 'flex',
     },
-    // sideMenu: {
-    //     flexDirection: 'column',
-    //     position: 'fixed',
-    //     left: '0px',
-    //     width: '200px',
-    //     height: '100%',
-    //     backgroundColor: theme.palette.primary.dark,
-    //     [theme.breakpoints.down('sm')]: {
-    //         width: '0px'
-    //     },
-    // },
     drawer: {
         [theme.breakpoints.up('xs')]: {
             width: drawerWidth,

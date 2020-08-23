@@ -2,10 +2,10 @@ import React from 'react';
 import './App.css';
 import 'fontsource-roboto';
 import Header from '../Components/Header';
-import { makeStyles, CssBaseline, createMuiTheme, ThemeProvider, IconButton } from '@material-ui/core';
+import { makeStyles, CssBaseline, createMuiTheme, ThemeProvider } from '@material-ui/core';
 import Home from '../Pages/Home';
 import Scheduler from '../Pages/Scheduler';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const theme = createMuiTheme({
   palette: {
@@ -45,47 +45,7 @@ const useStyles = makeStyles({
 });
 
 function App() {
-  const classes = useStyles();
-
-  // return (
-  //   <ThemeProvider theme={theme}>
-  //     <SideMenu />
-  //     <div className={classes.appMain}>
-  //       <Header 
-  //         title = "Schedyool"
-  //       />
-  //       {/* <PageHeader 
-  //         title="Schedyool"
-  //         subtitle="Schedule your students. Optimally."
-  //         icon={<IconButton><SchoolIcon fontSize="large"/></IconButton>}
-  //       /> */}
-  //       <DataComponent />
-  //     </div>
-  //     <CssBaseline />
-  //   </ThemeProvider>
-  // );
-
-
-  // return (
-  //   <ThemeProvider theme={theme}>
-  //     <Router>
-  //       <SideMenu />
-  //       <div className={classes.appMain}>
-  //         <Header title="Schedyool" />
-
-  //         <Switch>
-  //           <Route path="/">
-  //             <Scheduler />
-  //           </Route>
-  //           <Route path="/scheduler">
-  //             <Home />
-  //           </Route>
-  //         </Switch>
-          
-  //       </div>
-  //     </Router>
-  //   </ThemeProvider>
-  // )
+  // const classes = useStyles();
 
   return (
     <ThemeProvider theme={theme}>
@@ -96,7 +56,7 @@ function App() {
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
             <Switch>
-              <Route path="/scheduler">
+              <Route path="/schedyooler">
                 <Scheduler />
               </Route>
               <Route path="/">

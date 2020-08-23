@@ -63,12 +63,6 @@ export const useForm = (initialFieldValues: any) => {
     };
 
     const handleFileDelete = (name: any) => {
-        // const allFiles = [...values.files];
-        // allFiles.splice(file, 1);
-        // setValues({
-        //     ...values,
-        //     files: allFiles,
-        // });
         setValues({
             ...values,
             [name]: ''

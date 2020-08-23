@@ -5,7 +5,7 @@ import { Typography, Grid } from '@material-ui/core';
 
 
 const PageFive = (props: any) => {
-    const { values, nextStep, prevStep, helpTexts, handleSliderChange } = props;
+    const { values, nextStep, prevStep, handleSliderChange } = props;
 
     return (
         <FormPages.MiddlePage

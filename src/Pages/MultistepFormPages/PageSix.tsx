@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Controls from '../../Components/Controls/Controls';
 import FormPages from '../FormPages';
-import { Typography, Button, Grid, TextField } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 
 
 const PageSix = (props: any) => {
-    const { values, nextStep, prevStep, helpTexts, handlePackedSetsChange } = props;
+    const { values, nextStep, prevStep, handlePackedSetsChange } = props;
     return (
         <FormPages.MiddlePage
             nextStep={nextStep}

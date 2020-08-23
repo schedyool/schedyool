@@ -3,7 +3,6 @@ https://www.npmjs.com/package/material-ui-dropzone
 */
 import React from 'react';
 import { DropzoneArea} from 'material-ui-dropzone';
-import { AttachFile } from '@material-ui/icons';
 
 
 const Dropzone = (props: any) => {

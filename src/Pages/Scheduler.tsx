@@ -9,15 +9,6 @@ const Scheduler = (): any => {
             <DataForm />
         </Page>
     );
-
-    // return (
-    //     <Page 
-    //         title="Upload Files" 
-    //         subtitle="Upload .csv and .txt files to Schedyool to create your students' schedules."
-    //     >
-    //         <DataForm />
-    //     </Page>
-    // );
 };
 
 export default Scheduler;

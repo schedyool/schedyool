@@ -1,56 +1,14 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Grid, InputBase, IconButton, Badge, makeStyles, Typography, Theme, createStyles, useTheme, CssBaseline, Drawer, Divider, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, makeStyles, Typography, Theme, createStyles, useTheme, CssBaseline, Drawer, Divider, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import MenuIcon from '@material-ui/icons/Menu';
 import clsx from 'clsx';
 import HomeIcon from '@material-ui/icons/Home';
-import MailIcon from '@material-ui/icons/Mail';
 import { Link } from 'react-router-dom';
-import MyAppBar from './MyAppBar';
 import SchoolIcon from '@material-ui/icons/School';
 
 const drawerWidth = 200;
-
-// const useStyles = makeStyles(theme => ({
-//     root: {
-//         backgroundColor: '#FFF',
-//     },
-//     searchInput: {
-//         opacity: '0.6',
-//         padding: `0px ${theme.spacing(1)}px`,
-//         fontSize: '0.8rem',
-//         '&:hover': {
-//             backgroundColor: '#f2f2f2',
-//         },
-//         '& .MuiSvgIcon-root': {
-//             marginRight: theme.spacing(1),
-//         },
-//     },
-//     appBar: {
-//         transition: theme.transitions.create(['margin', 'width'], {
-//             easing: theme.transitions.easing.sharp,
-//             duration: theme.transitions.duration.leavingScreen,
-//         }),
-//     },
-//     appBarShift: {
-//         width: `calc(100%-${drawerWidth}px)`,
-//         marginLeft: drawerWidth,
-//         transition: theme.transitions.create(['margin', 'width'], {
-//             easing: theme.transitions.easing.easeOut,
-//             duration: theme.transitions.duration.enteringScreen,
-//         }),
-//     },
-//     menuButton: {
-//         marginRight: theme.spacing(2),
-//         [theme.breakpoints.up('sm')]: {
-//             display: 'none',
-//         },
-//     },
-//     hide: {
-//         display: 'none',
-//     }
-// }));
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -112,68 +70,6 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-// const Header = (props: any): any => {
-//     const classes = useStyles();
-//     const { title, onClick, ...other } = props;
-
-//     return (
-//         <AppBar 
-//             position="fixed" 
-//             className={clsx(classes.appBar, {
-//                 // eslint-disable-next-line no-restricted-globals
-//                 [classes.appBarShift]: open,
-//             })}
-//         >
-//             <Toolbar>
-//                 <Grid container alignItems="center">
-//                     <Grid item>
-//                         <IconButton
-//                             color="inherit"
-//                             aria-label="open drawer"
-//                             edge="start"
-//                             onClick={onClick}
-//                             className={classes.menuButton}
-//                             {...other}
-//                         >
-//                             <MenuIcon />
-//                         </IconButton>
-//                     </Grid>
-//                     <Grid item>
-//                         <Typography 
-//                             variant="h4"
-//                             component="div"
-//                             color="textPrimary"
-//                         >
-//                             {title}
-//                         </Typography>
-//                         {/* <InputBase 
-//                             placeholder="Search Website" 
-//                             className={classes.searchInput}
-//                             startAdornment={<SearchIcon fontSize="small" />}
-//                         /> */}
-//                     </Grid>
-//                     <Grid item xs></Grid>
-//                     <Grid item>
-//                         <IconButton>
-//                             <Badge badgeContent={4} color="secondary" >
-//                                 <NotificationsNoneIcon />
-//                             </Badge>
-//                         </IconButton>
-//                         {/* <IconButton>
-//                             <Badge badgeContent={3} color="secondary">
-//                                 <ChatBubbleOutlineIcon />
-//                             </Badge>
-//                         </IconButton> */}
-//                         <IconButton>
-//                             <PowerSettingsNewIcon />
-//                         </IconButton>
-//                     </Grid>
-//                 </Grid>
-//             </Toolbar>
-//         </AppBar>
-//     )
-// }
-
 const Header = (props: any) => {
     const { title, children } = props;
 
@@ -231,7 +127,7 @@ const Header = (props: any) => {
             </Typography>
           </Toolbar>
         </AppBar>
-        {/* <MyAppBar title={title} handleDrawerOpen={handleDrawerOpen} classes={classes} /> */}
+
         <Drawer
           className={classes.drawer}
           variant="persistent"
