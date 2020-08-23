@@ -7,6 +7,7 @@ import FormPages from './FormPages';
 import PagesList from './FormPagesList';
 import ErrorModal from '../Components/ErrorModal';
 
+
 const initialFieldValues = {
     step: 0,
     fullName: '',
@@ -72,10 +73,7 @@ const DataForm = (): any => {
         temp.sameFileMissing = (values.numSetsSameDay > 0 && !values.sameFile[0]) ? 'Please upload a file with groups of students to be scheduled on the same day.' : '';
         temp.diffFileMissing = (values.numPairsDiffDay > 0 && !values.diffFile[0]) ? 'Please upload a file with pairs of students to be scheduled on different days.': '';
 
-        console.log(Object.values(temp).filter(x => x !== '').join('\n'));
-        if (true) {
-            // window.alert(Object.values(temp).filter(x => x !== '').join('\n'))
-        }
+        // console.log(Object.values(temp).filter(x => x !== '').join('\n'));
         return true;
     }
 
@@ -106,6 +104,7 @@ const DataForm = (): any => {
         
         if (validate()) {
             nextStep();
+            console.log(values);
             const postUrl = 'https://lqi0rcs9b1.execute-api.us-east-1.amazonaws.com/prod/';
             const payload = {
                 email: values.email,
@@ -113,22 +112,27 @@ const DataForm = (): any => {
                 num_students: values.numBlendedLearning,
                 num_rooms: values.numRooms,
                 num_days: values.numDays,
-                max_grade: values.maxGrade,
+                max_grade: values.maxGrade-1,
                 num_same_day_sets: values.numSetsSameDay,
                 num_diff_day_pairs: values.numPairsDiffDay,
                 num_special_sets: values.numSpecialSets,
                 fraction_for_special_set: values.specialSets,
                 num_rooms_to_be_packed_into: values.packedSpecialSets,
-                diff_file: values.diffFile[0] ? values.diffFile[0][0]: '',
+                diff_file: values.diffFile ? values.diffFile: '',
+                main_file: values.mainFile ? values.mainFile : '',
+                room_file: values.roomFile ? values.roomFile : '',
+                same_file: values.sameFile ? values.sameFile : '',
                 // diff_file: '51, 86\n93, 71\n513, 511\n513, 423\n1, 437\n87, 238\n',
                 // main_file: '1,M,0,1\n4,F,0,1\n1,M,1,0\n3,F,0,0\n0,M,0,0\n1,M,0,0\n3,F,1,0\n1,M,0,0\n1,M,0,0\n4,F,0,0\n4,F,1,0\n5,F,1,0\n3,M,0,0\n3,F,0,0\n1,F,0,0\n2,M,0,1\n5,F,0,0\n2,F,0,0\n3,F,1,0\n5,F,0,0\n2,F,0,0\n4,M,0,0\n5,F,0,0\n1,F,1,0\n0,F,0,0\n5,M,1,0\n2,F,1,0\n0,M,1,0\n1,M,1,0\n0,M,0,0\n3,M,0,0\n2,F,0,0\n5,M,0,1\n0,F,0,0\n0,M,0,0\n2,F,0,0\n4,M,0,0\n2,M,0,0\n2,M,0,0\n2,M,1,0\n3,M,0,1\n1,F,0,0\n4,F,0,0\n5,F,0,0\n2,F,0,0\n1,F,0,0\n3,F,0,0\n2,F,0,0\n3,M,0,0\n3,M,0,0\n0,F,1,0\n3,F,1,0\n2,F,0,0\n5,F,0,0\n2,F,0,0\n1,M,0,0\n2,F,1,0\n0,F,0,0\n1,M,1,0\n0,M,0,1\n2,F,0,0\n2,F,0,0\n3,M,0,0\n1,F,0,0\n2,M,0,0\n5,M,0,0\n4,M,0,0\n5,M,0,0\n3,M,1,0\n1,M,0,0\n3,F,0,0\n5,F,0,0\n0,M,0,0\n2,M,1,0\n4,M,0,0\n0,F,0,0\n0,F,0,0\n3,M,0,1\n4,M,0,0\n5,F,0,0\n4,M,0,0\n3,F,0,0\n4,F,0,0\n1,F,0,0\n3,M,0,0\n0,M,0,0\n1,M,0,0\n2,M,0,1\n3,F,0,0\n5,F,0,0\n3,F,0,0\n1,F,0,0\n4,M,1,0\n3,M,0,0\n0,M,0,0\n2,M,0,1\n4,M,1,0\n4,M,0,0\n5,F,0,0\n5,F,0,0\n4,F,1,0\n2,M,1,0\n0,F,0,0\n4,M,0,0\n3,F,0,0\n0,F,0,0\n3,F,0,1\n0,M,0,0\n4,F,0,0\n5,M,0,0\n3,F,0,0\n2,M,0,0\n4,F,0,0\n1,M,0,1\n1,M,0,0\n1,F,0,0\n3,M,0,0\n5,F,0,0\n1,F,0,0\n5,M,0,0\n0,M,0,0\n3,M,1,0\n0,M,0,0\n5,F,0,0\n0,M,0,0\n2,M,0,0\n3,F,0,0\n5,M,0,0\n1,M,0,0\n4,M,0,0\n2,F,0,0\n0,M,0,0\n5,M,1,0\n2,M,0,0\n0,M,0,1\n1,M,0,0\n0,F,0,0\n2,F,0,0\n1,F,1,0\n4,F,0,0\n0,M,0,0\n2,F,0,0\n0,F,0,0\n3,M,0,0\n4,F,0,0\n1,F,0,0\n1,M,0,0\n3,F,1,0\n5,M,0,0\n5,F,0,0\n4,M,0,0\n4,M,0,0\n0,F,0,0\n0,M,0,0\n3,F,0,0\n3,M,0,0\n1,M,0,0\n0,M,0,0\n2,M,0,0\n1,F,0,0\n2,M,0,0\n2,F,1,1\n4,F,0,0\n1,F,0,1\n2,M,1,0\n3,F,0,0\n3,M,0,0\n5,M,0,0\n4,M,0,0\n4,F,0,0\n5,M,0,0\n1,F,0,0\n5,F,0,0\n1,F,0,0\n0,F,0,1\n4,M,0,0\n3,M,0,0\n5,F,0,0\n3,M,1,0\n1,F,0,0\n1,F,0,0\n0,F,0,0\n5,F,0,0\n1,M,0,0\n3,M,0,0\n0,M,0,0\n1,F,0,0\n1,F,0,0\n1,M,0,0\n4,F,0,0\n1,F,0,0\n1,M,0,0\n1,M,0,0\n5,F,0,1\n0,F,0,0\n3,M,0,0\n3,M,1,0\n5,M,0,1\n0,F,0,0\n3,M,0,0\n4,M,0,0\n5,M,0,0\n3,M,0,0\n3,M,0,0\n2,M,0,0\n0,F,0,0\n1,F,0,0\n1,M,0,0\n4,M,1,0\n2,F,0,0\n5,M,0,0\n2,M,0,0\n4,M,0,0\n5,M,0,0\n3,M,0,0\n5,F,0,0\n4,F,0,0\n1,F,0,0\n1,M,0,0\n0,M,0,0\n0,M,1,0\n4,M,0,0\n1,M,1,1\n2,M,1,0\n0,M,0,0\n4,M,1,0\n1,F,0,0\n0,M,0,0\n1,F,1,0\n4,M,1,1\n0,F,0,0\n2,F,0,0\n5,M,0,0\n5,M,0,1\n4,M,0,0\n0,F,0,0\n5,M,1,0\n1,F,0,0\n0,M,0,0\n2,M,0,0\n0,F,0,0\n1,F,1,0\n5,M,0,0\n4,F,0,0\n0,M,0,0\n4,F,0,0\n2,M,0,0\n4,M,0,0\n2,M,0,0\n2,M,0,0\n4,F,0,0\n1,M,0,0\n2,M,0,0\n5,F,0,1\n5,M,0,0\n2,M,0,1\n0,M,0,0\n4,M,1,0\n2,F,0,0\n1,F,0,0\n4,F,0,0\n2,M,0,0\n5,M,0,0\n4,F,0,0\n0,M,0,0\n5,M,0,0\n1,F,0,0\n4,F,0,0\n1,M,0,0\n5,F,0,0\n3,M,0,0\n3,M,0,0\n2,F,0,0\n0,M,0,0\n1,F,0,0\n0,F,0,0\n5,F,0,0\n5,M,1,0\n3,M,0,0\n5,M,0,0\n1,F,0,1\n2,M,0,0\n1,M,0,0\n0,F,0,0\n3,F,0,0\n2,M,0,0\n4,M,0,0\n1,M,1,0\n0,M,0,0\n5,M,0,0\n5,F,0,0\n1,F,0,0\n2,M,0,0\n3,F,0,0\n4,M,0,0\n3,F,1,0\n3,M,0,0\n4,F,0,0\n5,F,0,0\n0,F,0,0\n4,F,0,0\n4,F,0,0\n4,F,0,0\n0,F,0,0\n3,M,0,0\n5,M,0,0\n0,M,0,0\n0,M,1,0\n5,M,0,0\n3,M,0,0\n0,F,0,0\n1,M,1,0\n0,F,0,0\n3,F,0,0\n2,F,0,0\n5,M,1,0\n0,M,0,1\n2,F,0,0\n5,M,0,1\n1,F,0,0\n5,M,1,0\n1,M,0,1\n5,F,0,0\n2,M,0,0\n5,M,0,0\n3,F,0,0\n1,F,0,0\n5,F,0,1\n0,M,0,0\n2,F,0,0\n0,F,0,0\n4,M,0,0\n5,M,0,0\n3,M,0,0\n0,M,0,1\n3,F,0,1\n1,F,1,0\n0,M,0,0\n3,F,0,0\n4,F,1,1\n1,F,0,1\n0,F,0,1\n4,F,0,0\n1,F,0,0\n5,M,1,0\n3,F,0,0\n5,M,0,0\n1,F,0,0\n4,F,0,0\n2,F,0,0\n3,M,0,0\n0,F,0,0\n0,M,0,0\n5,M,0,1\n4,F,0,0\n0,M,0,0\n4,M,0,0\n0,M,0,0\n0,M,0,0\n3,M,0,0\n2,M,0,0\n1,M,0,0\n4,M,0,0\n1,F,0,0\n2,M,0,0\n1,F,0,0\n2,F,0,0\n3,F,0,0\n2,F,0,0\n5,M,0,0\n0,M,0,0\n0,F,0,0\n5,M,0,0\n4,M,0,0\n0,M,0,0\n2,M,0,0\n1,F,1,0\n2,M,0,0\n4,M,1,0\n0,F,1,0\n1,F,0,0\n4,M,0,0\n0,M,0,1\n5,F,0,0\n2,F,0,0\n4,F,0,0\n1,M,0,0\n2,M,0,0\n1,F,0,1\n3,F,0,0\n2,M,0,0\n3,M,1,0\n0,F,0,0\n3,M,0,0\n4,M,0,1\n5,M,0,0\n4,F,0,0\n1,F,1,0\n0,F,0,0\n1,F,0,0\n2,M,0,0\n4,F,0,0\n0,M,0,0\n4,M,0,0\n1,M,0,0\n0,M,0,0\n5,M,0,0\n4,F,0,0\n2,M,0,0\n5,F,1,0\n2,F,0,0\n1,F,0,0\n1,M,0,0\n4,F,0,0\n5,F,0,0\n2,F,0,0\n5,M,0,0\n5,M,0,0\n5,F,0,0\n1,F,0,0\n4,F,0,0\n3,M,0,0\n2,F,1,0\n2,F,0,0\n4,M,0,0\n1,M,0,0\n0,M,0,0\n2,M,0,0\n2,F,0,0\n4,F,1,0\n0,M,0,0\n0,F,0,0\n3,F,0,0\n4,M,0,0\n3,M,0,0\n3,F,0,0\n4,M,1,0\n1,M,0,0\n5,M,0,0\n3,F,0,0\n5,M,0,0\n5,F,0,1\n1,F,0,0\n0,F,0,0\n0,F,0,0\n4,F,0,0\n5,M,0,0\n4,M,1,0\n4,M,1,0\n5,F,0,0\n3,F,0,1\n3,M,0,0\n3,M,0,0\n4,M,0,0\n3,F,0,0\n3,F,0,0\n4,F,0,0\n3,F,0,0\n2,F,1,0\n1,F,0,0\n3,M,1,0\n3,F,0,0\n0,F,0,1\n1,M,0,0\n1,F,1,1\n1,F,0,0\n1,F,1,0\n4,M,0,0\n2,M,0,0\n3,F,0,0\n1,F,0,0\n5,M,0,0\n2,M,0,0\n1,M,1,0\n2,F,0,1\n3,M,0,0\n2,F,0,0\n3,F,0,0\n5,M,0,0\n5,M,0,0\n4,M,0,0\n2,M,0,0\n2,F,0,0\n2,M,0,0\n0,F,0,0\n5,F,0,0\n3,F,0,0\n0,M,0,0\n5,F,1,0\n5,M,1,0\n2,M,1,0\n0,F,0,0\n3,M,1,0\n1,M,0,0\n5,F,0,0\n2,M,0,0\n5,F,0,0\n0,F,0,0\n3,M,0,0\n3,M,0,0\n0,M,0,0\n2,F,1,0\n0,F,0,0\n3,M,1,0\n1,M,0,0\n1,M,1,0\n2,F,0,0\n0,M,0,0\n2,M,0,0\n2,F,0,0\n0,M,0,0\n2,M,0,0\n1,M,0,0\n1,M,0,0\n0,F,0,0\n1,F,0,0\n0,M,0,0\n5,M,0,0\n5,F,1,0\n0,M,1,0\n1,F,0,0\n3,F,0,0\n4,M,0,1\n2,F,0,0\n2,M,0,0\n5,M,0,0\n4,F,0,0\n1,F,1,0\n5,M,0,0\n0,M,0,0\n1,M,0,1\n4,F,1,0\n2,M,0,0\n1,M,0,0\n0,F,0,0\n5,F,0,0\n1,M,0,0\n0,M,0,0\n0,M,0,0\n2,F,0,0\n0,F,0,0\n1,M,0,1\n1,M,0,0\n0,F,0,0\n5,M,0,0\n5,M,0,0\n1,M,0,0\n3,M,0,0\n3,M,0,0\n3,F,0,0\n1,F,0,0\n1,M,0,0\n4,M,0,0\n1,M,1,0\n5,F,0,0\n0,F,0,0\n2,F,0,0\n0,M,0,0\n3,F,1,0\n2,M,0,0\n4,F,0,0\n4,F,0,0\n5,F,1,0\n0,F,0,0\n3,F,0,0\n2,M,0,0\n3,F,0,0\n5,M,1,0\n0,F,0,0\n3,F,0,0\n3,F,1,0\n5,F,0,0\n1,M,0,0\n5,F,0,1\n2,F,0,0\n4,F,1,0\n3,M,0,0\n1,F,0,0\n2,F,0,0\n5,F,0,1\n0,M,0,0\n5,F,0,0\n2,F,0,0\n1,M,0,0\n1,F,1,0\n1,F,0,0\n4,F,0,0\n3,F,0,0\n1,F,0,0\n1,F,0,0\n4,M,1,0\n4,F,0,0\n4,M,0,0\n1,F,0,0\n1,M,0,1\n2,F,0,0\n4,F,1,0\n1,F,0,0\n1,F,0,0\n0,F,0,0\n',
-                main_file: values.mainFile[0] ? values.mainFile[0][0] : '',
-                // room_file: '9\n9\n8\n9\n11\n12\n10\n9\n8\n10\n13\n10\n10\n9\n10\n10\n9\n11\n11\n10\n9\n9\n10\n10\n10\n10\n9\n10\n10\n9\n10\n',
-                room_file: values.roomFile[0] ? values.roomFile[0][0] : '',
                 // same_file: '583, 3, 205, 18, 3\n3, 205, 417\n223, 221\n57, 52\n69, 431, 433, 418\n86, 185, 181\n1, 323, 347, 349\n',
-                same_file: values.sameFile[0] ? values.sameFile[0][0] : '',
+                // room_file: '9\n9\n8\n9\n11\n12\n10\n9\n8\n10\n13\n10\n10\n9\n10\n10\n9\n11\n11\n10\n9\n9\n10\n10\n10\n10\n9\n10\n10\n9\n10\n',
             }
-            console.log(payload);
+
+            var a = document.createElement("a");
+            var file = new Blob([JSON.stringify(payload)], {type: 'text/plain'});
+            a.href = URL.createObjectURL(file);
+            a.download = 'json.txt';
+            a.click();
 
             const send = true;
             if (send) {
