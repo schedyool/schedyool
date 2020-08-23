@@ -1,3 +1,4 @@
+// calebaren.github.io
 import React, { useState } from 'react';
 import { FormControl, InputLabel, Select, MenuItem, makeStyles, Theme, createStyles } from '@material-ui/core';
 
@@ -15,7 +16,6 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const SelectField = (props: any) => {
-    // const {name, label, value, onChange, option} = props;
     const { gradeIndex, setIndex, values, handlePackedSetsChange } = props;
     const classes = useStyles();
     const [open, setOpen] = useState(false);
@@ -31,7 +31,7 @@ const SelectField = (props: any) => {
 
     return (
         <FormControl className={classes.formControl}>
-            <InputLabel># classrooms</InputLabel>
+            <InputLabel>Grade {gradeIndex}</InputLabel>
             <Select
                 open={open}
                 onClose={handleClose}

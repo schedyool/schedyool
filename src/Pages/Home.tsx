@@ -1,3 +1,4 @@
+// calebaren.github.io
 import React from 'react';
 import Page from './Page';
 import { Typography, Link } from '@material-ui/core';
@@ -5,18 +6,10 @@ import Controls from '../Components/Controls/Controls';
 
 const Home = (): any => {
     return (
-        <Page title="Home" subtitle="Homepage" >
+        <Page title=" Welcome to the Schedyool!" subtitle="Covid School Scheduling App!" >
             <Typography paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-            facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-            gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-            donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-            adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-            Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-            imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-            arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-            donec massa sapien faucibus et molestie ac.
+              Thanks to the requirements of blended virtual and physical learning, principals have the
+              daunting task of scheduling students while satisfying several constraints:
           </Typography>
           <Typography paragraph>
             Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla

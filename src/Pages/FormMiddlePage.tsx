@@ -1,9 +1,10 @@
+// calebaren.github.io
 import React from 'react';
 import { Grid, Divider } from '@material-ui/core';
 import Controls from '../Components/Controls/Controls';
 
 const FormMiddlePage = (props: any) => {
-    const { nextStep, prevStep, handleInputChange, values, children, ...other } = props;
+    const { nextStep, prevStep, handleInputChange, values, children } = props;
     const myContinue = (e: any) => {
         e.preventDefault();
         nextStep();
