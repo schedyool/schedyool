@@ -170,7 +170,7 @@ const DataForm = (): any => {
                             </ListItemText>
                         </ListItem>
                     </List>
-                    <Controls.MyButton onClick={nextStep} text="Schedyool!" />
+                    <Controls.MyButton onClick={() => console.log(values)} text="Schedyool!" />
                 </>
                 
             )
