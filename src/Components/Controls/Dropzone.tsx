@@ -4,7 +4,6 @@ https://www.npmjs.com/package/material-ui-dropzone
 // calebaren.github.io
 import React from 'react';
 import { DropzoneArea} from 'material-ui-dropzone';
-import { AttachFile } from '@material-ui/icons';
 
 
 const Dropzone = (props: any) => {
@@ -22,7 +21,6 @@ const Dropzone = (props: any) => {
             dropzoneText={text}
             onDrop={file => handleFileAdd(file, name)}
             onDelete={() => handleFileDelete(name)}
-            Icon={<AttachFile />}
         />
     );
 }
