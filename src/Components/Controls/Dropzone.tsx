@@ -12,7 +12,7 @@ const Dropzone = (props: any) => {
         <DropzoneArea
             filesLimit={1}
             initialFiles={values[name][0]}
-            acceptedFiles={['text/plain']}
+            acceptedFiles={[".csv, text/csv, text/plain, application/vnd.ms-excel, application/csv, text/x-csv, application/x-csv, text/comma-separated-values, text/x-comma-separated-values"]}
             maxFileSize={26000}
             showPreviews={false}
             showFileNames={true}
