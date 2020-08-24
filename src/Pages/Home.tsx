@@ -20,6 +20,7 @@ const Home = (): any => {
             <Link href="/scheduler">
                 <Controls.Button text="Schedyool!" color="default" />
             </Link>
+            
         </Page>
     );
 };
