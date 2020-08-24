@@ -6,7 +6,7 @@ import Controls from '../Components/Controls/Controls';
 const FormSubmitPage = (props: any) => {
     const { handleSubmit, prevStep, handleInputChange, values, children } = props;
     const {
-        fullName, email, numBlendedLearning, numDays, numRooms, packedSpecialSets,
+        fullName, email, numBlendedLearning, numDays, maxGrade, numRooms, packedSpecialSets,
         numSetsSameDay, numPairsDiffDay, numSpecialSets, specialSets,
         mainFile, diffFile, roomFile, sameFile,
     } = values;
@@ -52,6 +52,12 @@ const FormSubmitPage = (props: any) => {
                     <ListItemText 
                         primary="Number of classrooms"
                         secondary={numRooms}
+                    />
+                </ListItem>
+                <ListItem>
+                    <ListItemText 
+                        primary="Maximum grade"
+                        secondary={maxGrade}
                     />
                 </ListItem>
                 <ListItem>

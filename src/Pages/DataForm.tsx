@@ -8,7 +8,7 @@ import FormPages from './FormPages';
 import PagesList from './FormPagesList';
 
 const initialFieldValues = {
-    step: 0,
+    step: 1,
     fullName: '',
     email: '',
     numBlendedLearning: 1,
@@ -144,33 +144,33 @@ const DataForm = (): any => {
     };
 
     switch (values.step) {
-        case 0:
-            return (
-                <>
-                    <Typography variant="h6" gutterBottom={true}>Getting Started</Typography>
-                    <Typography variant="body1" paragraph>
-                        Thanks for using Schedyool!
-                    </Typography>
-                    <Typography variant="body2" paragraph>
-                        This tool was designed to make scheduling for hybrid classrooms a breeze. 
-                        To get started, please have ready:
-                    </Typography>
-                    <List>
-                        <ListItem>
-                            <ListItemText>
-                                <code>.csv</code> files with information on your students. Sample files are available here *insert link*.
-                            </ListItemText>
-                        </ListItem>
-                        <ListItem>
-                            <ListItemText>
-                                Stuff 2
-                            </ListItemText>
-                        </ListItem>
-                    </List>
-                    <Controls.Button onClick={nextStep} text="Schedyool!" />
-                </>
+        // case 0:
+        //     return (
+        //         <>
+        //             <Typography variant="h6" gutterBottom={true}>Getting Started</Typography>
+        //             <Typography variant="body1" paragraph>
+        //                 Thanks for using Schedyool!
+        //             </Typography>
+        //             <Typography variant="body2" paragraph>
+        //                 This tool was designed to make scheduling for hybrid classrooms a breeze. 
+        //                 To get started, please have ready:
+        //             </Typography>
+        //             <List>
+        //                 <ListItem>
+        //                     <ListItemText>
+        //                         <code>.csv</code> files with information on your students. Sample files are available here *insert link*.
+        //                     </ListItemText>
+        //                 </ListItem>
+        //                 <ListItem>
+        //                     <ListItemText>
+        //                         Stuff 2
+        //                     </ListItemText>
+        //                 </ListItem>
+        //             </List>
+        //             <Controls.Button onClick={nextStep} text="Schedyool!" />
+        //         </>
                 
-            )
+        //     )
         case 1:
             return (
                 <PagesList.PageOne
@@ -303,7 +303,7 @@ const DataForm = (): any => {
                 <div>
                     <Typography variant="h6" gutterBottom={true}>Confirmation</Typography>
                     <Typography paragraph>
-                        Your schedule has been sent. Please check your email in 15 minutes for your schedules.
+                        Your output will be sent within 15 minutes. Please check your email in 15 minutes for your schedules.
                     </Typography>
                     <Controls.Button onClick={() => setValues(initialFieldValues)} text="Create another schedule" />
                     <Link href="/">

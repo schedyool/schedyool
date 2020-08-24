@@ -25,7 +25,7 @@ const PageThree = (props: any) => {
                 onInput={handleInputChange}
             />
             <Typography variant="body2" paragraph>
-                You may also specify pairs of students who should be scheduled on different days. Enter the number of such pairs (or 0 if there are none). <em>Warning: Please count the number of <strong>pairs</strong> of students, not the number of <strong>groups</strong>.</em>
+                You may also specify pairs of students who should be scheduled on different days. Enter the number of such pairs (or 0 if there are none).
             </Typography>
 
             <Controls.Input
