@@ -12,7 +12,7 @@ const Home = (): any => {
                 daunting task of scheduling students while satisfying several constraints:
           </Typography>
             <Typography paragraph>
-                Please see the instructions below to get started.
+                Click the button below to get started!
           </Typography>
             <Link href="/instructions">
                 <Controls.Button text="Get Started" color="default" />
