@@ -4,7 +4,7 @@ import { Grid, Divider } from '@material-ui/core';
 import Controls from '../Components/Controls/Controls';
 
 const FormMiddlePage = (props: any) => {
-    const { nextStep, prevStep, handleInputChange, values, children } = props;
+    const { nextStep, prevStep, children } = props;
     const myContinue = (e: any) => {
         e.preventDefault();
         nextStep();

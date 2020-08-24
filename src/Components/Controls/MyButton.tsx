@@ -7,7 +7,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const MyButton = (props: any) => {
+const Button = (props: any) => {
     const { text, size, color, variant, ...other } = props;
     const classes = useStyles();
 
@@ -24,4 +24,4 @@ const MyButton = (props: any) => {
     )
 };
 
-export default MyButton;
+export default Button;
