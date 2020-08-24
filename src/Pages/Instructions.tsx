@@ -6,9 +6,7 @@ import Controls from '../Components/Controls/Controls';
 import ReactMarkdown from 'react-markdown';
 
 const Home = (): any => {
-    const ReactMarkdown = require('react-markdown')
-    const inputString: any = `                Welcome to the Schedyool Covid School Scheduling App
-
+    const inputString: any = `
     Thanks to the requirements of blended virtual and physical learning, principals have the
     daunting task of scheduling students while satisfying several constraints:
     
@@ -32,7 +30,7 @@ const Home = (): any => {
     that any schedule produced by Schedyool will be manually reviewed by the school's
     principal for appropriateness before being implemented.
     
-                                How to Use Schedyool
+                                 How to Use Schedyool
     
     Here are detailed instructions.
     
@@ -110,7 +108,7 @@ const Home = (): any => {
     While the description below mentions Excel, you could also create the files
     via Notepad or Wordpad.
     
-                                       THE STUDENT FILE
+                                        THE STUDENT FILE
     
     By far the most complicated file, the student file has EXACTLY one line per student;  there is no header row.  
     Suppose in your school exactly 600 students will participate in blended learning.  Using Excel,
@@ -191,7 +189,7 @@ const Home = (): any => {
     
     The most difficult aspect of using Schedyool is the creation of the students file.
     
-                             THE ROOM CAPACITY FILE
+                              THE ROOM CAPACITY FILE
     
     This file is much simpler.  Open a new sheet of the workbook.  In that sheet, use only the 
     first three columns of each row.  Each row will correspond to a classroom available every
@@ -222,7 +220,7 @@ const Home = (): any => {
     
     There are two more files to upload.  They are not difficult.
     
-                                THE SAME-DAY SETS FILE
+                                 THE SAME-DAY SETS FILE
     
     You likely have some sets of students who want to be scheduled on the same day.  Perhaps
     some of your sets are sets of siblings and some are "learning pods."  You will now create a file 
@@ -257,7 +255,7 @@ const Home = (): any => {
     
     This is the same-day-sets file you will upload to Schedyool.
     
-                             THE DIFFERENT DAY PAIRS FILE                              
+                              THE DIFFERENT DAY PAIRS FILE                              
     
     Last, you must upload a different-day-pairs file, for pairs of students who want to be
     scheduled on different days.  This file looks a lot like the same-day-sets file, except that
@@ -277,7 +275,7 @@ const Home = (): any => {
     8,7
     1,10
     
-                               SUBMITTING YOUR DATA
+                                SUBMITTING YOUR DATA
     
     After reviewing your data on the Review page, click Submit.  The code will need up to 15 minutes.  
     At completion, it will send you an e-mail.  The e-mail will contain the schedule, 
@@ -288,7 +286,7 @@ const Home = (): any => {
     and find the error yourself.  In rare cases, Schedyool might even fail to find a schedule, if, for 
     example, your scheduling problem is too difficult, even when there is no error in the data.
     
-                              HOW TO INTERPRET THE E-MAIL
+                               HOW TO INTERPRET THE E-MAIL
     
     If Schedyool found a schedule, it will appear as the CSV attachment "schedule.csv" to the e-mail. 
     This attachment corresponds to the textual output which appears in the body of the e-mail.  File
@@ -298,13 +296,27 @@ const Home = (): any => {
     
     The "day" is really the "schedule."  For example, for Monday-Tuesday and alternate Wednesdays 
     vs Thursday-Friday and alternate Wednesdays, "day 1" means the former and "day 2" means the latter.
+
+
     `;
 
 
 
     return (
         <Page title="Instructions" subtitle="Instructions for using Schedyool">
+            <Link href="/scheduler">
+                <Controls.Button text="Schedyool!" />
+            </Link>
+            <Link href="/">
+                <Controls.Button text="Home" color="default" />
+            </Link>
             <ReactMarkdown source={inputString} />
+            <Link href="/scheduler">
+                <Controls.Button text="Schedyool!" />
+            </Link>
+            <Link href="/">
+                <Controls.Button text="Home" color="default" />
+            </Link>
         </Page>
     )
     //     return (
