@@ -167,7 +167,7 @@ const DataForm = (): any => {
                             </ListItemText>
                         </ListItem>
                     </List>
-                    <Controls.MyButton onClick={nextStep} text="Schedyool!" />
+                    <Controls.Button onClick={nextStep} text="Schedyool!" />
                 </>
                 
             )
@@ -305,9 +305,9 @@ const DataForm = (): any => {
                     <Typography paragraph>
                         Your schedule has been sent. Please check your email in 15 minutes for your schedules.
                     </Typography>
-                    <Controls.MyButton onClick={() => setValues(initialFieldValues)} text="Create another schedule" />
+                    <Controls.Button onClick={() => setValues(initialFieldValues)} text="Create another schedule" />
                     <Link href="/">
-                        <Controls.MyButton text="Home" color="default"/>
+                        <Controls.Button text="Home" color="default"/>
                     </Link>
                 </div>
                 

@@ -15,7 +15,7 @@ const Home = (): any => {
             Please see the instructions.
           </Typography>
           <Link href="/instructions">
-                <Controls.MyButton text="Get Started" color="default" />
+                <Controls.Button text="Get Started" color="default" />
             </Link>
         </Page>
     );

@@ -20,12 +20,12 @@ const FormMiddlePage = (props: any) => {
             {children}
             <Divider />
             <Grid item sm={12}>
-                <Controls.MyButton
+                <Controls.Button
                     text="Continue"
                     color="primary"
                     onClick={myContinue}
                 />
-                <Controls.MyButton
+                <Controls.Button
                     text="Back"
                     color="default"
                     onClick={myPrevious}
