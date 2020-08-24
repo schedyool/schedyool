@@ -15,7 +15,10 @@ const Home = (): any => {
                 Click the button below to get started!
           </Typography>
             <Link href="/instructions">
-                <Controls.Button text="Get Started" color="default" />
+                <Controls.Button text="Get Started" />
+            </Link>
+            <Link href="/scheduler">
+                <Controls.Button text="Schedyool!" color="default" />
             </Link>
         </Page>
     );
