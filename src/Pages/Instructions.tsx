@@ -20,17 +20,9 @@ const Home = (): any => {
     
     Schedyool simplifies your job by doing the scheduling for you.  You provide information on 
     the students, without giving any students' names, and, in most cases, Schedyool will find and e-mail
-    you a schedule.  After processing your data, Schedyool deletes it.
+    you a schedule. 
     
-    DISCLAIMER:  By using Schedyool, you acknowledge that Schedyool comes with no express or 
-    implied warranty.  There is no warranty of any kind concerning the fitness of the Schedyool results
-    for any use.  There is no guaranty that Schedyool will function as intended.  In particular,
-    in some cases Schedyool may produce no schedule at all.  You acknowledge that schedules produced
-    by Schedyool may not satisfy all constraints submitted, and 
-    that any schedule produced by Schedyool will be manually reviewed by the school's
-    principal for appropriateness before being implemented.
-    
-                                 How to Use Schedyool
+                                How to Use Schedyool
     
     Here are detailed instructions.
     
@@ -42,8 +34,8 @@ const Home = (): any => {
     physically attend school at least part of the time.  Do not include any "online only" students.
     
     b) (maximum grade) 
-    The code assumes that the minimum grade in your school is 0, which is kindergarten.  (We will
-    give you a work-around if the minimum grade in your school is not kindergarten.)  Enter here the maximum 
+    The code assumes that the minimum grade in your school is 0, which is kindergarten.  (See the
+    work-around below if the minimum grade in your school is not kindergarten.)  Enter here the maximum 
     grade in your school.  For many elementary schools, this will be 5, since they run from kindergarten
     to grade 5.   
      
@@ -99,7 +91,7 @@ const Home = (): any => {
     
     Then for the ICT special set, you would enter the numbers 1 2 1 3 1 2, in order.
     
-    If there is no packing limitation, enter "None".
+    If there is no packing limitation for a grade, enter "None".
     
     Page 5 (file upload).  
     On this page, you need to upload the student file, the room-capacity file, the same-day-sets
@@ -108,24 +100,24 @@ const Home = (): any => {
     While the description below mentions Excel, you could also create the files
     via Notepad or Wordpad.
     
-                                        THE STUDENT FILE
+                                       THE STUDENT FILE
     
     By far the most complicated file, the student file has EXACTLY one line per student;  there is no header row.  
     Suppose in your school exactly 600 students will participate in blended learning.  Using Excel,
     create a file containing 600 rows.
     
-    Column 1.  Insert line numbers in the first column, that is, put a 1 on row 1, a 2 on row 2, 
+    Column 1 (column A in Excel).  Insert line numbers in the first column, that is, put a 1 on row 1, a 2 on row 2, 
     3 on row 3, etc.  I use method 1, "Using Fill Handle," from website trumpexcel.com/number-rows-in-excel.
-    Insert link, if possible]  It's easy.
+    It's easy.
     
-    Column 2.  In column 2, please the names of the students in some particular (say, alphabetical) 
+    Column 2 (B in Excel).  In column 2, place the names of the students in some particular (say, alphabetical) 
     order.  This column will not go to Schedyool.  Alternatively, start with a sheet having the names of the 
     students participating in blended learning in column 2, and add the line numbers in column 1.
     
-    Column 3:  Place in column 3 the grade level of the student whose name appears in column 2.  
+    Column 3 (C in Excel):  Place in column 3 the grade level of the student whose name appears in column 2.  
     Use 0 for kindergarten.  These numbers must be between 0 and the maximum grade you entered above.
       
-    Column 4.  In column 4, place M for a boy or F for a girl.  The genders are used only to approximately
+    Column 4 (D in Excel).  In column 4, place M for a boy or F for a girl.  The genders are used only to approximately
     balance the classrooms by gender.
     
     Each additional column, if any, corresponds to a special set.  So far, this file has four columns.
@@ -133,7 +125,7 @@ const Home = (): any => {
     
     For each special set, in order, put a 1 if the student is in the special set and a 0 otherwise.
     For example, if there are two special sets and the first student were not in the first one but were in the 
-    second, then in the first row, add a 0 in column 5 and a 1 in column 6.
+    second, then in the first row, add a 0 in column 5 (E in Excel) and a 1 in column 6 (F in Excel).
     
     The total number of columns should be 4 plus the number of special sets.
     Save the workbook as an Excel spreadsheet, perhaps calling it "students_with_names".
@@ -143,7 +135,7 @@ const Home = (): any => {
     file type does not support workbooks that contain multiple sheets."  That's exactly 
     what you want.  Click "OK".  Then you will get a warning about losing features, and "Do you want to 
     keep that format?"  Click Yes.  Give the file a name like "students_without_names".  It will be 
-    stored with ".csv" extension.  It is that file, students_without_names.csv, that you will
+    stored with a ".csv" extension.  It is that file, students_without_names.csv, that you will
     upload to Schedyool.
     
     EXAMPLE.
@@ -183,21 +175,17 @@ const Home = (): any => {
     The second is entering fifth grade and is a girl in neither ICT nor ENL
     The third, entering fourth grade, is a girl who is in both ICT and ENL.
     
-    By the way, if you accidentally upload the file *with* names, don't panic.  The code
-    will fail (because it expects *numbers* in the first column, not names), 
-    return an error message, and delete the file.
-    
     The most difficult aspect of using Schedyool is the creation of the students file.
     
-                              THE ROOM CAPACITY FILE
+                             THE ROOM CAPACITY FILE
     
     This file is much simpler.  Open a new sheet of the workbook.  In that sheet, use only the 
     first three columns of each row.  Each row will correspond to a classroom available every
     day for blended learning.
     
-    The first column will contain the line numbers, as above.  
-    In the second column, place the name of the classroom, like "Room 128", and in the third, place
-    its "socially-distanced" student capacity, like 10.  (Remember to deduct for 
+    The first column (column A) will contain the line numbers, as above.  
+    In the second column (column B), place the name of the classroom, like "Room 128", and in the third
+    (column C), place its "socially-distanced" student capacity, like 10.  (Remember to deduct for 
     teachers.)  There must be exactly one row for each 
     classroom and no header row.  Call that sheet "room_capacities_with_names".
     
@@ -220,19 +208,19 @@ const Home = (): any => {
     
     There are two more files to upload.  They are not difficult.
     
-                                 THE SAME-DAY SETS FILE
+                                THE SAME-DAY SETS FILE
     
     You likely have some sets of students who want to be scheduled on the same day.  Perhaps
     some of your sets are sets of siblings and some are "learning pods."  You will now create a file 
     containing one line for each such set.  In this file, we represent a student
     by the number of the row in which the student appears in the students_with_names file.
-    For example, look at the sample students_with_names.csv file above.  
+    For example, look at the sample students_with_names file above.  
     Suppose that John Smith and Kareem Smith are siblings who should be scheduled
     on the same day.  Then add to the same-day sets file the row 
     
     1  6
     
-    with the 1 in the first column, the 6, in the second,
+    with the 1 in the first column (column A) and the 6 in the second (column B),
     because John Smith is student 1 and Kareem Smith is student 6.
     If Letitia Williams, Mohammad Talwar, and Carla Chan are in a learning pod together and 
     desire to be scheduled together, add row
@@ -255,7 +243,7 @@ const Home = (): any => {
     
     This is the same-day-sets file you will upload to Schedyool.
     
-                              THE DIFFERENT DAY PAIRS FILE                              
+                             THE DIFFERENT DAY PAIRS FILE                              
     
     Last, you must upload a different-day-pairs file, for pairs of students who want to be
     scheduled on different days.  This file looks a lot like the same-day-sets file, except that
@@ -275,7 +263,7 @@ const Home = (): any => {
     8,7
     1,10
     
-                                SUBMITTING YOUR DATA
+                               SUBMITTING YOUR DATA
     
     After reviewing your data on the Review page, click Submit.  The code will need up to 15 minutes.  
     At completion, it will send you an e-mail.  The e-mail will contain the schedule, 
@@ -286,18 +274,17 @@ const Home = (): any => {
     and find the error yourself.  In rare cases, Schedyool might even fail to find a schedule, if, for 
     example, your scheduling problem is too difficult, even when there is no error in the data.
     
-                               HOW TO INTERPRET THE E-MAIL
+                              HOW TO INTERPRET THE E-MAIL
     
     If Schedyool found a schedule, it will appear as the CSV attachment "schedule.csv" to the e-mail. 
     This attachment corresponds to the textual output which appears in the body of the e-mail.  File
-    schedule.csv will have four columns.  The first is the student number, from students_with_names.csv;
+    schedule.csv will have four columns.  The first is the student number, from students_with_names;
     the second is that student's grade level;  the third is the day on which the student will attend
     school (more about this in a moment); and the last is the classroom number.
     
-    The "day" is really the "schedule."  For example, for Monday-Tuesday and alternate Wednesdays 
+    The "day" is really the "cohort."  For example, for Monday-Tuesday and alternate Wednesdays 
     vs Thursday-Friday and alternate Wednesdays, "day 1" means the former and "day 2" means the latter.
-
-
+    
     `;
 
 
