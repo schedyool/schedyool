@@ -19,7 +19,7 @@ const PageTwo = (props: any) => {
             </Typography>
             <Controls.Input
                 helpText={helpTexts.numBlendedLearning}
-                label="Number of Blended Learning students"
+                label="Number of blended learning students"
                 name="numBlendedLearning"
                 value={values.numBlendedLearning}
                 onInput={handleInputChange}
@@ -29,7 +29,7 @@ const PageTwo = (props: any) => {
             </Typography>
             <Controls.Input
                 helpText={helpTexts.maxGrade}
-                label="Number of grades"
+                label="Maximum grade level"
                 name="maxGrade"
                 value={values.maxGrade}
                 onInput={handleGradeChange}
