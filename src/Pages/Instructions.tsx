@@ -8,7 +8,7 @@ import ReactMarkdown from 'react-markdown';
 const Home = (): any => {
     const inputString: any = `
     Thanks to the requirements of blended virtual and physical learning, principals have the
-    daunting task of scheduling students while satisfying several constraints:
+    daunting task of scheduling students while satisfying several important constraints:
     
     1.  the number of students in each classroom cannot violate its "social-distancing" capacity;
     2.  sets of students such as siblings and members of "learning pods" who wish to attend 
