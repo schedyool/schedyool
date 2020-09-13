@@ -11,10 +11,10 @@ import { ReCAPTCHA } from "react-google-recaptcha";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <ReCAPTCHA
-      sitekey="6LctKMEZAAAAAN4NYXg27JMINCdmFm-knz9Ea4-p"
-      onChange={onChange}
-    /> */}
+    {/* <ReCAPTCHA 
+       sitekey="6LctKMEZAAAAAN4NYXg27JMINCdmFm-knz9Ea4-p"
+       onChange={onChange}
+     /> */}
     <App />
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,9 +1,10 @@
 // calebaren.github.io
 import React from 'react';
-import { Grid, Typography, Link, ListItemText, List, ListItem } from '@material-ui/core';
+// import { Grid, Typography, Link, ListItemText, List, ListItem } from '@material-ui/core';
+import { Grid, Typography, Link } from '@material-ui/core';
 import { useForm } from '../Components/useForm';
 import Controls from '../Components/Controls/Controls';
-import ReCAPTCHA from 'react-google-recaptcha';
+// import ReCAPTCHA from 'react-google-recaptcha';
 import FormPages from './FormPages';
 import PagesList from './FormPagesList';
 
@@ -43,12 +44,12 @@ const DataForm = (): any => {
     } = useForm(initialFieldValues);
 
     const helpTexts = {
-        numBlendedLearning: 'Please enter a positive, whole number for the number of students.',
-        numDays: 'Please enter a positive, whole number for the number of daily schedules.',
+        numBlendedLearning: 'Please enter a positive, whole number for the number of students participating in blended learning.',
+        numDays: 'Please enter a positive, whole number for the number of schedules (i.e., cohorts).',
         numRooms: 'Please enter a positive, whole number for the number of classrooms available every day.',
-        maxGrade: 'Please enter the number of grades in your school as a positive integer.',
-        numSetsSameDay: 'Please enter the number of groups that need to be scheduled on the same day. Enter 0 if there are none.',
-        numPairsDiffDay: 'Please enter the number of pairs that need to be scheduled on different days. Enter 0 if there are none.',
+        maxGrade: 'Please enter the maximum grade in your school as a positive integer.',
+        numSetsSameDay: 'Please enter the number of sets (of, e.g., siblings) the members of each of which need to be scheduled on the same day. Enter 0 if there are none.',
+        numPairsDiffDay: 'Please enter the number of pairs of students that need to be scheduled on different days. Enter 0 if there are none.',
         numSpecialSets: 'Please enter the number of special sets, 0 if there are none.',
     };
 
@@ -69,7 +70,7 @@ const DataForm = (): any => {
         // temp.email = re.test(values.email) ? '' : 'Your email is required.';
         temp.mainFile = values.mainFile[0] ? '' : 'Please upload a file with your students.';
         temp.roomFile = values.roomFile[0] ? '' : 'Please upload a file with your room capacities.';
-        temp.sameFileMissing = (values.numSetsSameDay > 0 && !values.sameFile[0]) ? 'Please upload a file with groups of students to be scheduled on the same day.' : '';
+        temp.sameFileMissing = (values.numSetsSameDay > 0 && !values.sameFile[0]) ? 'Please upload a file with sets of students to be scheduled on the same day.' : '';
         temp.diffFileMissing = (values.numPairsDiffDay > 0 && !values.diffFile[0]) ? 'Please upload a file with pairs of students to be scheduled on different days.': '';
 
         console.log(!(Object.values(temp).every(x => x === '')))
@@ -98,9 +99,9 @@ const DataForm = (): any => {
         });
     };
 
-    const handleCaptcha = (value: any) => {
-        console.log("captcha value:", value);
-    };
+    // const handleCaptcha = (value: any) => {
+    //   console.log("captcha value:", value);
+    // };
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
@@ -263,7 +264,7 @@ const DataForm = (): any => {
                                 handleFileDelete={handleFileDelete}
                                 values={values}
                                 name="roomFile"
-                                text="Room file"
+                                text="Room-capacity file"
                             />
                         </Grid>
                         <Grid item xs={6}>
@@ -272,7 +273,7 @@ const DataForm = (): any => {
                                 handleFileDelete={handleFileDelete}
                                 values={values}
                                 name="sameFile"
-                                text="Groups of students on same days"
+                                text="Same-day-sets file"
                             />
                         </Grid>
                         <Grid item xs={6}>
@@ -281,7 +282,7 @@ const DataForm = (): any => {
                                 handleFileDelete={handleFileDelete}
                                 values={values}
                                 name="diffFile"
-                                text="Pairs of students on different days"
+                                text="Different-day-pairs file"
                             />
                         </Grid>
                     </Grid>
@@ -303,7 +304,7 @@ const DataForm = (): any => {
                 <div>
                     <Typography variant="h6" gutterBottom={true}>Confirmation</Typography>
                     <Typography paragraph>
-                        Your output will be sent within 15 minutes. Please check your email in 15 minutes for your schedules.
+                        Your output will be sent within 15 minutes. Please check your email in approximately 15 minutes for your schedules.
                     </Typography>
                     <Controls.Button onClick={() => setValues(initialFieldValues)} text="Create another schedule" />
                     <Link href="/">

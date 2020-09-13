@@ -23,7 +23,7 @@ const PageFour = (props: any) => {
                 Special sets.
             </Typography>
             <Typography variant="body2" paragraph >
-                You may also specify groups of students (e.g., ICT and ENL students) for special consideration. You can enter as many sets as you wish but you probably only have a few. Let's call these "special sets". The treatment of these sets is a bit complicated. Enter here the number of special sets, 0 if there are none.
+                You may also specify sets of students (e.g., ICT and ENL students) for special consideration. You can enter as many sets as you wish but you probably only have a few. Let's call these "special sets." The treatment of these sets is a bit complicated. Enter here the number of special sets, 0 if there are none.
             </Typography>
             <Controls.Input
                 helpText={helpTexts.numSpecialSets}

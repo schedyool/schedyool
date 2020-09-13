@@ -1,3 +1,4 @@
+// @@@@@@@@ This file *is* being read and used.
 // calebaren.github.io
 import React from 'react';
 import './App.css';
@@ -6,7 +7,8 @@ import Header from '../Components/Header';
 import { CssBaseline, createMuiTheme, ThemeProvider } from '@material-ui/core';
 import Home from '../Pages/Home';
 import Scheduler from '../Pages/Scheduler';
-import Instructions from '../Pages/Instructions';
+import DownloadFile from '../Pages/DownloadFile'; 
+import Instructions from '../Pages/Instructions'; 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const theme = createMuiTheme({
@@ -40,23 +42,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        {/* <div className={classes.appMain}> */}
           <Header title="Schedyool">
-          {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. */}
             <Switch>
-              <Route path="/scheduler">
-                <Scheduler />
-              </Route>
-              <Route path="/instructions">
-                <Instructions />
-              </Route>
-              <Route path="/">
-                <Home />
-              </Route>
+              <Route path="/scheduler"> <Scheduler /> </Route>
+              <Route path="/instructions"> <Instructions /> </Route>
+              <Route path="/downloadfile"> <DownloadFile /> </Route>
+              <Route path="/"> <Home /> </Route>
             </Switch>
           </Header>
-        {/* </div> */}
       </Router>
     </ThemeProvider>
   );

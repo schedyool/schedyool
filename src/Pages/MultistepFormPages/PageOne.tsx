@@ -15,10 +15,10 @@ const PageOne = (props: any) => {
             values={values}
         >
             <Controls.Input
-                helpText="Enter your full name."
+                helpText="Enter your name."
                 icon={<AccountCircle />}
                 type="text"
-                label="Full Name"
+                label="Name"
                 name="fullName"
                 value={values.fullName}
                 onInput={handleInputChange}

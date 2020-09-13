@@ -98,7 +98,7 @@ const Header = (props: any) => {
       url: '/instructions'
     },
     {
-      text: 'Schedule',
+      text: 'Schedyool',
       icon: <SchoolIcon style={{ color: '#FFF' }} />,
       url: '/scheduler'
     },
