@@ -19,7 +19,7 @@ const FormSubmitPage = (props: any) => {
     return (
         <div>
             <Typography variant="h5" gutterBottom={true}>
-                Confirm before submission
+                Confirm before submitting
             </Typography>
             <Divider variant="fullWidth" />
             <List>
@@ -38,13 +38,13 @@ const FormSubmitPage = (props: any) => {
                 <Divider component="li" />
                 <ListItem>
                     <ListItemText 
-                        primary="Number of students in Blended Learning"
+                        primary="Number of students in blended learning"
                         secondary={numBlendedLearning}
                     />
                 </ListItem>
                 <ListItem>
                     <ListItemText 
-                        primary="Number of daily schedules"
+                        primary="Number of schedules"
                         secondary={numDays}
                     />
                 </ListItem>
@@ -62,33 +62,33 @@ const FormSubmitPage = (props: any) => {
                 </ListItem>
                 <ListItem>
                     <ListItemText 
-                        primary="Number of sets of students to schedule on the same day"
+                        primary="Number of sets of students to be scheduled on the same day"
                         secondary={numSetsSameDay}
                     />
                 </ListItem>
                 <ListItem>
                     <ListItemText 
-                        primary="Number of pairs of students to schedule on different days"
+                        primary="Number of pairs of students to be scheduled on different days"
                         secondary={numPairsDiffDay}
                     />
                 </ListItem>
                 <ListItem>
                     <ListItemText 
-                        primary="Number of special groups of students"
+                        primary="Number of special sets of students"
                         secondary={numSpecialSets}
                     />
                 </ListItem>
                 <Divider component="li" />
                 <ListItem>
                     <ListItemText 
-                        primary="Fraction of special groups in each classroom"
+                        primary="Fraction of special sets in each classroom"
                         secondary={specialSets.toString().length === 0 ? 'No special groups selected' : specialSets.toString() }
                     />
                 </ListItem>
                 <Divider component="li" />
                 <ListItem>
                     <ListItemText 
-                        primary="Special groups in classrooms by grade"
+                        primary="Special sets in classrooms by grade"
                         secondary={packedSpecialSets.toString().length === 0 ? 'No special groups selected' : packedSpecialSets.toString()}
                     />
                 </ListItem>
