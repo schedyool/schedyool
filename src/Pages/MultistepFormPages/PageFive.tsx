@@ -19,13 +19,13 @@ const PageFive = (props: any) => {
                 align='left'
                 gutterBottom={true}
             >
-                Fraction of special groups in classrooms.
+                Fraction of special sets in classrooms.
             </Typography>
             <Typography variant="body2" paragraph >
-                Schedyool will strive to not place too many students from any one special group in any classroom, represented as a fraction of the total number of students in the room. For example, you may want the fraction of students in any classroom from the first special group to be at most 40%. For each special set, you can specify a different fraction.  Enter the fractions here, one for each special set, in the order in which you will give the special sets (e.g., ICT before ENL).
+                Schedyool will strive to not place too many students from any one special set in any classroom, represented as a fraction of the total number of students in the room. For example, you may want the fraction of students in any classroom from the first special set to be at most 40%. For each special set, you can specify a different fraction.  Enter the fractions here, one for each special set, in the order in which you will give the special sets (e.g., ICT before ENL).
             </Typography>
             <Typography paragraph>
-                Use the sliders to input the fraction of students from each special group in any classroom.
+                Use the sliders to input the fraction of students from each special set in any classroom.
             </Typography>
             <Grid container>
             {
@@ -34,7 +34,7 @@ const PageFive = (props: any) => {
                     <>
                         <Grid item xs={2}>
                             <Typography variant="h6" paragraph align='center' >
-                                Group {i+1}
+                                Set {i+1}
                             </Typography>
                         </Grid>
                         <Grid item xs={10}>

@@ -15,11 +15,11 @@ const PageThree = (props: any) => {
             values={values}
         >
             <Typography variant="body2" paragraph>
-                Enter the number of learning pods, sets of siblings, or other special groups of students who should attend in-person instruction on the same day. These sets can be as large as you want. Please enter the number of such sets (or 0 if there are none. <em>Note: Schedyool may not succeed at satisfying all the constraints.</em>
+                Enter the number of learning pods, sets of siblings, or other special sets of students who should attend in-person instruction on the same day. These sets can be as large as you want. Please enter the number of such sets (or 0 if there are none. <em>Note: Schedyool may not succeed at satisfying all the constraints.</em>
             </Typography>
             <Controls.Input
                 helpText={helpTexts.numSetsSameDay}
-                label="Number of same-day groups"
+                label="Number of same-day sets"
                 name="numSetsSameDay"
                 value={values.numSetsSameDay}
                 onInput={handleInputChange}
@@ -30,7 +30,7 @@ const PageThree = (props: any) => {
 
             <Controls.Input
                 helpText={helpTexts.numPairsDiffDay}
-                label="Number of pairs on different days"
+                label="Number of different-day pairs"
                 name="numPairsDiffDay"
                 value={values.numPairsDiffDay}
                 onInput={handleInputChange}

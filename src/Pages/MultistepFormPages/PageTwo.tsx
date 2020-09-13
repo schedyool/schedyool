@@ -25,7 +25,7 @@ const PageTwo = (props: any) => {
                 onInput={handleInputChange}
             />
             <Typography variant="body2" paragraph>
-                Input the maximum grade. For instance, a K-5 elementary school has a max grade of 5.
+                Input the maximum grade. For instance, a K-5 elementary school has a maximum grade of 5.
             </Typography>
             <Controls.Input
                 helpText={helpTexts.maxGrade}
@@ -35,11 +35,11 @@ const PageTwo = (props: any) => {
                 onInput={handleGradeChange}
             />
             <Typography variant="body2" paragraph>
-                Enter the number of daily attendance schedules you need. For instance, if your student body is split between a Monday-Tuesday-Wednesday and a Wednesday-Thursday-Friday schedule, this number would be <strong>2</strong>. For those attending in person 1/3 of the time, this number would be <strong>3</strong>.
+                Enter the number of schedules (cohorts) you need. For instance, if your student body will be split between Mondays, Tuesdays, and alternate Wednesdays, and Thursdays, Fridays, and alternate Wednesdays, this number would be <strong>2</strong>. For those attending in person 1/3 of the time, this number would be <strong>3</strong>.
             </Typography>
             <Controls.Input
                 helpText={helpTexts.numDays}
-                label="Number of daily schedules"
+                label="Number of schedules"
                 name="numDays"
                 value={values.numDays}
                 onInput={handleInputChange}
