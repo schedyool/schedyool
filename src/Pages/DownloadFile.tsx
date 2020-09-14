@@ -22,7 +22,7 @@ class DownloadFile extends React.Component {
   render() {
     return (
       <div id="container">
-        <button onClick={this.downloadData}>Download macro-enabled Excel spreadsheet640</button>
+        <button onClick={this.downloadData}>Download macro-enabled Excel spreadsheet</button>
       </div>
     )
   }
