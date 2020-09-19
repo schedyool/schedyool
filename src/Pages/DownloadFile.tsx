@@ -12,7 +12,7 @@ class DownloadFile extends React.Component {
   					let a = document.createElement('a');
   					a.href = url;
                                           // This is the name to be presented to the user.
-  					a.download = 'students_with_names.xlsm'; 
+  					a.download = 'blank_students_with_names.xlsm'; 
   					a.click();
   				});
   				// window.location.href = response.url;
