@@ -5,7 +5,7 @@ class DownloadFile extends React.Component {
 	
   downloadData = () => {
     var element = document.createElement('a'); 
-    fetch('https://www.schedyool.com/blank_students_with_names.xlsm', {mode : "no-cors"})
+    fetch('https://www.schedyool.com/robots.txt', {mode : "no-cors"})
       .then(response => {
   				response.blob().then(blob => {
   					let url = window.URL.createObjectURL(blob);
