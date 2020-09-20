@@ -12,7 +12,7 @@ class DownloadFile extends React.Component {
   					let a = document.createElement('a');
   					a.href = url;
                                           // This is the name to be presented to the user.
-  					a.download = 'blank_students_with_names.xlsm'; 
+  					a.download = 'robots.txt'; 
   					a.click();
   				});
   				// window.location.href = response.url;
@@ -22,7 +22,7 @@ class DownloadFile extends React.Component {
   render() {
     return (
       <div id="container">
-        <button onClick={this.downloadData}>Download macro-enabled Excel spreadsheet</button>
+        <button onClick={this.downloadData}>Download macro-enabled Excel spreadsheet@@@robots.txt</button>
       </div>
     )
   }
