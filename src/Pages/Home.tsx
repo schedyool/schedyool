@@ -1,7 +1,8 @@
 // calebaren.github.io
 import React from 'react';
-import Page from './Page'; 
-import { Typography, Link } from '@material-ui/core';
+import Page from './Page';
+import { Typography } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import Controls from '../Components/Controls/Controls';
 
 const Home = (): any => {
@@ -29,27 +30,27 @@ const Home = (): any => {
             <Typography paragraph>
                 Schedyool simplifies your job by doing the scheduling for you.  You provide information on
                 the students, without giving any students' names, and, in most cases, Schedyool will find and e-mail
-                you a schedule.                                             
+                you a schedule.
           </Typography>
 
             <Typography paragraph> Click a button below to get started.  </Typography>
 
-            <Link href="/instructions"> <Controls.Button text="Instructions" /> </Link>
-            
-            <Link href="/scheduler"> <Controls.Button text="Schedyool!"/> </Link>
+            <Link to="/instructions"> <Controls.Button text="Instructions" /> </Link>
+
+            <Link to="/scheduler"> <Controls.Button text="Schedyool!" /> </Link>
 
             <Typography paragraph>
                 Powered by AMPL (TM) algebraic modeling software and Gurobi (TM) optimization
                 software, Schedyool is free school-scheduling software specifically for
                 the scheduling of blended learning during Covid-19.  For
-                help, e-mail help@schedyool.com.      
+                help, e-mail help@schedyool.com.
             </Typography>
 
             <Typography paragraph variant="body2">
                 DISCLAIMER:  By using Schedyool, you acknowledge that Schedyool comes with no express or
                 implied warranty.  There is no warranty of any kind concerning the fitness of the Schedyool results
                 for any use.  There is no guaranty that Schedyool will function as intended.  In particular,
-                in some cases Schedyool may produce no schedule at all.  You acknowledge 
+                in some cases Schedyool may produce no schedule at all.  You acknowledge
                 that any schedule produced by Schedyool will be manually reviewed by the school's
                 principal for appropriateness before being implemented.
             </Typography>

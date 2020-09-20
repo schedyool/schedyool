@@ -1,7 +1,8 @@
 // calebaren.github.io
 import React from 'react';
 import Page from './Page';
-import { Typography, Link, List, ListItem, ListItemText } from '@material-ui/core';
+// import { Typography, Link, List, ListItem, ListItemText } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import Controls from '../Components/Controls/Controls';
 import ReactMarkdown from 'react-markdown';
 const Home = (): any => {
@@ -337,15 +338,15 @@ const Home = (): any => {
     into the three blank columns of schedule.csv.  Now you have the schedule with the names of the students.  
   `;
 
-   return (
-<Page title="Instructions" subtitle="Instructions for using Schedyool">
-<Link href="/"> <Controls.Button text="Home"/> </Link>
-<Link href="/downloadfile"> <Controls.Button text="Download Workbook@@@@@@@@@@"/> </Link>
-<Link href="/"> <Controls.Button text="Download Workbook@@@@@@@@@@NO!Home"/> </Link>
-<Link href="/scheduler"> <Controls.Button text="Schedyool!"/> </Link>
-<ReactMarkdown source={inputString} /> 
-   </Page>
-   )
+  return (
+    <Page title="Instructions" subtitle="Instructions for using Schedyool">
+      <Link to="/"> <Controls.Button text="Home" /> </Link>
+      <Link to="/downloadfile"> <Controls.Button text="Download Workbook@@@@@@@@@@" /> </Link>
+      <Link to="/"> <Controls.Button text="Download Workbook@@@@@@@@@@NO!Home" /> </Link>
+      <Link to="/scheduler"> <Controls.Button text="Schedyool!" /> </Link>
+      <ReactMarkdown source={inputString} />
+    </Page>
+  )
 
 };
 

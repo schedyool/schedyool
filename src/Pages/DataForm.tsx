@@ -1,12 +1,13 @@
 // calebaren.github.io
 import React from 'react';
 // import { Grid, Typography, Link, ListItemText, List, ListItem } from '@material-ui/core';
-import { Grid, Typography, Link } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import { useForm } from '../Components/useForm';
 import Controls from '../Components/Controls/Controls';
 // import ReCAPTCHA from 'react-google-recaptcha';
 import FormPages from './FormPages';
 import PagesList from './FormPagesList';
+import { Link } from 'react-router-dom';
 
 const initialFieldValues = {
     step: 1,
@@ -71,7 +72,7 @@ const DataForm = (): any => {
         temp.mainFile = values.mainFile[0] ? '' : 'Please upload a file with your students.';
         temp.roomFile = values.roomFile[0] ? '' : 'Please upload a file with your room capacities.';
         temp.sameFileMissing = (values.numSetsSameDay > 0 && !values.sameFile[0]) ? 'Please upload a file with sets of students to be scheduled on the same day.' : '';
-        temp.diffFileMissing = (values.numPairsDiffDay > 0 && !values.diffFile[0]) ? 'Please upload a file with pairs of students to be scheduled on different days.': '';
+        temp.diffFileMissing = (values.numPairsDiffDay > 0 && !values.diffFile[0]) ? 'Please upload a file with pairs of students to be scheduled on different days.' : '';
 
         console.log(!(Object.values(temp).every(x => x === '')))
         if (!(Object.values(temp).every(x => x === ''))) {
@@ -128,9 +129,9 @@ const DataForm = (): any => {
                 same_file: values.sameFile[1] ? values.sameFile[1] : '',
             }
 
-            
+
             console.log(payload);
-            
+
             const send = true;
             if (send) {
                 const requestOptions = {
@@ -170,7 +171,7 @@ const DataForm = (): any => {
         //             </List>
         //             <Controls.Button onClick={nextStep} text="Schedyool!" />
         //         </>
-                
+
         //     )
         case 1:
             return (
@@ -307,11 +308,11 @@ const DataForm = (): any => {
                         Your output will be sent within 15 minutes. Please check your email in approximately 15 minutes for your schedules.
                     </Typography>
                     <Controls.Button onClick={() => setValues(initialFieldValues)} text="Create another schedule" />
-                    <Link href="/">
-                        <Controls.Button text="Home" color="default"/>
+                    <Link to="/">
+                        <Controls.Button text="Home" color="default" />
                     </Link>
                 </div>
-                
+
             )
     }
 };
