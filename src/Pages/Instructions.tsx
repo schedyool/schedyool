@@ -32,15 +32,16 @@ const Home = (): any => {
      
     If your school's minimum grade level is not 0, say, because it is a middle or high school, you will have 
     to translate your school's minimum grade to 0.  For example, if your school's grade levels are 9-12,
-    subtract 9 from all grades so that the maximum grade becomes 3, and enter 3 as the maximum grade.  You
+    subtract 9 from all grades so that the minimum grade becomes 0
+    and the maximum grade becomes 3, and enter 3 as the maximum grade.  You
     will have to understand that when Schedyool refers to grade 0, it will mean grade 9;  grade 1 will mean grade
     10;  grade 2 will mean grade 11;  and grade 3 will mean grade 12.
     
     c) (number of schedules) 
-    For covid-19, this will likely be 2 or 3.  If your students will
-    attend physical school on average half the time, say, they are attending on Monday-Tuesday and alternate
-    Wednesdays or Thursday-Friday and alternate Wednesdays, enter 2.  If they are attending school one 
-    third of the time, enter 3.
+    Enter the number of schedules you need.
+    If, for example, your students will attend physical school on average half the time, say, they are attending on 
+    Monday-Tuesday and alternate Wednesdays or Thursday-Friday and alternate Wednesdays, enter 2.  If they are attending school one 
+    third of the time, enter 3.  If they are attending one day per week, enter 5.
     
     d) (number of classrooms) 
     This is the number of classrooms available for instruction every day.
@@ -97,14 +98,14 @@ const Home = (): any => {
     
     Later on, Schedyool can help you generate the file of sets of students who must be scheduled
     on the same day (that is, in the same cohort).  If you want Schedyool to help, you must download file
-    blank_students_with_names.xlsm, a macro-enabled Excel workbook, from the Schedyool website.  
-    This file is empty except for the macro.  If you do not, you can build a students_with_names.xlsx 
+    students_with_names.xlsm, a macro-enabled Excel workbook, from the Schedyool website.  
+    This file is empty except for the macro.  If you do not, you can build students_with_names.xlsx 
     without help from a macro.  In this latter case, the file is a regular Excel spreadsheet, 
     not a macro-enabled one.  Anyone who is reluctant to download macro-enabled spreadsheets 
     should choose the latter option, but will then have to generate the same-day-sets file manually.
     
     In either case, here is how to complete the students_with_names file.
-    Start with the downloaded blank_students_with_names.xlsm or your own students_with_names.xlsx.
+    Start with the downloaded students_with_names.xlsm or your own students_with_names.xlsx.
     Suppose in your school exactly 600 students will participate in blended learning.  Using Excel,
     create a file containing 600 rows.
     
@@ -125,10 +126,10 @@ const Home = (): any => {
     For each special set, in order, put a 1 if the student is in the special set and a 0 otherwise.
     For example, if there are two special sets and the first student were not in the first one but were in the 
     second, then in the first row, add a 0 in column 6 (F in Excel) and a 1 in column 7 (G in Excel).
-    (It might be easier to first fill the two columns with zeros and then manually change some of the zeros to
-    ones.)
+    It might be easier to first fill the two columns with zeros and then manually change some of the zeros to
+    ones.
     
-    The total number of columns should be 5 plus the number of special sets.
+    The total number of columns should be five plus the number of special sets.
     
     Now sort the sheet on column B, the last names.  You will get a warning asking if you want 
     to expand the selection;  say "yes" or "OK".  Note:  You do not have to sort the sheet
@@ -165,13 +166,13 @@ const Home = (): any => {
      	Talwar	Moh	1	M	1	0
      	Halvah	Cindy	1	F	1	0
      	Chan	Carla	2	F	0	0
-      	Chopra	Sunil	5	M	0	1
+      Chopra	Sunil	5	M	0	1
     
     After sorting by last name and adding line numbers, it might look like this:
     
     1	Aslam	Amir	2	M	0	0
     2	Chan	Carla	2	F	0	0
-    3 	Chopra	Sunil	5	M	0	1
+    3 Chopra	Sunil	5	M	0	1
     4	Friend	Bill	0	M	0	0
     5	Halvah	Cindy	1	F	1	0
     6	Jones	Mary	5	F	0	0
@@ -206,7 +207,7 @@ const Home = (): any => {
     first three columns of each row.  Each row will correspond to a classroom available every
     day for blended learning.
     
-    The first column (column A) will contain the line numbers, as above.  
+    The first column (column A) will contain line numbers, as above.  
     In the second column (column B), place the name of the classroom, like "Room 128", and in the third
     (column C), place its "socially-distanced" student capacity, like 10.  (Remember to deduct for 
     teachers.)  There must be exactly one row for each 
@@ -234,38 +235,30 @@ const Home = (): any => {
                              THE SAME-DAY SETS FILE
     
     You can read below how Schedyool's Excel macro can help you build this file.
+    WARNING:  If you are going to use the Excel macro, you must do so FIRST.
     
+    Use Wordpad or Notepad to create this file, not Excel!
+
     You likely have some sets of students who want to be scheduled on the same day.  Perhaps
     some of your sets are sets of siblings and some are "learning pods."  You will now create a file 
     containing one line for each such set.  In this file, we represent a student
     by the number of the row in which the student appears in the students_with_names file.
     For example, look at the sample students_with_names file above.  
-    Suppose that John Smith and Kareem Smith are siblings who should be scheduled
-    on the same day.  Then add to the same-day sets file the row 
-    
-    7	8
-    
-    with the 7 in the first column (column A) and the 8 in the second (column B),
-    because John Smith is student 7 and Kareem Smith is student 8.
     If Letitia William, Moh Talwar, and Carla Chan are in a learning pod together and 
-    desire to be scheduled together, add row
+    desire to be scheduled on the same day, add row
     
-    10	9	2
+    10,9,2
     
-    with the 2 in the third column.  As you can see, different rows in this file can 
-    have different numbers of entries.  Should Sunil Chopra and Bill Friend be friends who want to be 
+    Should Sunil Chopra and Bill Friend be friends who want to be 
     scheduled on the same row, add row
     
-    3	4
-    
-    Now save this spreadsheet as CSV (not as Excel) into "same_day_sets.csv".
-    In CSV format, the file will have three lines and will look like this:
-    
-    7,8
-    10,9,2
     3,4
     
-    This is the same-day-sets file you will upload to Schedyool.
+    Now save this file using Wordpad or Notepad into "same_day_sets.csv".
+    In CSV format, the file will have two lines and will look like this:
+    
+    10,9,2
+    3,4
     
             HOW SCHEDYOOL CAN HELP GENERATING THE SAME-DAY-SETS FILE
     
@@ -277,33 +270,43 @@ const Home = (): any => {
     to the Schedyool-generated file rows for learning pods.  For the example above, Schedyool 
     would generate a file with only the line
     
-    7	8
+    7,8
     
     because only John Smith, student 7, and Kareem Smith, student 8, have the same last name.
     
     Here we describe how Schedyool can generate the same-day-sets file for sets of children
-    having the same last name.  You must have downloaded the file blank_students_with_names.xlsm 
+    having the same last name.  You must have downloaded the file students_with_names.xlsm 
     from the Schedyool website.  Carefully follow the directions above for generating the student file,
     which must be placed in the "student_file" sheet in the students_with_names.xlsm spreadsheet.
     Excel will ask you if you want to enable macros;  say "yes" or "OK".
     
-    Now click on button on row 1 in column N labeled "Generate Same-Day Sets".  If things work, you
+    Now click on the button on row 1 near column N labeled "Generate Same-Day Sets".  If things work, you
     will see "Done."  In this case, the same-day sets file for kids with the same last name appears 
-    on the sheet labeled "same_day_sets", which you will have to save in CSV and upload to Schedyool.
+    on the sheet labeled "same_day_sets", which you will have to save in CSV.  Once you have file
+    "same_day_sets.csv" generated with the help of the macro, you can modify it, as described above,
+    using Wordpad or Notepad.  In this example, the final file would be
+
+    7,8
+    10,9,2
+    3,4
+
+    with the "7,8" added by the macro and the other two lines added by you manually.
+
     
                             THE DIFFERENT DAY PAIRS FILE                              
     
     Last, you must upload a different-day-pairs file, for pairs of students who want to be
-    scheduled on different days.  This file looks a lot like the same-day-sets file, except that
+    scheduled on different days.  Use Wordpad or Notepad to generate this file.
+    This file looks a lot like the same-day-sets file, except that
     it has exactly two numbers per row.  You simply place on each row the row numbers of a pair
     of students who want to be scheduled on different days.  For example, if Cindy Halvah and 
     Moh Talwar are such a pair, add row
     
-    5	9
+    5,9
     
-    If John Smith and Sunil Chopra are another another such pair, add row
+    using Wordpad or Notepad.  If John Smith and Sunil Chopra are another such pair, add row
     
-    7	3
+    7,3
     
     Save as CSV into something like "different_day_pairs.csv".  In this example, the 2-line file to be
     uploaded would be 
@@ -341,8 +344,7 @@ const Home = (): any => {
   return (
     <Page title="Instructions" subtitle="Instructions for using Schedyool">
       <Link to="/"> <Controls.Button text="Home" /> </Link>
-      <Link to="/downloadfile"> <Controls.Button text="Download Workbook@@@@@@@@@@" /> </Link>
-      <Link to="/"> <Controls.Button text="Download Workbook@@@@@@@@@@NO!Home" /> </Link>
+      <Link to="/downloadfile"> <Controls.Button text="Download File(s)" /> </Link>
       <Link to="/scheduler"> <Controls.Button text="Schedyool!" /> </Link>
       <ReactMarkdown source={inputString} />
     </Page>
