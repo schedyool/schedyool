@@ -5,14 +5,14 @@ class DownloadFile extends React.Component {
 	
   downloadData = () => {
     var element = document.createElement('a'); 
-    fetch('https://www.schedyool.com/blank_students_with_names.txt', {mode : "no-cors"})
+    fetch('https://www.schedyool.com/blank_students_with_names.xlsm', {mode : "no-cors"})
       .then(response => {
   				response.blob().then(blob => {
   					let url = window.URL.createObjectURL(blob);
   					let a = document.createElement('a');
   					a.href = url;
                                           // This is the name to be presented to the user.
-  					a.download = 'students_with_names.txt'; 
+  					a.download = 'students_with_names.xlsm'; 
   					a.click();
   				});
   				// window.location.href = response.url;
