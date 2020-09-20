@@ -34,7 +34,9 @@ const Home = (): any => {
 
             <Typography paragraph> Click a button below to get started.  </Typography>
 
-            <Link href="/instructions"> <Controls.Button text="Instructions" /> </Link>
+            // <Link href="/instructions"> <Controls.Button text="Instructions" /> </Link>
+            <Link url="/instructions"> <Controls.Button text="Instructions" /> </Link>
+            
             <Link href="/scheduler"> <Controls.Button text="Schedyool!"/> </Link>
 
             <Typography paragraph>
