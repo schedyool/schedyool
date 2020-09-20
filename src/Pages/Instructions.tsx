@@ -340,9 +340,8 @@ const Home = (): any => {
    return (
 <Page title="Instructions" subtitle="Instructions for using Schedyool">
 <Link href="/"> <Controls.Button text="Home"/> </Link>
-// @@@@@ <Link href="/downloadfile"> <Controls.Button text="Download Workbook@@@@@@@@@@"/> </Link>
+<Link href="/downloadfile"> <Controls.Button text="Download Workbook@@@@@@@@@@"/> </Link>
 <Link href="/"> <Controls.Button text="Download Workbook@@@@@@@@@@NO!Home"/> </Link>
-  
 <Link href="/scheduler"> <Controls.Button text="Schedyool!"/> </Link>
 <ReactMarkdown source={inputString} /> 
    </Page>
