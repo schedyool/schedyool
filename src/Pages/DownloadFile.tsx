@@ -5,14 +5,14 @@ class DownloadFile extends React.Component {
 	
   downloadData = () => {
     var element = document.createElement('a'); 
-    fetch('https://www.schedyool.com/robots.txt', {mode : "no-cors"})
+    fetch('https://www.schedyool.com/blank_students_with_names.txt', {mode : "no-cors"})
       .then(response => {
   				response.blob().then(blob => {
   					let url = window.URL.createObjectURL(blob);
   					let a = document.createElement('a');
   					a.href = url;
                                           // This is the name to be presented to the user.
-  					a.download = 'robots.txt'; 
+  					a.download = 'students_with_names.txt'; 
   					a.click();
   				});
   				// window.location.href = response.url;
@@ -22,7 +22,7 @@ class DownloadFile extends React.Component {
   render() {
     return (
       <div id="container">
-        <button onClick={this.downloadData}>Download macro-enabled Excel spreadsheet@@@robots.txt</button>
+        <button onClick={this.downloadData}>Download file(s)</button>
       </div>
     )
   }
