@@ -35,9 +35,9 @@ const Home = (): any => {
 
             <Typography paragraph> Click a button below to get started.  </Typography>
 
-            <Link to="/instructions"> <Controls.Button text="Instructions" /> </Link>
+            <Link href="/instructions"> <Controls.Button text="Instructions" /> </Link>
 
-            <Link to="/scheduler"> <Controls.Button text="Schedyool!" /> </Link>
+            <Link href="/scheduler"> <Controls.Button text="Schedyool!" /> </Link>
 
             <Typography paragraph>
                 Powered by AMPL (TM) algebraic modeling software and Gurobi (TM) optimization
