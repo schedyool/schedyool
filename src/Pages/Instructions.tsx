@@ -343,9 +343,9 @@ const Home = (): any => {
 
   return (
     <Page title="Instructions" subtitle="Instructions for using Schedyool">
-      <Link to="/"> <Controls.Button text="Home" /> </Link>
-      <Link to="/downloadfile"> <Controls.Button text="Download File(s)" /> </Link>
-      <Link to="/scheduler"> <Controls.Button text="Schedyool!" /> </Link>
+      <Link href="/"> <Controls.Button text="Home" /> </Link>
+      <Link href="/downloadfile"> <Controls.Button text="Download File(s)" /> </Link>
+      <Link href="/scheduler"> <Controls.Button text="Schedyool!" /> </Link>
       <ReactMarkdown source={inputString} />
     </Page>
   )
