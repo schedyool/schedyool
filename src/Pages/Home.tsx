@@ -34,9 +34,13 @@ const Home = (): any => {
           </Typography>
 
             <Typography paragraph> Click a button below to get started.  </Typography>
+            
 
             <Link href="/instructions"> <Controls.Button text="Instructions" /> </Link>
-
+            
+            <Typography paragraph>(You can also find a Youtube instructional video <a href="https://www.youtube.com/watch?v=2W5YtwzT7kc" 
+              target="_blank" rel="noopener noreferrer">here</a>.)  </Typography>
+            
             <Link href="/scheduler"> <Controls.Button text="Schedyool!" /> </Link>
 
             <Typography paragraph>
