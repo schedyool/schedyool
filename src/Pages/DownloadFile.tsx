@@ -1,18 +1,38 @@
 import React from 'react';
+import {Container, Row, Col} from 'react-bootstrap';
 import './download.css';
 
 class DownloadFile extends React.Component {
-	
-  downloadData = () => {
-    var element = document.createElement('a'); 
-    fetch('https://www.schedyool.com/blank_students_with_names.xlsm', {mode : "no-cors"})
+  
+  getItems(){
+    let items: any;
+    items = [];
+    let filelist: any;
+    filelist = {
+      "Main File":"sample_master_file.xlsm",
+      "Room Capacity File":"sample_rooms_with_names.csv",
+      "Same Day Sets File":"sample_same_day_sets.csv",
+      "Different Day File":"sample_diff_day_pairs.csv",
+    };
+    //var elements = document.createElement('button').setAttribute('className',''); 
+    
+    Object.keys(filelist).forEach(key => {
+      console.log(key, filelist[key]);
+      items.push(<Col sm="6" xs="12"><button className="btn-theme full-width m-1" onClick={() => this.downloadData('/files/' + filelist[key])} >Download {key} file(s)</button></Col>);
+      
+    });
+    return items;
+  }
+  downloadData(param: any) {
+    fetch(param, {mode : "no-cors"})
       .then(response => {
   				response.blob().then(blob => {
+            
   					let url = window.URL.createObjectURL(blob);
   					let a = document.createElement('a');
   					a.href = url;
                                           // This is the name to be presented to the user.
-  					a.download = 'students_with_names.xlsm'; 
+  					a.download = param; 
   					a.click();
   				});
   				// window.location.href = response.url;
@@ -21,9 +41,12 @@ class DownloadFile extends React.Component {
 
   render() {
     return (
-      <div id="container">
-        <button onClick={this.downloadData}>Download file(s)</button>
-      </div>
+      <Container id="container">
+        <Row>
+          {this.getItems()}
+        </Row>
+      </Container>
+        
     )
   }
 

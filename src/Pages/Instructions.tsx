@@ -5,6 +5,39 @@ import Page from './Page';
 import { Link } from 'react-router-dom';
 import Controls from '../Components/Controls/Controls';
 import ReactMarkdown from 'react-markdown';
+
+function downloadFile(param: any){
+  fetch('/files/' + param, {mode : "no-cors"})
+  .then(response => {
+      response.blob().then(blob => {
+        
+        let url = window.URL.createObjectURL(blob);
+        let a = document.createElement('a');
+        a.href = url;
+                                      // This is the name to be presented to the user.
+        a.download = param; 
+        a.click();
+      });
+      
+      // window.location.href = response.url;
+    })
+}
+
+function downloadData(param: any) {
+  if(typeof param == 'object'){
+    param.forEach((lst: string) => {
+      setTimeout(()=>{
+        downloadFile(lst);
+        console.log(lst);
+      },300)
+    });
+  }else{
+    downloadFile(param);
+    console.log(param);
+  }
+  
+}
+
 const Home = (): any => {
   const inputString = `Welcome to the Schedyool Free Covid-19 School Scheduling App!
     Powered by AMPL (TM) algebraic modeling software and Gurobi (TM) optimization software,
@@ -341,11 +374,15 @@ const Home = (): any => {
     into the three blank columns of schedule.csv.  Now you have the schedule with the names of the students.  
   `;
 
+  
+
   return (
     <Page title="Instructions" subtitle="Instructions for using Schedyool">
-      <Link href="/"> <Controls.Button text="Home" /> </Link>
-      <Link href="/downloadfile"> <Controls.Button text="Download File(s)" /> </Link>
-      <Link href="/scheduler"> <Controls.Button text="Schedyool!" /> </Link>
+      <Link to="/"> <Controls.Button text="Home" /> </Link>
+      <a onClick={() => downloadData('students_with_names.xlsm')}> <Controls.Button text="Download Workbook" /> </a>
+      
+      <a onClick={() => downloadData(["sample_master_file.xlsm","sample_rooms_with_names.csv","sample_same_day_sets.csv","sample_diff_day_pairs.csv"])}> <Controls.Button text="Download Sample Files" /> </a>
+      <Link to="/scheduler"> <Controls.Button text="Schedyool!" /> </Link>
       <ReactMarkdown source={inputString} />
     </Page>
   )

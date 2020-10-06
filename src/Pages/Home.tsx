@@ -34,13 +34,12 @@ const Home = (): any => {
           </Typography>
 
             <Typography paragraph> Click a button below to get started.  </Typography>
-            <Typography paragraph>(You can also find a Youtube instructional video <a href="https://www.youtube.com/watch?v=2W5YtwzT7kc" 
-              target="_blank" rel="noopener noreferrer">here</a>.)  </Typography>
-            
 
-            <Link href="/instructions"> <Controls.Button text="Instructions" /> </Link>
-            
-            <Link href="/scheduler"> <Controls.Button text="Schedyool!" /> </Link>
+            <Typography paragraph> (You can also find a Youtube instructional video <a href="https://www.youtube.com/watch?v=2W5YtwzT7kc" target="_blank" rel="noopener noreferrer">here</a>.)  </Typography> 
+
+            <Link to="/instructions"> <Controls.Button text="Instructions" /> </Link>
+
+            <Link to="/scheduler"> <Controls.Button text="Schedyool!" /> </Link>
 
             <Typography paragraph>
                 Powered by AMPL (TM) algebraic modeling software and Gurobi (TM) optimization
