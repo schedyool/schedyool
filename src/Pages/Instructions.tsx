@@ -381,7 +381,7 @@ const Home = (): any => {
       <Link to="/"> <Controls.Button text="Home" /> </Link>
       <a onClick={() => downloadData('students_with_names.xlsm')}> <Controls.Button text="Download Workbook" /> </a>
       
-      <a onClick={() => downloadData(["sample_master_file.xlsm","sample_rooms_with_names.csv","sample_same_day_sets.csv","sample_diff_day_pairs.csv"])}> <Controls.Button text="Download Sample Files" /> </a>
+      <a onClick={() => downloadData(["sample_diff_day_pairs.csv","sample_master_file.xlsm","sample_rooms_with_names.csv","sample_rooms_without_names.csv","sample_same_day_sets.csv","sample_schedule.csv","sample_students_with_names.xlsm","sample_students_with_special_sets.csv","sample_students_without_names.csv"])}> <Controls.Button text="Download Sample Files" /> </a>
       <Link to="/scheduler"> <Controls.Button text="Schedyool!" /> </Link>
       <ReactMarkdown source={inputString} />
     </Page>
